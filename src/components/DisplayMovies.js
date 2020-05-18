@@ -7,18 +7,15 @@ const DisplayMovies = () => {
   const response = fetchApi.useFetch(
     `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`
   );
-
   const movies = response.movies;
 
   if (!movies) {
-    return <div>Loading...</div>;
+    return <div>Loading...please wait</div>;
   }
 
   return (
     <div>
-      <ul className="movies">
-        <SingleMovie movies={movies} />
-      </ul>
+      <SingleMovie movies={movies} />
     </div>
   );
 };
