@@ -11,9 +11,9 @@ function SingleMovie(props) {
         title={movie.title}
       />
 
-      <p className="movie__title">{movie.title}</p>
+      <p className="card__item card__item--title">{movie.title}</p>
 
-      <p className="movie__release">
+      <p className="card__item card__item--release">
         Release Date: {europeanDateFormat(movie.release_date)}
       </p>
     </li>
