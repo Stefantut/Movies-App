@@ -1,11 +1,11 @@
 import React from "react";
+import { API_KEY, BASE_URL } from "../Variables";
 import fetchApi from "../api/fetchApi";
+import SingleMovie from "./SingleMovie";
 
 const DisplayMovies = () => {
-  const apiKey = process.env.REACT_APP_API;
-  const baseURL = "https://api.themoviedb.org/3";
   const response = fetchApi.useFetch(
-    `${baseURL}/discover/movie?sort_by=popularity.desc&api_key=${apiKey}`
+    `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`
   );
 
   const movies = response.movies;
@@ -14,15 +14,11 @@ const DisplayMovies = () => {
     return <div>Loading...</div>;
   }
 
-  const singleMovie = movies.map((movie, index) => (
-    <li key={`${movie.title}-${index}`} className={`card card--${index}`}>
-      <p className="movie__title">{movie.title}</p>
-    </li>
-  ));
-
   return (
     <div>
-      <ul className="movies">{singleMovie}</ul>
+      <ul className="movies">
+        <SingleMovie movies={movies} />
+      </ul>
     </div>
   );
 };
