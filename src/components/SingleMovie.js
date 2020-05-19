@@ -2,7 +2,7 @@ import React from "react";
 import PosterImage from "./PosterImage";
 import MovieTitle from "./MovieTitle";
 import { IMAGE_URL, POSTER_SIZE } from "../Variables";
-import { europeanDateFormat } from "../helpers";
+import ReleaseDate from "./ReleaseDate";
 
 function SingleMovie(props) {
   const single = props.movies.map((movie, index) => (
@@ -13,10 +13,7 @@ function SingleMovie(props) {
       />
 
       <MovieTitle title={movie.title} />
-      {/* Tried to format the data with React.INTL but is a string instead of Date Object  */}
-      <p className="card__item card__item--release">
-        Release Date: {europeanDateFormat(movie.release_date)}
-      </p>
+      <ReleaseDate release={movie.release_date} />
     </li>
   ));
   return <ul className="all-movies">{single}</ul>;
