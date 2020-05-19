@@ -1,5 +1,6 @@
 import React from "react";
 import PosterImage from "./PosterImage";
+import MovieTitle from "./MovieTitle";
 import { IMAGE_URL, POSTER_SIZE } from "../Variables";
 import { europeanDateFormat } from "../helpers";
 
@@ -11,8 +12,8 @@ function SingleMovie(props) {
         title={movie.title}
       />
 
-      <p className="card__item card__item--title">{movie.title}</p>
-
+      <MovieTitle title={movie.title} />
+      {/* Tried to format the data with React.INTL but is a string instead of Date Object  */}
       <p className="card__item card__item--release">
         Release Date: {europeanDateFormat(movie.release_date)}
       </p>
