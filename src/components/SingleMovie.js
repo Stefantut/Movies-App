@@ -5,18 +5,16 @@ import { IMAGE_URL, POSTER_SIZE } from "../Variables";
 import ReleaseDate from "./ReleaseDate";
 
 function SingleMovie(props) {
-  const single = props.movies.map((movie, index) => (
-    <li key={`${movie.title}-${index}`} className={`card card--${index}`}>
+  return (
+    <li className={`card card--${props.index}`}>
       <PosterImage
-        url={`${IMAGE_URL}${POSTER_SIZE}` + movie.poster_path}
-        title={movie.title}
+        url={`${IMAGE_URL}${POSTER_SIZE}` + props.movie.poster_path}
+        title={props.movie.title}
       />
-
-      <MovieTitle title={movie.title} />
-      <ReleaseDate release={movie.release_date} />
+      <MovieTitle title={props.movie.title} />
+      <ReleaseDate release={props.movie.release_date} />
     </li>
-  ));
-  return <ul className="all-movies">{single}</ul>;
+  );
 }
 
 export default SingleMovie;

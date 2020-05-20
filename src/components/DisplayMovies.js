@@ -14,9 +14,11 @@ const DisplayMovies = () => {
   }
 
   return (
-    <div>
-      <SingleMovie movies={movies} />
-    </div>
+    <ul className="all-movies">
+      {movies.map((movie, index) => (
+        <SingleMovie key={movie.id} movie={movie} index={index} />
+      ))}
+    </ul>
   );
 };
 
