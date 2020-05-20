@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 function PosterImage(props) {
   return (
@@ -9,4 +10,9 @@ function PosterImage(props) {
     />
   );
 }
+
+PosterImage.propTypes = {
+  url: PropTypes.string,
+  title: PropTypes.string,
+};
 export default PosterImage;

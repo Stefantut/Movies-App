@@ -15,8 +15,15 @@ const DisplayMovies = () => {
 
   return (
     <ul className="all-movies">
+      {/* Loop through all Movies and display each movie in a separate component  */}
       {movies.map((movie, index) => (
-        <SingleMovie key={movie.id} movie={movie} index={index} />
+        <SingleMovie
+          key={movie.id}
+          index={index}
+          title={movie.title}
+          poster={movie.poster_path}
+          release={movie.release_date}
+        />
       ))}
     </ul>
   );

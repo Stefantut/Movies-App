@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { europeanDateFormat } from "../helpers";
 
 function ReleaseDate(props) {
@@ -10,4 +11,7 @@ function ReleaseDate(props) {
   );
 }
 
+ReleaseDate.propTypes = {
+  release: PropTypes.string,
+};
 export default ReleaseDate;
