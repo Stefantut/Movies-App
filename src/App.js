@@ -6,25 +6,40 @@ import SingleMovie from "./components/SingleMovie";
 function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [totalPages, setTotalPages] = useState(0);
+
+  // FetchMovies function to be re-used as many times we need
+  const fetchMovies = async (path) => {
+    // setLoading(true);
+    try {
+      await fetch(path)
+        .then((result) => result.json())
+        .then((result) => {
+          setMovies(result.results)
+          setCurrentPage(result.page)
+          setTotalPages(result.total_pages)
+        }
+        );
+      // setLoading(false);
+    } catch (error) {
+      console.log("Error Fetching Api:" + error);
+    }
+  };
 
   useEffect(() => {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
     fetchMovies(endpoint);
   }, []);
 
-  // FetchMovies function to be reused as many times we need
-  const fetchMovies = async (path) => {
-    setLoading(true);
-    try {
-      await fetch(path)
-        .then((result) => result.json())
-        .then((result) => setMovies(result.results));
-      setLoading(false);
-    } catch (error) {
-      console.log("Error Fetching Api:" + error);
-    }
-  };
-
+  const nextPage = () => {
+    const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
+    fetchMovies(endpoint)
+  }
+  const prevPage = () => {
+    const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`;
+    fetchMovies(endpoint)
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -44,8 +59,9 @@ function App() {
           ))}
       </ul>
       {loading && <div>Please wait... Loading</div>}
+      <button onClick={prevPage}>Prev Page</button>
+      <button onClick={nextPage}>Next Page</button>
 
-      {/* <button onClick={handleClick}>Load</button> */}
     </div>
   );
 }
