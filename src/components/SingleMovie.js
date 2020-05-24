@@ -8,7 +8,7 @@ function SingleMovie(props) {
   return (
     <li className={`card card--${props.index}`}>
       <PosterImage
-        url={`${IMAGE_URL}${POSTER_SIZE}` + props.poster}
+        url={`${IMAGE_URL}${POSTER_SIZE}${props.poster}`}
         title={props.title}
       />
       <MovieTitle title={props.title} />

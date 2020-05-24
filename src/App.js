@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { API_KEY, BASE_URL } from "./Variables";
 import SingleMovie from "./components/SingleMovie";
+import HeaderMovie from './components/header/HeaderMovie'
 import NextPageButton from './components/buttons/NextPageButton';
 import PrevPageButton from './components/buttons/PrevPageButton';
 
@@ -18,7 +19,7 @@ function App() {
       await fetch(path)
         .then((result) => result.json())
         .then((result) => {
-          setMovies(result.results)
+          setMovies([...result.results])
           setCurrentPage(result.page)
           setTotalPages(result.total_pages)
         }
@@ -49,6 +50,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h2>Movies App</h2>
+        {/* Fix for rendering first and passes al data about first movie */}
+        {
+          movies[0] &&
+          <HeaderMovie movie={movies[0]} />
+        }
       </header>
       <ul className="all-movies">
         {/* Loop through all Movies and display each movie in a separate component  */}
