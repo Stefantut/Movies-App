@@ -26,16 +26,19 @@ function App() {
       console.log("Error Fetching Api:" + error);
     }
   };
-
+  // When initial page is loading
   useEffect(() => {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
     fetchMovies(endpoint);
   }, []);
 
+  // to display next page movies
   const nextPage = () => {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
     fetchMovies(endpoint)
   }
+
+  // to display previous page movies
   const prevPage = () => {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`;
     fetchMovies(endpoint)
@@ -59,9 +62,8 @@ function App() {
           ))}
       </ul>
       {loading && <div>Please wait... Loading</div>}
-      <button onClick={prevPage}>Prev Page</button>
-      <button onClick={nextPage}>Next Page</button>
-
+      {(currentPage === 1) ? '' : <button onClick={prevPage}>Prev Page</button>}
+      {(currentPage === totalPages) ? '' : <button onClick={nextPage}>Next Page</button>}
     </div>
   );
 }
