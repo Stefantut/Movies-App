@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import { API_KEY, BASE_URL } from "./Variables";
 import SingleMovie from "./components/SingleMovie";
+import NextPageButton from './components/buttons/NextPageButton';
+import PrevPageButton from './components/buttons/PrevPageButton';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -62,8 +64,8 @@ function App() {
           ))}
       </ul>
       {loading && <div>Please wait... Loading</div>}
-      {(currentPage === 1) ? '' : <button onClick={prevPage}>Prev Page</button>}
-      {(currentPage === totalPages) ? '' : <button onClick={nextPage}>Next Page</button>}
+      {(currentPage > 1) ? <PrevPageButton prev={prevPage} /> : ''}
+      {(currentPage !== totalPages) ? <NextPageButton next={nextPage} /> : ''}
     </div>
   );
 }
