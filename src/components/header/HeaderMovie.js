@@ -12,6 +12,7 @@ width:100%;
 background-image: url(${props => props.defaultUrl});
 background-size: cover;
 background-repeat:no-repeat;
+font-family: 'RobotoBold';
 `;
 
 function HeaderMovie(props) {

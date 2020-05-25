@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
 import { API_KEY, BASE_URL, IMAGE_URL } from "./Variables";
 import SingleMovie from "./components/SingleMovie";
 import HeaderMovie from './components/header/HeaderMovie'

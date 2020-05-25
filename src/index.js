@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './fonts/Roboto-Light.ttf'
-import './fonts/Roboto-Regular.ttf'
-import './fonts/Roboto-Medium.ttf'
-import './fonts/Roboto-Bold.ttf'
-import './fonts.css';
+
 import App from './App';
+import GlobalStyle from './theme/globalStyles'
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <>
+      <GlobalStyle />
+      <App />
+    </>
   </React.StrictMode>,
   document.getElementById('root')
 );
