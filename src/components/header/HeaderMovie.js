@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import HeaderMovieTitle from './HeaderMovieTitle'
 import HeaderMovieDescription from './HeaderMovieDescription';
 
@@ -24,4 +25,9 @@ function HeaderMovie(props) {
     )
 }
 
+HeaderMovie.propTypes = {
+    url: PropTypes.string, // url isn't included
+    title: PropTypes.string,
+    description: PropTypes.string
+}
 export default HeaderMovie
