@@ -1,13 +1,26 @@
 import React from 'react'
-import HeaderMovieImage from './HeaderMovieImage'
-import { IMAGE_URL } from '../../Variables'
+import styled from 'styled-components'
+import HeaderMovieTitle from './HeaderMovieTitle'
+import HeaderMovieDescription from './HeaderMovieDescription';
+
+
+const HeaderMovieWrap = styled.div`
+height:70vh;
+max-width:1280px;
+width:100%;
+background-image: url(${props => props.defaultUrl});
+background-size: cover;
+background-repeat:no-repeat;
+`;
+
 function HeaderMovie(props) {
+
     return (
-        <div>
-            <h3 className='header__item header__item--title'>{props.movie.title}</h3>
-            <p className='header__item header__item--description'>{props.movie.overview}</p>
-            <HeaderMovieImage url={`${IMAGE_URL}w780${props.movie.backdrop_path}`} title={props.movie.title} />
-        </div>
+        // pass url again to styled component as prop
+        <HeaderMovieWrap className='header__item header__item--content' defaultUrl={props.url}>
+            <HeaderMovieTitle title={props.movie.title} />
+            <HeaderMovieDescription description={props.movie.overview} />
+        </HeaderMovieWrap>
     )
 }
 

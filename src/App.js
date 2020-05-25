@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import { API_KEY, BASE_URL } from "./Variables";
+import { API_KEY, BASE_URL, IMAGE_URL } from "./Variables";
 import SingleMovie from "./components/SingleMovie";
 import HeaderMovie from './components/header/HeaderMovie'
 import NextPageButton from './components/buttons/NextPageButton';
@@ -49,11 +49,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h2>Movies App</h2>
+        <h2 className='header__item header__item--title'>Movies App</h2>
         {/* Fix for rendering first and passes al data about first movie */}
         {
           movies[0] &&
-          <HeaderMovie movie={movies[0]} />
+          <HeaderMovie movie={movies[0]} url={`${IMAGE_URL}w1280${movies[0].backdrop_path}`} />
         }
       </header>
       <ul className="all-movies">
