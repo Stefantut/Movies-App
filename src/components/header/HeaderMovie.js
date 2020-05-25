@@ -14,7 +14,14 @@ background-size: cover;
 background-repeat:no-repeat;
 font-family: 'RobotoBold';
 color:${props => props.theme.colors.primary};
-font-size: ${props => props.theme.fontSizes.medium}
+font-size: ${props => props.theme.fontSizes.medium};
+&:hover{
+color:${props => props.theme.colors.tertiary};
+}
+
+@media ${({ theme }) => theme.mediaQueries.below1024}{
+    color:blue;
+}
 `;
 
 function HeaderMovie(props) {

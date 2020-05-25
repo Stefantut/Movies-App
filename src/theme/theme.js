@@ -10,5 +10,13 @@ export default {
         small: '1rem',
         medium: '1.5rem',
         large: '2rem'
+    },
+    spacers: {
+        small: '0.5rem',
+        medium: '0.75rem',
+        large: '0.1rem',
+    },
+    mediaQueries: {
+        below1024: 'only screen and (max-width: 1024px)'
     }
-}
+};
