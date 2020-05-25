@@ -13,6 +13,8 @@ background-image: url(${props => props.defaultUrl});
 background-size: cover;
 background-repeat:no-repeat;
 font-family: 'RobotoBold';
+color:${props => props.theme.colors.primary};
+font-size: ${props => props.theme.fontSizes.medium}
 `;
 
 function HeaderMovie(props) {
