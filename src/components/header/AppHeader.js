@@ -5,16 +5,27 @@ import HeaderMovie from './HeaderMovie'
 
 import { IMAGE_URL } from "../../Variables";
 
+const StyledHeader = styled.header`
+  background-color: #282c34;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+`
+
 function AppHeader(props) {
     return (
-        <header className="App-header">
+        <StyledHeader className="App-header">
             <AppTitle />
             {/* Fix for rendering first and passes al data about first movie */}
             {
                 props.movies[0] &&
                 <HeaderMovie movie={props.movies[0]} url={`${IMAGE_URL}w1280${props.movies[0].backdrop_path}`} />
             }
-        </header>
+        </StyledHeader>
     )
 }
 

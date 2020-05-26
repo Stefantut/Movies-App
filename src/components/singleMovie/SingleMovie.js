@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import PosterImage from "./PosterImage";
 import MovieTitle from "./MovieTitle";
-import { IMAGE_URL, POSTER_SIZE } from "../Variables";
+import { IMAGE_URL, POSTER_SIZE } from "../../Variables";
 import ReleaseDate from "./ReleaseDate";
 function SingleMovie(props) {
   return (

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "./Variables";
 
-import SingleMovie from "./components/SingleMovie";
+import SingleMovie from "./components/singleMovie/SingleMovie";
 import AppHeader from './components/header/AppHeader'
 import NextPageButton from './components/buttons/NextPageButton';
 import PrevPageButton from './components/buttons/PrevPageButton';

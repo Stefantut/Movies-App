@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { europeanDateFormat } from "../helpers";
+import { europeanDateFormat } from "../../helpers";
 
 function ReleaseDate(props) {
   return (
