@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { API_KEY, BASE_URL, IMAGE_URL } from "./Variables";
+import { API_KEY, BASE_URL } from "./Variables";
+
 import SingleMovie from "./components/SingleMovie";
-import HeaderMovie from './components/header/HeaderMovie'
+import AppHeader from './components/header/AppHeader'
 import NextPageButton from './components/buttons/NextPageButton';
 import PrevPageButton from './components/buttons/PrevPageButton';
 
@@ -47,14 +48,7 @@ function App() {
   }
   return (
     <div className="App">
-      <header className="App-header">
-        <h2 className='header__item header__item--title'>Movies App</h2>
-        {/* Fix for rendering first and passes al data about first movie */}
-        {
-          movies[0] &&
-          <HeaderMovie movie={movies[0]} url={`${IMAGE_URL}w1280${movies[0].backdrop_path}`} />
-        }
-      </header>
+      <AppHeader movies={movies} />
       <ul className="all-movies">
         {/* Loop through all Movies and display each movie in a separate component  */}
         {movies &&
