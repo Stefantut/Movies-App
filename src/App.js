@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "./Variables";
 
 import AppHeader from './components/header/AppHeader'
-// import AllMovies from './components/AllMovies'
-// import NextPageButton from './components/buttons/NextPageButton';
-// import PrevPageButton from './components/buttons/PrevPageButton';
 import AppContent from './components/AppContent'
 
 function App() {

@@ -15,8 +15,8 @@ function AllMovies(props) {
                     <SingleMovie
                         key={movie.id}
                         index={index}
-                        title={movie.title}
-                        poster={movie.poster_path}
+                        title={movie.original_title || movie.original_title}
+                        poster={movie.poster_path || movie.backdrop_path}
                         release={movie.release_date}
                     />
                 ))}
