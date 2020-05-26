@@ -1,8 +1,20 @@
 import React from 'react'
+import styled from 'styled-components'
 
-function NextPageButton(props) {
+const StyledButton = styled.button`
+background-color:${(props => props.theme.colors.primary)};
+color:${(props => props.primary ? props.theme.colors.tertiary : 'blue')};
+outline:thin;
+border:none;
+padding:10px 20px;
+&:hover{
+    cursor:pointer;
+}
+`;
+
+const NextPageButton = (props) => {
     return (
-        <button onClick={props.next}>Next Page</button>
+        <StyledButton primary onClick={props.next}>Next Page</StyledButton>
     )
 }
 
