@@ -5,8 +5,6 @@ import SingleMovie from './singleMovie/SingleMovie'
 const StyledUL = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  max-width: 1280px;
-  margin: 0 auto;
 `
 function AllMovies(props) {
     return (

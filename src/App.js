@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "./Variables";
 
 import AppHeader from './components/header/AppHeader'
-import AllMovies from './components/AllMovies'
-import NextPageButton from './components/buttons/NextPageButton';
-import PrevPageButton from './components/buttons/PrevPageButton';
+// import AllMovies from './components/AllMovies'
+// import NextPageButton from './components/buttons/NextPageButton';
+// import PrevPageButton from './components/buttons/PrevPageButton';
+import AppContent from './components/AppContent'
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -14,7 +15,7 @@ function App() {
 
   // FetchMovies function to be re-used as many times we need
   const fetchMovies = async (path) => {
-    // setLoading(true);
+    setLoading(true);
     try {
       await fetch(path)
         .then((result) => result.json())
@@ -24,7 +25,7 @@ function App() {
           setTotalPages(result.total_pages)
         }
         );
-      // setLoading(false);
+      setLoading(false);
     } catch (error) {
       console.log("Error Fetching Api:" + error);
     }
@@ -35,24 +36,16 @@ function App() {
     fetchMovies(endpoint);
   }, []);
 
-  // to display next page movies
-  const nextPage = () => {
-    const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
-    fetchMovies(endpoint)
-  }
-
-  // to display previous page movies
-  const prevPage = () => {
-    const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`;
-    fetchMovies(endpoint)
-  }
   return (
     <div className="App">
       <AppHeader movies={movies} />
-      <AllMovies movies={movies} />
-      {loading && <div>Please wait... Loading</div>}
-      {(currentPage > 1) ? <PrevPageButton prev={prevPage} /> : ''}
-      {(currentPage !== totalPages) ? <NextPageButton next={nextPage} /> : ''}
+      <AppContent
+        movies={movies}
+        loading={loading}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        fetchMovies={fetchMovies}
+      />
     </div>
   );
 }
