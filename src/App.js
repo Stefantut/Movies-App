@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "./Variables";
 
-import SingleMovie from "./components/singleMovie/SingleMovie";
 import AppHeader from './components/header/AppHeader'
+import AllMovies from './components/AllMovies'
 import NextPageButton from './components/buttons/NextPageButton';
 import PrevPageButton from './components/buttons/PrevPageButton';
 
@@ -49,19 +49,7 @@ function App() {
   return (
     <div className="App">
       <AppHeader movies={movies} />
-      <ul className="all-movies">
-        {/* Loop through all Movies and display each movie in a separate component  */}
-        {movies &&
-          movies.map((movie, index) => (
-            <SingleMovie
-              key={movie.id}
-              index={index}
-              title={movie.title}
-              poster={movie.poster_path}
-              release={movie.release_date}
-            />
-          ))}
-      </ul>
+      <AllMovies movies={movies} />
       {loading && <div>Please wait... Loading</div>}
       {(currentPage > 1) ? <PrevPageButton prev={prevPage} /> : ''}
       {(currentPage !== totalPages) ? <NextPageButton next={nextPage} /> : ''}
