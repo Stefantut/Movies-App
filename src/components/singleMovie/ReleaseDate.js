@@ -1,13 +1,19 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from 'styled-components'
 import { europeanDateFormat } from "../../helpers";
 
+const StyledDate = styled.p`
+text-align:center;
+color:green;
+user-select:none;
+`
 function ReleaseDate(props) {
   return (
     // Tried to format the data with React.INTL but is a string instead of Date Object
-    <p className="card__item card__item--release">
+    <StyledDate className="card__item card__item--release">
       Release Date: {europeanDateFormat(props.release)}
-    </p>
+    </StyledDate>
   );
 }
 
