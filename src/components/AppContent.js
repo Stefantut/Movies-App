@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 
 import AllMovies from './AllMovies'
+import LoadingSpinner from './LoadingSpinner'
 import PrevPageButton from './buttons/PrevPageButton'
 import NextPageButton from './buttons/NextPageButton'
 import { API_KEY, BASE_URL } from "../Variables";
@@ -27,7 +28,7 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies }) {
 
     return (
         <StyledContent className="content">
-            {loading && <div>Please wait... Loading</div>}
+            {loading && <LoadingSpinner />}
             {!loading &&
                 <AllMovies movies={movies} />
             }
