@@ -5,6 +5,9 @@ import styled from 'styled-components'
 const StyledTitle = styled.p`
 text-align: center;
 user-select: none;
+padding: ${props => props.theme.spacers.xsmall} 0;
+color: ${props => props.theme.colors.primary};
+font-family: "RobotoMedium";
 `
 function MovieTitle({ title }) {
   return <StyledTitle className="card__item card__item--title">{title}</StyledTitle>;

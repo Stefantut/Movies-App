@@ -9,7 +9,7 @@ import { API_KEY, BASE_URL } from "../Variables";
 
 const StyledContent = styled.section`
   max-width: 1280px;
-  margin: 0 auto;
+  margin: ${props => props.theme.spacers.xxlarge} auto;
 `
 
 function AppContent({ movies, currentPage, totalPages, loading, fetchMovies }) {
@@ -29,11 +29,9 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies }) {
     return (
         <StyledContent className="content">
             {loading && <LoadingSpinner />}
-            {!loading &&
-                <AllMovies movies={movies} />
-            }
-            {(currentPage > 1) ? <PrevPageButton prev={prevPage} /> : ''}
-            {(currentPage !== totalPages) ? <NextPageButton next={nextPage} /> : ''}
+            {!loading && <AllMovies movies={movies} />}
+            {(currentPage > 1) && <PrevPageButton prev={prevPage} />}
+            {(currentPage !== totalPages) && <NextPageButton next={nextPage} />}
         </StyledContent>
     )
 }

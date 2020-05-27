@@ -13,6 +13,7 @@ list-style-type: none;
 display: flex;
 flex-direction: column;
 align-items: center;
+padding: ${props => props.theme.spacers.large} 0;
 `
 function SingleMovie({ index, poster, title, release }) {
   return (

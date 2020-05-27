@@ -12,9 +12,12 @@ export default {
         large: '2rem'
     },
     spacers: {
+        xsmall: '0.3rem',
         small: '0.5rem',
         medium: '0.75rem',
-        large: '0.1rem',
+        large: '1rem',
+        xlarge: '1.5rem',
+        xxlarge: '2rem',
     },
     mediaQueries: {
         below1024: 'only screen and (max-width: 1024px)'

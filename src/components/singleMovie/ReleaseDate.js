@@ -5,7 +5,7 @@ import { europeanDateFormat } from "../../helpers";
 
 const StyledDate = styled.p`
 text-align:center;
-color:green;
+color:${props => props.theme.colors.secondary};
 user-select:none;
 `
 function ReleaseDate({ release }) {

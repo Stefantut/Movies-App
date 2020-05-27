@@ -5,6 +5,7 @@ import SingleMovie from './singleMovie/SingleMovie'
 const StyledUL = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  grid-gap: ${props => props.theme.spacers.large};
 `
 function AllMovies(props) {
     const { movies } = props;  // Destructure props in the function body
