@@ -6,8 +6,8 @@ const StyledTitle = styled.p`
 text-align: center;
 user-select: none;
 `
-function MovieTitle(props) {
-  return <StyledTitle className="card__item card__item--title">{props.title}</StyledTitle>;
+function MovieTitle({ title }) {
+  return <StyledTitle className="card__item card__item--title">{title}</StyledTitle>;
 }
 
 MovieTitle.propTypes = {

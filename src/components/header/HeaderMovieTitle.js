@@ -1,8 +1,8 @@
 import React from 'react'
 
-function HeaderMovieTitle(props) {
+function HeaderMovieTitle({ title }) {
     return (
-        <h3 className='header__content header__content--title'>{props.title}</h3>
+        <h3 className='header__content header__content--title'>{title}</h3>
     )
 }
 

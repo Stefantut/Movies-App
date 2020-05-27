@@ -11,26 +11,26 @@ const StyledContent = styled.section`
   margin: 0 auto;
 `
 
-function AppContent(props) {
+function AppContent({ movies, currentPage, totalPages, loading, fetchMovies }) {
 
     // to display next page movies
     const nextPage = () => {
-        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${props.currentPage + 1}`;
-        props.fetchMovies(endpoint)
+        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
+        fetchMovies(endpoint)
     }
 
     // to display previous page movies
     const prevPage = () => {
-        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${props.currentPage - 1}`;
-        props.fetchMovies(endpoint)
+        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`;
+        fetchMovies(endpoint)
     }
 
     return (
         <StyledContent className="content">
-            <AllMovies movies={props.movies} />
-            {props.loading && <div>Please wait... Loading</div>}
-            {(props.currentPage > 1) ? <PrevPageButton prev={prevPage} /> : ''}
-            {(props.currentPage !== props.totalPages) ? <NextPageButton next={nextPage} /> : ''}
+            <AllMovies movies={movies} />
+            {loading && <div>Please wait... Loading</div>}
+            {(currentPage > 1) ? <PrevPageButton prev={prevPage} /> : ''}
+            {(currentPage !== totalPages) ? <NextPageButton next={nextPage} /> : ''}
         </StyledContent>
     )
 }

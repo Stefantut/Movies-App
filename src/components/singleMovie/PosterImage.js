@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function PosterImage(props) {
+function PosterImage({ url, title }) {
   return (
     <img
-      src={props.url}
-      alt={props.title}
+      src={url}
+      alt={title}
       className="card__item card__item--poster"
     />
   );

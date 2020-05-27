@@ -12,9 +12,9 @@ padding:10px 20px;
 }
 `;
 
-const NextPageButton = (props) => {
+const NextPageButton = ({ next }) => {
     return (
-        <StyledButton primary onClick={props.next}>Next Page</StyledButton>
+        <StyledButton primary onClick={next}>Next Page</StyledButton>
     )
 }
 

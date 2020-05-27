@@ -16,14 +16,14 @@ const StyledHeader = styled.header`
   color: white;
 `
 
-function AppHeader(props) {
+function AppHeader({ movies }) {
     return (
         <StyledHeader className="App-header">
             <AppTitle />
             {/* Fix for rendering first and passes al data about first movie */}
             {
-                props.movies[0] &&
-                <HeaderMovie movie={props.movies[0]} url={`${IMAGE_URL}w1280${props.movies[0].backdrop_path}`} />
+                movies[0] &&
+                <HeaderMovie movie={movies[0]} url={`${IMAGE_URL}w1280${movies[0].backdrop_path}`} />
             }
         </StyledHeader>
     )

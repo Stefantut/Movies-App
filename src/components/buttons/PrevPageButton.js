@@ -12,9 +12,9 @@ padding:10px 20px;
 }
 `;
 
-const PrevPageButton = (props) => {
+const PrevPageButton = ({ prev }) => {
     return (
-        <StyledButton onClick={props.prev}>Prev Page</StyledButton>
+        <StyledButton onClick={prev}>Prev Page</StyledButton>
     )
 }
 

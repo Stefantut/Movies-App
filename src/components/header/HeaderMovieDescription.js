@@ -1,8 +1,8 @@
 import React from 'react'
 
-function HeaderMovieDescription(props) {
+function HeaderMovieDescription({ description }) {
     return (
-        <p className='header__content header__content--description'>{props.description}</p>
+        <p className='header__content header__content--description'>{description}</p>
     )
 }
 

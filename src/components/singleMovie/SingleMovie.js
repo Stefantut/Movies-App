@@ -14,15 +14,15 @@ display: flex;
 flex-direction: column;
 align-items: center;
 `
-function SingleMovie(props) {
+function SingleMovie({ index, poster, title, release }) {
   return (
-    <StyledLI className={`card card--${props.index}`}>
+    <StyledLI className={`card card--${index}`}>
       <PosterImage
-        url={(props.poster === null) ? fallbackPoster : `${IMAGE_URL}${POSTER_SIZE}${props.poster}`}
-        title={props.title}
+        url={(poster === null) ? fallbackPoster : `${IMAGE_URL}${POSTER_SIZE}${poster}`}
+        title={title}
       />
-      <MovieTitle title={props.title} />
-      <ReleaseDate release={props.release} />
+      <MovieTitle title={title} />
+      <ReleaseDate release={release} />
     </StyledLI>
   );
 }
@@ -33,3 +33,4 @@ SingleMovie.propTypes = {
   release: PropTypes.string,
 };
 export default SingleMovie;
+

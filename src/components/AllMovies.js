@@ -7,11 +7,12 @@ const StyledUL = styled.ul`
   grid-template-columns: repeat(4, 1fr);
 `
 function AllMovies(props) {
+    const { movies } = props;  // Destructure props in the function body
     return (
         <StyledUL className="all-movies">
             {/* Loop through all Movies and display each movie in a separate component  */}
-            {props.movies &&
-                props.movies.map((movie, index) => (
+            {movies &&
+                movies.map((movie, index) => (
                     <SingleMovie
                         key={movie.id}
                         index={index}

@@ -24,13 +24,13 @@ color:${props => props.theme.colors.tertiary};
 }
 `;
 
-function HeaderMovie(props) {
+function HeaderMovie({ url, movie }) {
 
     return (
         // pass url again to styled component as prop
-        <HeaderMovieWrap className='header__item header__item--content' defaultUrl={props.url}>
-            <HeaderMovieTitle title={props.movie.title} />
-            <HeaderMovieDescription description={props.movie.overview} />
+        <HeaderMovieWrap className='header__item header__item--content' defaultUrl={url}>
+            <HeaderMovieTitle title={movie.title} />
+            <HeaderMovieDescription description={movie.overview} />
         </HeaderMovieWrap>
     )
 }
