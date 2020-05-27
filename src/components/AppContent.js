@@ -27,8 +27,10 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies }) {
 
     return (
         <StyledContent className="content">
-            <AllMovies movies={movies} />
             {loading && <div>Please wait... Loading</div>}
+            {!loading &&
+                <AllMovies movies={movies} />
+            }
             {(currentPage > 1) ? <PrevPageButton prev={prevPage} /> : ''}
             {(currentPage !== totalPages) ? <NextPageButton next={nextPage} /> : ''}
         </StyledContent>

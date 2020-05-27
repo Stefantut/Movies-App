@@ -27,7 +27,7 @@ function App() {
       console.log("Error Fetching Api:" + error);
     }
   };
-  // When initial page is loading
+  // When initial page is loaded
   useEffect(() => {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
     fetchMovies(endpoint);
