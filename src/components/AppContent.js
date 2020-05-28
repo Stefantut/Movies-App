@@ -26,12 +26,22 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies }) {
         fetchMovies(endpoint)
     }
 
+    const handlePage = (page) => {
+        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`;
+        fetchMovies(endpoint)
+    }
+    const pageLinks = [];
+    for (let i = 1; i <= totalPages; i++) {
+        let active = currentPage === i ? 'active' : '';
+        pageLinks.push(<li className={`page page--${i} ${active}`} key={i} onClick={() => handlePage(i)}>{i}</li>)
+    }
     return (
         <StyledContent className="content">
             {loading && <LoadingSpinner />}
             {!loading && <AllMovies movies={movies} />}
             {(currentPage > 1) && <PrevPageButton prev={prevPage} />}
             {(currentPage !== totalPages) && <NextPageButton next={nextPage} />}
+            {pageLinks}
         </StyledContent>
     )
 }
