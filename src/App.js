@@ -25,7 +25,7 @@ function App() {
       // Showing movies with a small delay to add spinner effect
       setInterval(() => {
         setLoading(false);
-      }, 1000);
+      }, 800);
 
     } catch (error) {
       console.log("Error Fetching Api:" + error);

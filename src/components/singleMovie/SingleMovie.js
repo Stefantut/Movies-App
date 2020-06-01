@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PropTypes from "prop-types";
 import styled from 'styled-components'
 
@@ -9,7 +9,7 @@ import { IMAGE_URL, POSTER_SIZE } from "../../Variables";
 import ReleaseDate from "./ReleaseDate";
 import fallbackPoster from '../../images/fallback-poster.jpg'
 
-const StyledLI = styled.li`
+const StyledListItem = styled.li`
 list-style-type: none;
 display: flex;
 flex-direction: column;
@@ -18,16 +18,16 @@ padding: ${props => props.theme.spacers.large} 0;
 `
 function SingleMovie({ index, id, poster, title, release }) {
   return (
-    <StyledLI className={`card card--${index}`}>
-      <NavLink to={`movies/${id}`}>
+    <StyledListItem className={`card card--${index}`}>
+      <Link to={`movies/${id}`} >
         <PosterImage
           url={(poster === null) ? fallbackPoster : `${IMAGE_URL}${POSTER_SIZE}${poster}`}
           title={title}
         />
-        <MovieTitle title={title} />
-        <ReleaseDate release={release} />
-      </NavLink>
-    </StyledLI>
+      </Link>
+      <MovieTitle title={title} />
+      <ReleaseDate release={release} />
+    </StyledListItem>
   );
 }
 SingleMovie.propTypes = {
