@@ -9,6 +9,7 @@ border: none;
 padding: ${(props => props.theme.spacers.small)} ${(props => props.theme.spacers.large)};
 &:hover{
     cursor:pointer;
+    color: ${props => props.theme.colors.lightgrey}
 }
 `;
 

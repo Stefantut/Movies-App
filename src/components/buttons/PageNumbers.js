@@ -32,8 +32,10 @@ align-items: center;
     background-color: ${props => props.theme.colors.secondary};
     border: 2px solid ${props => props.theme.colors.primary}
 }
-&:hover{ cursor:pointer;}
-`
+&:hover{ cursor:pointer;
+    color: ${props => props.theme.colors.darkgrey};
+  }
+`;
 function PageNumbers({ currentPage, totalPages, fetchMovies }) {
     // to display next page movies
     const nextPage = () => {
@@ -77,7 +79,7 @@ function PageNumbers({ currentPage, totalPages, fetchMovies }) {
     allPages.pop();
 
     // returns just the 10 pages around CurrentPage , 5 before and 5 after
-    let tenPages = allPages.filter(function (item) {
+    const tenPages = allPages.filter(function (item) {
         return item.key <= currentPage + 5 && item.key >= currentPage - 5;
     })
 
