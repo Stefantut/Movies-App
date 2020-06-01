@@ -11,7 +11,7 @@ max-width:1280px;
 width:100%;
 background-image: url(${props => props.defaultUrl});
 background-size: cover;
-background-repeat:no-repeat;
+background-repeat: no-repeat;
 font-family: 'RobotoBold';
 color:${props => props.theme.colors.primary};
 font-size: ${props => props.theme.fontSizes.medium};

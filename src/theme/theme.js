@@ -18,6 +18,7 @@ export default {
         large: '1rem',
         xlarge: '1.5rem',
         xxlarge: '2rem',
+        xxxlarge: '2.5rem',
     },
     mediaQueries: {
         below1024: 'only screen and (max-width: 1024px)'
