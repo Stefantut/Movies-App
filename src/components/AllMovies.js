@@ -16,6 +16,7 @@ function AllMovies(props) {
                 movies.map((movie, index) => (
                     <SingleMovie
                         key={movie.id}
+                        id={movie.id}
                         index={index}
                         title={movie.original_title || movie.original_title}
                         poster={movie.poster_path || movie.backdrop_path}
