@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SingleMovie from './singleMovie/SingleMovie'
 
-const StyledUL = styled.ul`
+const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: ${props => props.theme.spacers.large};
@@ -10,7 +10,7 @@ const StyledUL = styled.ul`
 function AllMovies(props) {
     const { movies } = props;  // Destructure props in the function body
     return (
-        <StyledUL className="all-movies">
+        <StyledList className="all-movies">
             {/* Loop through all Movies and display each movie in a separate component  */}
             {movies &&
                 movies.map((movie, index) => (
@@ -23,7 +23,7 @@ function AllMovies(props) {
                         release={movie.release_date}
                     />
                 ))}
-        </StyledUL>
+        </StyledList>
     )
 }
 

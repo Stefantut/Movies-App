@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "./Variables";
-
+import styled from 'styled-components';
+import AppTitle from './components/header/AppTitle'
 import AppHeader from './components/header/AppHeader'
 import AppContent from './components/AppContent'
+
+const StyledApp = styled.div`
+background-color: ${props => props.theme.colors.darkgrey};
+`
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -38,7 +43,8 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <StyledApp className="App">
+      <AppTitle />
       <AppHeader movies={movies} />
       <AppContent
         movies={movies}
@@ -47,7 +53,7 @@ function App() {
         totalPages={totalPages}
         fetchMovies={fetchMovies}
       />
-    </div>
+    </StyledApp>
   );
 }
 export default App;

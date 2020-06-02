@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import AppTitle from './AppTitle'
 import HeaderMovie from './HeaderMovie'
 
 import { IMAGE_URL } from "../../Variables";
 
 const StyledHeader = styled.header`
-  background-color: #282c34;
   min-height: 50vh;
   display: flex;
   flex-direction: column;
@@ -19,8 +17,7 @@ const StyledHeader = styled.header`
 function AppHeader({ movies }) {
     return (
         <StyledHeader className="App-header">
-            <AppTitle />
-            {/* Fix for rendering first and passes al data about first movie */}
+            {/* Fix for rendering first and passes all data about first movie */}
             {
                 movies[0] &&
                 <HeaderMovie movie={movies[0]} url={`${IMAGE_URL}w1280${movies[0].backdrop_path}`} />
