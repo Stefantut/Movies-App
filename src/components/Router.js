@@ -1,8 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import App from '../App'
 import SingleMoviePage from './singleMoviePage/SingleMoviePage'
 import NotFound from './NotFound'
+
 const Router = () => (
     <BrowserRouter>
         <Switch>
@@ -12,4 +14,5 @@ const Router = () => (
         </Switch>
     </BrowserRouter>
 )
+
 export default Router

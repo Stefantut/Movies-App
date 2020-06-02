@@ -4,7 +4,6 @@ import LoadingSpinner from '../LoadingSpinner';
 
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
-    // const [movieId, setMovieId] = useState('');
     const [loading, setLoading] = useState(false);
 
     // FetchMovies function to be re-used as many times we need
@@ -26,6 +25,8 @@ function SingleMoviePage(props) {
             console.log("Error Fetching Api:" + error);
         }
     };
+
+    // gets the id from router props
     const id = props.match.params.movieId;
     // When initial page is loaded
     useEffect(() => {
@@ -36,9 +37,10 @@ function SingleMoviePage(props) {
         <div>
             {loading && <LoadingSpinner />}
             {/* !loading && */}
-            <h1>dsdas {movie.id}</h1>
-            <h1>dsdas {movie.title}</h1>
-
+            <h3>{movie.title}</h3>
+            <div className="budget">Budget: {movie.budget}</div>
+            <p className="overview">{movie.overview}</p>
+            <p className="popularity">{movie.popularity}</p>
         </div>
     )
 }

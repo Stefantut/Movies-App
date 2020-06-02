@@ -2,14 +2,18 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components'
 
-const StyledPoster = styled.img`
-max-height:260px;
+const StyledPoster = styled.div`
+background-image:url(${props => props.url});
+height:280px;
+width:185px;
+background-position: center;
+background-repeat: no-repeat; 
+background-size: cover; 
 `
-function PosterImage({ url, title }) {
+function PosterImage({ url }) {
   return (
     <StyledPoster
-      src={url}
-      alt={title}
+      url={url}
       className="card__item card__item--poster"
     />
   );
