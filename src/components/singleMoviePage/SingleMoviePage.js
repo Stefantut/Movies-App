@@ -1,6 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { API_KEY, BASE_URL } from "../../Variables";
+import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
+import styled from 'styled-components';
+
+import AppTitle from '.././header/AppTitle'
 import LoadingSpinner from '../LoadingSpinner';
+import SingleMovieHeader from './SingleMovieHeader'
+import fallbackHeader from './../../images/fallback-header.jpg'
+
+
+const PageWrap = styled.div`
+  background-color: ${props => props.theme.colors.darkgrey};`
+
+const ContentWrap = styled.div`
+width: 100%;
+max-width: ${props => props.theme.content.medium};
+margin: 0 auto;
+`
 
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
@@ -19,7 +34,7 @@ function SingleMoviePage(props) {
             // Showing movies with a small delay to add spinner effect
             setInterval(() => {
                 setLoading(false);
-            }, 800);
+            }, 600);
 
         } catch (error) {
             console.log("Error Fetching Api:" + error);
@@ -33,15 +48,18 @@ function SingleMoviePage(props) {
         const endpoint = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
         fetchMovie(endpoint);
     }, [id]);
+
     return (
-        <div>
+        <PageWrap>
+            <AppTitle />
             {loading && <LoadingSpinner />}
-            {/* !loading && */}
-            <h3>{movie.title}</h3>
-            <div className="budget">Budget: {movie.budget}</div>
-            <p className="overview">{movie.overview}</p>
-            <p className="popularity">{movie.popularity}</p>
-        </div>
+            {!loading &&
+                <ContentWrap>
+                    {movie && <SingleMovieHeader
+                        title={movie.title}
+                        imageUrl={(movie.backdrop_path === null && movie.poster_path) ? fallbackHeader : `${IMAGE_URL}w1280${movie.backdrop_path || movie.poster_path}`} />}
+                </ContentWrap>}
+        </PageWrap>
     )
 }
 export default SingleMoviePage
