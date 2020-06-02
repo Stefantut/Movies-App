@@ -22,7 +22,6 @@ function SingleMovie({ index, id, poster, title, release }) {
       <Link to={`movies/${id}`} >
         <PosterImage
           url={(poster === null) ? fallbackPoster : `${IMAGE_URL}${POSTER_SIZE}${poster}`}
-          title={title}
         />
       </Link>
       <MovieTitle title={title} />
