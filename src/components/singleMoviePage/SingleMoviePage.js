@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import AppTitle from '.././header/AppTitle'
 import LoadingSpinner from '../LoadingSpinner';
 import SingleMovieHeader from './SingleMovieHeader'
+import ReturnHome from '../buttons/ReturnHome'
 import fallbackHeader from './../../images/fallback-header.jpg'
 
 
@@ -60,6 +61,7 @@ function SingleMoviePage(props) {
                         title={movie.title}
                     />
                     }
+                    <ReturnHome />
                 </ContentWrap>}
         </PageWrap>
     )
