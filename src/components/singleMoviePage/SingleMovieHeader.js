@@ -24,16 +24,34 @@ z-index:0;
 margin-bottom: ${props => props.theme.spacers.xxlarge}
 `
 
+const StyledTop = styled.div`
+display:flex;
+justify-content:space-between;
+width:100%;
+padding: 0 ${ props => props.theme.spacers.xtralarge};
+`
+
 const Header = ({ imageUrl, title, tagline, overview, vote }) => {
     return (
         <HeaderWrap imageUrl={imageUrl}>
             <Overlay />
-            {title && <HeaderTitle title={title} />}
+            <StyledTop>
+                {title && <HeaderTitle title={title} />}
+                {vote && <HeaderVote vote={vote} />}
+            </StyledTop>
             {tagline && <HeaderTagline tagline={tagline} />}
-            {vote && <HeaderVote vote={vote} />}
             {overview && <HeaderOverview overview={overview} />}
         </HeaderWrap>
     )
 }
+
+Header.propTypes = {
+    imageUrl: PropTypes.string,
+    title: PropTypes.string,
+    tagline: PropTypes.string,
+    overview: PropTypes.string,
+    vote: PropTypes.number,
+}
+
 export default Header
 
