@@ -3,8 +3,12 @@ import styled from 'styled-components';
 
 const HeaderWrap = styled.header`
 position: relative;
-min-height: 720px;
+min-height: 600px;
 height:100%;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+justify-content: center;
 background-image: url(${props => props.imageUrl});
 background-size: cover;
 background-repeat: no-repeat;
@@ -23,33 +27,41 @@ z-index:-1;
 transition: 0.2s ease-in;
 &:hover{
     opacity: 0.5;
-}
-`
-const ContentWrap = styled.div`
-padding:${props => props.theme.spacers.xtralarge};
+};
 `
 
 const StyledTitle = styled.h1`
-position: relative;
-color: ${props => props.theme.colors.lightgrey};
+font-size: ${ props => props.theme.fontSizes.xtralarge};
+color: ${ props => props.theme.colors.lightgrey};
+user-select: none;
+text-shadow: 0px 0px 10px ${ props => props.theme.colors.darkgrey};
+margin: 0 ${ props => props.theme.spacers.xtralarge};
+padding-bottom: ${ props => props.theme.spacers.small};
+`
+const StyledTagline = styled.p`
+color: ${ props => props.theme.colors.primary};
+font-size: ${ props => props.theme.fontSizes.xlarge};
+margin: 0 ${ props => props.theme.spacers.xtralarge};
+padding-bottom: ${ props => props.theme.spacers.xtralarge};
 user-select: none;
 `
-const StyledTagline = styled.p`color:red`
+
 const StyledOverview = styled.p`
-font-family: ${props => props.theme.font.regular};
-color: ${props => props.theme.colors.light};
-font-size: ${props => props.theme.fontSizes.medium};
+font-family: ${ props => props.theme.font.light};
+font-size: ${ props => props.theme.fontSizes.medium};
+color: ${ props => props.theme.colors.light};
+margin: 0 ${ props => props.theme.spacers.xtralarge};
+text-align: center;
 user-select: none;
 `
-const Header = ({ imageUrl, title, tagline, overview }) => {
+const Header = ({ imageUrl, title, tagline, overview, vote }) => {
     return (
         <HeaderWrap imageUrl={imageUrl}>
             <StyledOverlay />
-            <ContentWrap>
-                <StyledTitle className='header__item header__item--title'>{title}</StyledTitle>
-                <StyledTagline>{tagline}</StyledTagline>
-                <StyledOverview>{overview}</StyledOverview>
-            </ContentWrap>
+            {title && <StyledTitle className='header__item header__item--title'>{title}</StyledTitle>}
+            {tagline && <StyledTagline className='header__item header__item--tagline'>{tagline}</StyledTagline>}
+            {overview && <StyledOverview className='header__item header__item--overview'>{overview}</StyledOverview>}
+            {vote}
         </HeaderWrap>
     )
 }

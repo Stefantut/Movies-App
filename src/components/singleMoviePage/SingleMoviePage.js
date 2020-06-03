@@ -61,6 +61,7 @@ function SingleMoviePage(props) {
                         title={movie.title}
                         tagline={movie.tagline}
                         overview={movie.overview}
+                        vote={movie.vote_average}
                     />
                     }
                     <ReturnHome />

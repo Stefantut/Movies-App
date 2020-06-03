@@ -21,6 +21,7 @@ export default {
         xlarge: '1.75rem',
         xxlarge: '2rem',
         xxxlarge: '2.5rem',
+        xtralarge: '4rem',
     },
     spacers: {
         xsmall: '0.3rem',
