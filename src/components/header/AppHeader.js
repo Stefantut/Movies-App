@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import HeaderMovie from './HeaderMovie'
 
 import { IMAGE_URL } from "../../Variables";
+import fallbackHeader from '../../images/fallback-header.jpg';
 
 const StyledHeader = styled.header`
   min-height: 50vh;
@@ -20,7 +21,7 @@ function AppHeader({ movies }) {
             {/* Fix for rendering first and passes all data about first movie */}
             {
                 movies[0] &&
-                <HeaderMovie movie={movies[0]} url={`${IMAGE_URL}w1280${movies[0].backdrop_path}`} />
+                <HeaderMovie movie={movies[0]} url={(movies[0].backdrop_path === null) ? fallbackHeader : `${IMAGE_URL}w1280${movies[0].backdrop_path}`} />
             }
         </StyledHeader>
     )

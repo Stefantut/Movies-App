@@ -56,8 +56,10 @@ function SingleMoviePage(props) {
             {!loading &&
                 <ContentWrap>
                     {movie && <SingleMovieHeader
+                        imageUrl={(movie.backdrop_path === null && movie.poster_path) ? fallbackHeader : `${IMAGE_URL}w1280${movie.backdrop_path || movie.poster_path}`}
                         title={movie.title}
-                        imageUrl={(movie.backdrop_path === null && movie.poster_path) ? fallbackHeader : `${IMAGE_URL}w1280${movie.backdrop_path || movie.poster_path}`} />}
+                    />
+                    }
                 </ContentWrap>}
         </PageWrap>
     )
