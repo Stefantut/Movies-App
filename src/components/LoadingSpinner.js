@@ -36,25 +36,27 @@ const StyledSpinner = styled.svg`
   }
 `;
 
-const StyledLoading = styled.h3`
+const StyledLoading = styled.h4`
 text-align: center;
 margin: 1em 0;
+color: ${props => props.theme.colors.lightgrey};
+letter-spacing:0.3em;
 `
 
 const LoadingSpinner = () => (
-    <React.Fragment>
-        <StyledLoading>Loading... please wait</StyledLoading>
-        <StyledSpinner viewBox="0 0 50 50">
-            <circle
-                className="path"
-                cx="25"
-                cy="25"
-                r="20"
-                fill="none"
-                strokeWidth="4"
-            />
-        </StyledSpinner>
-    </React.Fragment>
+  <React.Fragment>
+    <StyledLoading>Loading... please wait</StyledLoading>
+    <StyledSpinner viewBox="0 0 50 50">
+      <circle
+        className="path"
+        cx="25"
+        cy="25"
+        r="20"
+        fill="none"
+        strokeWidth="4"
+      />
+    </StyledSpinner>
+  </React.Fragment>
 );
 
 export default LoadingSpinner;
