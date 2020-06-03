@@ -64,6 +64,7 @@ function SingleMoviePage(props) {
                         vote={movie.vote_average}
                     />
                     }
+                    {/* {movie && <SingleMovieContent />} */}
                     <ReturnHome />
                 </ContentWrap>}
         </PageWrap>

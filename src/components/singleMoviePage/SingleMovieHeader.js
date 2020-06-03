@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
 import Overlay from '../misc/Overlay'
-import HeaderTitle from './HeaderTitle'
-import HeaderTagline from './HeaderTagline'
-import HeaderOverview from './HeaderOverview'
-import HeaderVote from './HeaderVote'
+import HeaderTitle from './Header/HeaderTitle'
+import HeaderTagline from './Header/HeaderTagline'
+import HeaderOverview from './Header/HeaderOverview'
+import HeaderVote from './Header/HeaderVote'
 
 const HeaderWrap = styled.header`
 position: relative;
