@@ -4,12 +4,11 @@ import styled from 'styled-components'
 
 const StyledLink = styled.div`
 a{
-    color:${props => props.theme.colors.primary}
+    color:${props => props.theme.colors.lightgrey}
 }
 &:hover{
   a{
-
-  color:${props => props.theme.colors.lightgrey}
+  color:${props => props.theme.colors.tertiary}
   }  
 }
 `
