@@ -13,7 +13,7 @@ span{
 
 const Budget = ({ budget }) => {
     return (
-        <StyledBudget>Budget<span>{budget}</span></StyledBudget>
+        <StyledBudget>Budget:<span>${budget}</span></StyledBudget>
     )
 }
 
