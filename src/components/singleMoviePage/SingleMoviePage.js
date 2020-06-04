@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
-import { formatBudget } from '../../helpers'
+import { formatBudget, convertToClassName } from '../../helpers'
 import styled from 'styled-components';
 
 import AppTitle from '.././header/AppTitle'
@@ -25,6 +25,7 @@ function SingleMoviePage(props) {
     const [budget, setBudget] = useState('');
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [prodCountries, setProdCountries] = useState([]);
 
     // FetchMovies function to be re-used as many times we need
     const fetchMovie = async (path) => {
@@ -36,6 +37,7 @@ function SingleMoviePage(props) {
                     setMovie(result)
                     setBudget(result.budget)
                     setGenres(result.genres)
+                    setProdCountries(result)
                 }
                 );
             // Showing movies with a small delay to add spinner effect
@@ -58,10 +60,12 @@ function SingleMoviePage(props) {
     // formatting budget before passing as prop
     const formattedBudget = formatBudget(budget);
 
-    // loop through genres and display each one
+    // loop through genres array and return each one
     const allGenres = genres.map((item) =>
-        <li key={item.id}>{item.name}</li>
+        <li key={item.id} className={`genres__item genres__item--${convertToClassName(item.name)}`}>{item.name}</li>
     );
+
+
     return (
         <PageWrap>
             <AppTitle />
