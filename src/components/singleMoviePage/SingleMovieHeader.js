@@ -21,7 +21,6 @@ background-size: cover;
 background-repeat: no-repeat;
 box-shadow: 0px 0px 60px -20px rgba(0,0,0,0.75);
 z-index:0;
-margin-bottom: ${props => props.theme.spacers.xxlarge}
 `
 
 const StyledTop = styled.div`
@@ -31,7 +30,7 @@ width:100%;
 padding: 0 ${ props => props.theme.spacers.xtralarge};
 `
 
-const Header = ({ imageUrl, title, tagline, overview, vote }) => {
+const SingleMovieHeader = ({ imageUrl, title, tagline, overview, vote }) => {
     return (
         <HeaderWrap imageUrl={imageUrl}>
             <Overlay />
@@ -45,7 +44,7 @@ const Header = ({ imageUrl, title, tagline, overview, vote }) => {
     )
 }
 
-Header.propTypes = {
+SingleMovieHeader.propTypes = {
     imageUrl: PropTypes.string,
     title: PropTypes.string,
     tagline: PropTypes.string,
@@ -53,5 +52,5 @@ Header.propTypes = {
     vote: PropTypes.number,
 }
 
-export default Header
+export default SingleMovieHeader
 

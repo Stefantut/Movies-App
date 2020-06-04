@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import AppTitle from '.././header/AppTitle'
 import LoadingSpinner from '../LoadingSpinner';
 import SingleMovieHeader from './SingleMovieHeader'
+import SingleMovieContent from './SingleMovieContent'
 import ReturnHome from '../buttons/ReturnHome'
 import fallbackHeader from './../../images/fallback-header.jpg'
 
@@ -64,7 +65,11 @@ function SingleMoviePage(props) {
                         vote={movie.vote_average}
                     />
                     }
-                    {/* {movie && <SingleMovieContent />} */}
+                    {movie && <SingleMovieContent
+                        adult={movie.adult}
+                        collection={movie.belongs_to_collection}
+                        budget={movie.budget}
+                    />}
                     <ReturnHome />
                 </ContentWrap>}
         </PageWrap>
