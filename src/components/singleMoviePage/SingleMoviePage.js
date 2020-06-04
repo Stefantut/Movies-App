@@ -23,6 +23,7 @@ margin: 0 auto;
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
     const [budget, setBudget] = useState('');
+    const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
 
     // FetchMovies function to be re-used as many times we need
@@ -34,6 +35,7 @@ function SingleMoviePage(props) {
                 .then((result) => {
                     setMovie(result)
                     setBudget(result.budget)
+                    setGenres(result.genres)
                 }
                 );
             // Showing movies with a small delay to add spinner effect
@@ -53,8 +55,13 @@ function SingleMoviePage(props) {
         const endpoint = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
         fetchMovie(endpoint);
     }, [id]);
-
+    // formatting budget before passing as prop
     const formattedBudget = formatBudget(budget);
+
+    // loop through genres and display each one
+    const allGenres = genres.map((item) =>
+        <li key={item.id}>{item.name}</li>
+    );
     return (
         <PageWrap>
             <AppTitle />
@@ -73,10 +80,16 @@ function SingleMoviePage(props) {
                         title={movie.title || movie.original_title}
                         collection={movie.belongs_to_collection}
                         budget={formattedBudget}
+                        genres={allGenres}
                     />}
                     <ReturnHome />
                 </ContentWrap>}
         </PageWrap>
     )
 }
+
+// add proptypes 
+// add proptypes 
+// add proptypes 
+// add proptypes 
 export default SingleMoviePage
