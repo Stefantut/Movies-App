@@ -59,14 +59,14 @@ function SingleMoviePage(props) {
                 <ContentWrap>
                     {movie && <SingleMovieHeader
                         imageUrl={(movie.backdrop_path === null && movie.poster_path) ? fallbackHeader : `${IMAGE_URL}w1280${movie.backdrop_path || movie.poster_path}`}
-                        title={movie.title}
+                        title={movie.title || movie.original_title}
                         tagline={movie.tagline}
                         overview={movie.overview}
                         vote={movie.vote_average}
                     />
                     }
                     {movie && <SingleMovieContent
-                        adult={movie.adult}
+                        title={movie.title || movie.original_title}
                         collection={movie.belongs_to_collection}
                         budget={movie.budget}
                     />}

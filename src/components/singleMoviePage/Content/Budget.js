@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CollectionName = styled.p`
+const StyledBudget = styled.p`
 user-select:none;
 font-family: ${props => props.theme.font.medium};
 margin-bottom: ${props => props.theme.spacers.xsmall};
@@ -11,10 +11,10 @@ span{
 }
 `
 
-const Collection = ({ collection }) => {
+const Budget = ({ budget }) => {
     return (
-        <CollectionName>Part of<span>{collection.name}</span></CollectionName>
+        <StyledBudget>Budget<span>{budget}</span></StyledBudget>
     )
 }
 
-export default Collection
+export default Budget
