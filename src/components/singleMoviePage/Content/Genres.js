@@ -9,6 +9,7 @@ display: flex;
 `
 const StyledTitle = styled.p`
    color: ${props => props.theme.colors.primary};
+   user-select: none;
 `
 const GenresList = styled.ul`
 user-select:none;

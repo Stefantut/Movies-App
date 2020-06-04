@@ -31,10 +31,10 @@ const SingleMovieContent = ({ title, collection, budget, genres, websiteLink }) 
         <ContentWrap>
             <StyledTitle>Movie details:</StyledTitle>
             <Title title={title} />
+            <Website websiteLink={websiteLink} title={title} />
             {collection ? <Collection collection={collection} /> : ''}
             {(budget !== 0) ? <Budget budget={budget} /> : ''}
             <Genres genres={genres} />
-            <Website websiteLink={websiteLink} title={title} />
         </ContentWrap>
     )
 }
