@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
+import { addDotsToDigits } from '../../helpers'
 import styled from 'styled-components';
 
 import AppTitle from '.././header/AppTitle'
@@ -21,6 +22,7 @@ margin: 0 auto;
 
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
+    const [budget, setBudget] = useState('');
     const [loading, setLoading] = useState(false);
 
     // FetchMovies function to be re-used as many times we need
@@ -31,6 +33,7 @@ function SingleMoviePage(props) {
                 .then((result) => result.json())
                 .then((result) => {
                     setMovie(result)
+                    setBudget(result.budget)
                 }
                 );
             // Showing movies with a small delay to add spinner effect
@@ -51,6 +54,7 @@ function SingleMoviePage(props) {
         fetchMovie(endpoint);
     }, [id]);
 
+    const formattedBudget = addDotsToDigits(budget);
     return (
         <PageWrap>
             <AppTitle />
@@ -68,7 +72,7 @@ function SingleMoviePage(props) {
                     {movie && <SingleMovieContent
                         title={movie.title || movie.original_title}
                         collection={movie.belongs_to_collection}
-                        budget={movie.budget}
+                        budget={formattedBudget}
                     />}
                     <ReturnHome />
                 </ContentWrap>}
