@@ -37,7 +37,7 @@ function SingleMoviePage(props) {
                     setMovie(result)
                     setBudget(result.budget)
                     setGenres(result.genres)
-                    setProdCountries(result)
+                    setProdCountries(result.production_countries)
                 }
                 );
             // Showing movies with a small delay to add spinner effect
@@ -64,7 +64,10 @@ function SingleMoviePage(props) {
     const allGenres = genres.map((item) =>
         <li key={item.id} className={`genres__item genres__item--${convertToClassName(item.name)}`}>{item.name}</li>
     );
-
+    // loop through production countries array and return each one
+    const productionCountries = prodCountries.map((item, key) =>
+        <li key={key} className={`pc__item pc__item--${convertToClassName(item.name)}`}>{item.name}</li>
+    );
 
     return (
         <PageWrap>
@@ -87,6 +90,7 @@ function SingleMoviePage(props) {
                         budget={formattedBudget}
                         genres={allGenres}
                         websiteLink={movie.homepage}
+                        productionCountries={productionCountries}
                     />}
                     <ReturnHome />
                 </ContentWrap>}
