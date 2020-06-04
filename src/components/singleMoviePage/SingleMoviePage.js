@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
-import { addDotsToDigits } from '../../helpers'
+import { formatBudget } from '../../helpers'
 import styled from 'styled-components';
 
 import AppTitle from '.././header/AppTitle'
@@ -54,7 +54,7 @@ function SingleMoviePage(props) {
         fetchMovie(endpoint);
     }, [id]);
 
-    const formattedBudget = addDotsToDigits(budget);
+    const formattedBudget = formatBudget(budget);
     return (
         <PageWrap>
             <AppTitle />

@@ -9,6 +9,6 @@ export function europeanDateFormat(date) {
 }
 
 
-export function addDotsToDigits(item) {
-  return item.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+export function formatBudget(item) {
+  return "$ " + item.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
 }
