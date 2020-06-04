@@ -81,6 +81,7 @@ function SingleMoviePage(props) {
                         collection={movie.belongs_to_collection}
                         budget={formattedBudget}
                         genres={allGenres}
+                        websiteLink={movie.homepage}
                     />}
                     <ReturnHome />
                 </ContentWrap>}
