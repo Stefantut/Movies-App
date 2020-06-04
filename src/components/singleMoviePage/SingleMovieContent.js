@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
+import Title from './Content/Title'
 import Collection from './Content/Collection';
 import Budget from './Content/Budget'
 
@@ -27,6 +28,7 @@ const SingleMovieContent = ({ title, collection, budget }) => {
     return (
         <ContentWrap>
             <StyledTitle>Movie details:</StyledTitle>
+            <Title title={title} />
             {collection ? <Collection collection={collection} /> : ''}
             {(budget !== 0) ? <Budget budget={budget} /> : ''}
         </ContentWrap>
