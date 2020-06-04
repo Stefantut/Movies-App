@@ -79,6 +79,7 @@ function SingleMoviePage(props) {
                     {movie && <SingleMovieContent
                         title={movie.title || movie.original_title}
                         collection={movie.belongs_to_collection}
+                        overview={movie.overview}
                         budget={formattedBudget}
                         genres={allGenres}
                         websiteLink={movie.homepage}

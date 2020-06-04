@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
 import Title from './Content/Title'
+import Overview from './Content/Overview'
 import Collection from './Content/Collection';
 import Budget from './Content/Budget'
 import Genres from './Content/Genres'
@@ -26,11 +27,12 @@ margin-bottom: ${props => props.theme.spacers.medium};
 color: ${props => props.theme.colors.light};
 `
 
-const SingleMovieContent = ({ title, collection, budget, genres, websiteLink }) => {
+const SingleMovieContent = ({ title, overview, collection, budget, genres, websiteLink }) => {
     return (
         <ContentWrap>
             <StyledTitle>Movie details:</StyledTitle>
             <Title title={title} />
+            <Overview overview={overview} />
             <Website websiteLink={websiteLink} title={title} />
             {collection ? <Collection collection={collection} /> : ''}
             {(budget !== 0) ? <Budget budget={budget} /> : ''}
