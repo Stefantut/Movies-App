@@ -10,7 +10,7 @@ export function europeanDateFormat(date) {
 
 
 export function formatBudget(item) {
-  return "$ " + item.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
+  return item.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, ".");
 }
 
 export function convertToClassName(item) {

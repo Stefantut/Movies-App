@@ -59,6 +59,7 @@ function SingleMoviePage(props) {
         const endpoint = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
         fetchMovie(endpoint);
     }, [id]);
+
     // formatting budget before passing as prop
     const formattedBudget = formatBudget(budget);
 

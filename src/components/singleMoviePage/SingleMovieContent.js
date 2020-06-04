@@ -36,7 +36,7 @@ const SingleMovieContent = ({ title, overview, collection, budget, genres, websi
             <Overview overview={overview} />
             <Website websiteLink={websiteLink} title={title} />
             {collection ? <Collection collection={collection} /> : ''}
-            {(budget !== 0) ? <Budget budget={budget} /> : ''}
+            {(budget >= 0) ? '' : <Budget budget={budget} />}
             <Genres genres={genres} />
             <ProductionCountries productionCountries={productionCountries} />
         </ContentWrap>
