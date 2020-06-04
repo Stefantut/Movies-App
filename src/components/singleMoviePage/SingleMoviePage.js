@@ -22,6 +22,7 @@ margin: 0 auto;
 
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
+    const [imageUrl, setImageUrl] = useState('');
     const [budget, setBudget] = useState('');
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -35,6 +36,7 @@ function SingleMoviePage(props) {
                 .then((result) => result.json())
                 .then((result) => {
                     setMovie(result)
+                    setImageUrl(result.backdrop_path || result.poster_path)
                     setBudget(result.budget)
                     setGenres(result.genres)
                     setProdCountries(result.production_countries)
@@ -75,8 +77,8 @@ function SingleMoviePage(props) {
             {loading && <LoadingSpinner />}
             {!loading &&
                 <ContentWrap>
-                    {movie && <SingleMovieHeader
-                        imageUrl={(movie.backdrop_path === null && movie.poster_path) ? fallbackHeader : `${IMAGE_URL}w1280${movie.backdrop_path || movie.poster_path}`}
+                    {movie && imageUrl && <SingleMovieHeader
+                        imageUrl={!imageUrl ? fallbackHeader : `${IMAGE_URL}w1280${imageUrl}`}
                         title={movie.title || movie.original_title}
                         tagline={movie.tagline}
                         overview={movie.overview}
