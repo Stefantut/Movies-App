@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
-import { formatBudget, convertToClassName } from '../../helpers'
+import { formatWithDots, convertToClassName } from '../../helpers'
 import styled from 'styled-components';
+import PropTypes from 'prop-types'
 
 import AppTitle from '.././header/AppTitle'
 import LoadingSpinner from '../LoadingSpinner';
@@ -24,6 +25,7 @@ function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
     const [imageUrl, setImageUrl] = useState('');
     const [budget, setBudget] = useState('');
+    const [revenue, setRevenue] = useState('');
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
     const [prodCountries, setProdCountries] = useState([]);
@@ -38,6 +40,7 @@ function SingleMoviePage(props) {
                     setMovie(result)
                     setImageUrl(result.backdrop_path || result.poster_path)
                     setBudget(result.budget)
+                    setRevenue(result.revenue)
                     setGenres(result.genres)
                     setProdCountries(result.production_countries)
                 }
@@ -61,7 +64,10 @@ function SingleMoviePage(props) {
     }, [id]);
 
     // formatting budget before passing as prop
-    const formattedBudget = formatBudget(budget);
+    const formattedBudget = formatWithDots(budget);
+
+    // formatting revenue before passing as prop
+    const formattedRevenue = formatWithDots(revenue);
 
     // loop through genres array and return each one
     const allGenres = genres.map((item) =>
@@ -91,6 +97,7 @@ function SingleMoviePage(props) {
                         collection={movie.belongs_to_collection}
                         overview={movie.overview}
                         budget={formattedBudget}
+                        revenue={formattedRevenue}
                         genres={allGenres}
                         websiteLink={movie.homepage}
                         productionCountries={productionCountries}

@@ -9,7 +9,7 @@ export function europeanDateFormat(date) {
 }
 
 
-export function formatBudget(item) {
+export function formatWithDots(item) {
   return item.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.");
 }
 

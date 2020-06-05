@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import PropTypes from 'prop-types'
 
 import Title from './Content/Title'
 import Overview from './Content/Overview'
 import Collection from './Content/Collection';
 import Budget from './Content/Budget'
+import Revenue from './Content/Revenue'
 import Genres from './Content/Genres'
 import Website from './Content/Website'
 import ProductionCountries from './Content/ProductionCountries'
@@ -29,7 +29,7 @@ margin-bottom: ${props => props.theme.spacers.medium};
 color: ${props => props.theme.colors.light};
 `
 
-const SingleMovieContent = ({ title, overview, collection, budget, genres, websiteLink, productionCountries, release }) => {
+const SingleMovieContent = ({ title, overview, collection, budget, genres, websiteLink, productionCountries, release, revenue }) => {
     return (
         <ContentWrap>
             <StyledTitle>Movie details:</StyledTitle>
@@ -38,6 +38,7 @@ const SingleMovieContent = ({ title, overview, collection, budget, genres, websi
             <Website websiteLink={websiteLink} title={title} />
             {collection ? <Collection collection={collection} /> : ''}
             {(budget >= 0 || budget === null) ? '' : <Budget budget={budget} />}
+            {(revenue >= 0 || revenue === null) ? '' : <Revenue revenue={revenue} />}
             <Genres genres={genres} />
             <ProductionCountries productionCountries={productionCountries} />
             <ReleaseDate release={release} />
