@@ -94,6 +94,7 @@ function SingleMoviePage(props) {
                         genres={allGenres}
                         websiteLink={movie.homepage}
                         productionCountries={productionCountries}
+                        release={movie.release_date}
                     />}
                     <ReturnHome />
                 </ContentWrap>}

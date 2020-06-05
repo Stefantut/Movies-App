@@ -9,6 +9,7 @@ import Budget from './Content/Budget'
 import Genres from './Content/Genres'
 import Website from './Content/Website'
 import ProductionCountries from './Content/ProductionCountries'
+import ReleaseDate from './Content/ReleaseDate'
 
 const ContentWrap = styled.section`
 height:100%;
@@ -28,7 +29,7 @@ margin-bottom: ${props => props.theme.spacers.medium};
 color: ${props => props.theme.colors.light};
 `
 
-const SingleMovieContent = ({ title, overview, collection, budget, genres, websiteLink, productionCountries }) => {
+const SingleMovieContent = ({ title, overview, collection, budget, genres, websiteLink, productionCountries, release }) => {
     return (
         <ContentWrap>
             <StyledTitle>Movie details:</StyledTitle>
@@ -39,6 +40,7 @@ const SingleMovieContent = ({ title, overview, collection, budget, genres, websi
             {(budget >= 0 || budget === null) ? '' : <Budget budget={budget} />}
             <Genres genres={genres} />
             <ProductionCountries productionCountries={productionCountries} />
+            <ReleaseDate release={release} />
         </ContentWrap>
     )
 }
