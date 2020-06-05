@@ -29,6 +29,7 @@ function SingleMoviePage(props) {
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
     const [prodCountries, setProdCountries] = useState([]);
+    const [prodCompanies, setProdCompanies] = useState([]);
 
     // FetchMovies function to be re-used as many times we need
     const fetchMovie = async (path) => {
@@ -43,6 +44,7 @@ function SingleMoviePage(props) {
                     setRevenue(result.revenue)
                     setGenres(result.genres)
                     setProdCountries(result.production_countries)
+                    setProdCompanies(result.production_companies)
                 }
                 );
             // Showing movies with a small delay to add spinner effect
@@ -74,10 +76,14 @@ function SingleMoviePage(props) {
         <li key={item.id} className={`genres__item genres__item--${convertToClassName(item.name)}`}>{item.name}</li>
     );
     // loop through production countries array and return each one
-    const productionCountries = prodCountries.map((item, key) =>
+    const productionCountriesName = prodCountries.map((item, key) =>
         <li key={key} className={`pc__item pc__item--${convertToClassName(item.name)}`}>{item.name}</li>
     );
 
+    // loop through production countries array and return each one
+    const productionCompaniesName = prodCompanies.map((item, key) =>
+        <li key={key} className={`pc__item pc__item--${convertToClassName(item.name)}`}>{item.name}</li>
+    );
     return (
         <PageWrap>
             <AppTitle />
@@ -100,7 +106,8 @@ function SingleMoviePage(props) {
                         revenue={formattedRevenue}
                         genres={allGenres}
                         websiteLink={movie.homepage}
-                        productionCountries={productionCountries}
+                        productionCountries={productionCountriesName}
+                        productionCompanies={productionCompaniesName}
                         release={movie.release_date}
                     />}
                     <ReturnHome />

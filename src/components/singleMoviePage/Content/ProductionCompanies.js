@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CountriesWrap = styled.div`
+const CompaniesWrap = styled.div`
 margin-bottom: ${props => props.theme.spacers.xsmall};
 font-family: ${props => props.theme.font.medium};
 display: flex;
@@ -11,7 +11,7 @@ const StyledTitle = styled.p`
    color: ${props => props.theme.colors.primary};
    user-select: none;
 `
-const CountriesList = styled.ul`
+const CompaniesList = styled.ul`
 user-select:none;
 display: flex;
 margin-left: ${props => props.theme.spacers.small};
@@ -31,13 +31,13 @@ li{
 }
 `
 
-const ProductionCountries = ({ productionCountries }) => {
+const ProductionCompanies = ({ productionCompanies }) => {
     return (
-        <CountriesWrap>
-            <StyledTitle>Production Countries:</StyledTitle>
-            <CountriesList>{productionCountries}</CountriesList>
-        </CountriesWrap>
+        <CompaniesWrap>
+            <StyledTitle>Production Companies:</StyledTitle>
+            <CompaniesList>{productionCompanies}</CompaniesList>
+        </CompaniesWrap>
     )
 }
 
-export default ProductionCountries
+export default ProductionCompanies
