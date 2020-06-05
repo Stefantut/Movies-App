@@ -19,7 +19,7 @@ function PosterImage({ url }) {
         url={url}
         className="card__item card__item--poster" data-for="linkTip" data-tip='linkTip'
       />
-      <ReactTooltip id="linkTip" place="top" effect='solid' >
+      <ReactTooltip id="linkTip" place="top" effect='solid' arrowColor='#C20114' backgroundColor='#C20114'>
         More details
       </ReactTooltip>
     </React.Fragment>
