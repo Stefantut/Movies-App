@@ -13,7 +13,7 @@ span{
 
 const Collection = ({ collection }) => {
     return (
-        <CollectionName>Part of<span>{collection.name}</span></CollectionName>
+        <CollectionName>Part of collection:<span>{collection.name}</span></CollectionName>
     )
 }
 

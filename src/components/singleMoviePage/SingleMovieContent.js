@@ -39,19 +39,19 @@ const SingleMovieContent =
         return (
             <ContentWrap>
                 <StyledTitle>Movie details:</StyledTitle>
-                <Title title={title} />
-                <Overview overview={overview} />
-                <Website websiteLink={websiteLink} title={title} />
-                <Status status={status} />
+                {title && <Title title={title} />}
+                {overview && <Overview overview={overview} />}
+                {websiteLink && <Website websiteLink={websiteLink} title={title} />}
+                {status && <Status status={status} />}
                 {collection ? <Collection collection={collection} /> : ''}
                 {budget && (budget >= 0 || budget === null) ? <Budget budget={budget} /> : ''}
                 {revenue && (revenue >= 0 || revenue === null) ? <Revenue revenue={revenue} /> : ''}
-                <Genres genres={genres} />
-                <ProductionCountries productionCountries={productionCountries} />
-                <ProductionCompanies productionCompanies={productionCompanies} />
-                <ReleaseDate release={release} />
-                <Language language={language} />
-                <SpokenLanguages spokenLanguages={spokenLanguages} />
+                {genres && <Genres genres={genres} />}
+                {productionCountries && <ProductionCountries productionCountries={productionCountries} />}
+                {productionCompanies && <ProductionCompanies productionCompanies={productionCompanies} />}
+                {release && <ReleaseDate release={release} />}
+                {language && <Language language={language} />}
+                {spokenLanguages && <SpokenLanguages spokenLanguages={spokenLanguages} />}
             </ContentWrap>
         )
     }
