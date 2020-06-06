@@ -13,17 +13,16 @@ span{
 
 
 class Language extends React.Component {
+    // function to capitalize word
     Capitalize(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
     render() {
         const { language } = this.props;
-        console.log(typeof (language));
-        console.log(language);
         return (
             <React.Fragment>
-                {language && <StyledLanguage>Original language<span>{this.Capitalize(language)}</span></StyledLanguage>}
+                {language && <StyledLanguage>Original language:<span>{this.Capitalize(language)}</span></StyledLanguage>}
             </React.Fragment>
         )
     }

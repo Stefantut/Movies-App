@@ -110,6 +110,7 @@ function SingleMoviePage(props) {
                         productionCompanies={productionCompaniesName}
                         release={movie.release_date}
                         language={movie.original_language}
+                        spokenLanguages={movie.spoken_languages}
                     />}
                     <ReturnHome />
                 </ContentWrap>}
