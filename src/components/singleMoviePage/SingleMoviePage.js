@@ -119,8 +119,22 @@ function SingleMoviePage(props) {
     )
 }
 
-// add proptypes 
-// add proptypes 
-// add proptypes 
-// add proptypes 
+SingleMoviePage.propTypes = {
+    imageUrl: PropTypes.string,
+    title: PropTypes.string,
+    tagline: PropTypes.string,
+    overview: PropTypes.string,
+    vote: PropTypes.number,
+    collection: PropTypes.array,
+    budget: PropTypes.string,
+    revenue: PropTypes.string,
+    genres: PropTypes.array,
+    websiteLink: PropTypes.string,
+    productionCountries: PropTypes.array,
+    productionCompanies: PropTypes.array,
+    release: PropTypes.string,
+    language: PropTypes.string,
+    spokenLanguages: PropTypes.array,
+    status: PropTypes.string,
+}
 export default SingleMoviePage

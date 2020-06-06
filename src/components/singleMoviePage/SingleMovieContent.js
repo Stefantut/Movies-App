@@ -43,6 +43,7 @@ const SingleMovieContent =
                 <Title title={title} />
                 <Overview overview={overview} />
                 <Website websiteLink={websiteLink} title={title} />
+                <Status status={status} />
                 {collection ? <Collection collection={collection} /> : ''}
                 {(budget >= 0 || budget === null) ? '' : <Budget budget={budget} />}
                 {(revenue >= 0 || revenue === null) ? '' : <Revenue revenue={revenue} />}
@@ -52,7 +53,6 @@ const SingleMovieContent =
                 <ReleaseDate release={release} />
                 <Language language={language} />
                 <SpokenLanguages spokenLanguages={spokenLanguages} />
-                <Status status={status} />
             </ContentWrap>
         )
     }
