@@ -13,15 +13,12 @@ max-width: ${props => props.theme.content.medium};
 background-image: url(${props => props.defaultUrl});
 background-size: cover;
 background-repeat: no-repeat;
-font-family: 'RobotoBold';
-color:${props => props.theme.colors.primary};
-font-size: ${props => props.theme.fontSizes.medium};
 position: relative;
 z-index:0;
-
-@media ${({ theme }) => theme.mediaQueries.below1024}{
-    color:blue;
-}
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
 `;
 
 const HeaderMovie = ({ url, movie }) => {
