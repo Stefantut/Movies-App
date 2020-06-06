@@ -19,6 +19,7 @@ const PosterImage = ({ url }) => {
         url={url}
         className="card__item card__item--poster" data-for="linkTip" data-tip='linkTip'
       />
+      {/* Forced reflow while executing JavaScript took 57ms in console log because of tooltip */}
       <ReactTooltip id="linkTip" place="top" effect='solid' arrowColor='#C20114' backgroundColor='#C20114'>
         More details
       </ReactTooltip>

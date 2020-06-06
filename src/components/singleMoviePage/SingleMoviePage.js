@@ -47,10 +47,7 @@ function SingleMoviePage(props) {
                     setProdCompanies(result.production_companies)
                 }
                 );
-            // Showing movies with a small delay to add spinner effect
-            setInterval(() => {
-                setLoading(false);
-            }, 600);
+            setLoading(false);
 
         } catch (error) {
             console.log("Error Fetching Api:" + error);

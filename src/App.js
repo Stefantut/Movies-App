@@ -27,10 +27,8 @@ function App() {
           setTotalPages(result.total_pages)
         }
         );
-      // Showing movies with a small delay to add spinner effect
-      setInterval(() => {
-        setLoading(false);
-      }, 600);
+      setLoading(false);
+
 
     } catch (error) {
       console.log("Error Fetching Api:" + error);
