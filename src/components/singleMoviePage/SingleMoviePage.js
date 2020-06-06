@@ -24,7 +24,6 @@ margin: 0 auto;
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
     const [imageUrl, setImageUrl] = useState('');
-    const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
     const [prodCountries, setProdCountries] = useState([]);
     const [prodCompanies, setProdCompanies] = useState([]);
@@ -38,7 +37,6 @@ function SingleMoviePage(props) {
                 .then((result) => {
                     setMovie(result)
                     setImageUrl(result.backdrop_path || result.poster_path)
-                    setGenres(result.genres)
                     setProdCountries(result.production_countries)
                     setProdCompanies(result.production_companies)
                 }
@@ -58,10 +56,6 @@ function SingleMoviePage(props) {
         fetchMovie(endpoint);
     }, [id]);
 
-    // loop through genres array and return each one
-    const allGenres = genres.map((item) =>
-        <li key={item.id} className={`genres__item genres__item--${convertToClassName(item.name)}`}>{item.name}</li>
-    );
     // loop through production countries array and return each one
     const productionCountriesName = prodCountries.map((item, key) =>
         <li key={key} className={`pc__item pc__item--${convertToClassName(item.name)}`}>{item.name}</li>
@@ -91,7 +85,7 @@ function SingleMoviePage(props) {
                         overview={movie.overview}
                         budget={movie.budget}
                         revenue={movie.revenue}
-                        genres={allGenres}
+                        genres={movie.genres}
                         websiteLink={movie.homepage}
                         productionCountries={productionCountriesName}
                         productionCompanies={productionCompaniesName}

@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { convertToClassName } from '../../../helpers'
+
 
 const GenresWrap = styled.div`
 margin-bottom: ${props => props.theme.spacers.xsmall};
@@ -34,11 +36,15 @@ li{
 }
 `
 
-const Genres = ({ genres }) => {
+function Genres({ genres }) {
+    // loop through genres array and return each one
+    const allGenres = genres && genres.map((item) =>
+        <li key={item.id} className={`genres__item genres__item--${convertToClassName(item.name)}`}>{item.name}</li>
+    );
     return (
         <GenresWrap>
             <StyledTitle>Genres:</StyledTitle>
-            <GenresList>{genres}</GenresList>
+            <GenresList>{allGenres}</GenresList>
         </GenresWrap>
     )
 }
