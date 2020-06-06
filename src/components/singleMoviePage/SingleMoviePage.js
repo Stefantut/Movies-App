@@ -111,6 +111,7 @@ function SingleMoviePage(props) {
                         release={movie.release_date}
                         language={movie.original_language}
                         spokenLanguages={movie.spoken_languages}
+                        status={movie.status}
                     />}
                     <ReturnHome />
                 </ContentWrap>}

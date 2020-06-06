@@ -13,6 +13,7 @@ import ProductionCompanies from './Content/ProductionCompanies'
 import ReleaseDate from './Content/ReleaseDate'
 import Language from './Content/Language'
 import SpokenLanguages from './Content/SpokenLanguages'
+import Status from './Content/Status'
 
 const ContentWrap = styled.section`
 height:100%;
@@ -34,7 +35,7 @@ color: ${props => props.theme.colors.light};
 
 const SingleMovieContent =
     ({ title, overview, collection, budget, genres, websiteLink,
-        productionCountries, productionCompanies, release, revenue, language, spokenLanguages }) => {
+        productionCountries, productionCompanies, release, revenue, language, spokenLanguages, status }) => {
 
         return (
             <ContentWrap>
@@ -51,6 +52,7 @@ const SingleMovieContent =
                 <ReleaseDate release={release} />
                 <Language language={language} />
                 <SpokenLanguages spokenLanguages={spokenLanguages} />
+                <Status status={status} />
             </ContentWrap>
         )
     }
