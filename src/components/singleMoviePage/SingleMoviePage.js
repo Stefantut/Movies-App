@@ -24,7 +24,6 @@ margin: 0 auto;
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
     const [imageUrl, setImageUrl] = useState('');
-    const [budget, setBudget] = useState('');
     const [revenue, setRevenue] = useState('');
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -40,7 +39,6 @@ function SingleMoviePage(props) {
                 .then((result) => {
                     setMovie(result)
                     setImageUrl(result.backdrop_path || result.poster_path)
-                    setBudget(result.budget)
                     setRevenue(result.revenue)
                     setGenres(result.genres)
                     setProdCountries(result.production_countries)
@@ -61,9 +59,6 @@ function SingleMoviePage(props) {
         const endpoint = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
         fetchMovie(endpoint);
     }, [id]);
-
-    // formatting budget before passing as prop
-    const formattedBudget = formatWithDots(budget);
 
     // formatting revenue before passing as prop
     const formattedRevenue = formatWithDots(revenue);
@@ -99,7 +94,7 @@ function SingleMoviePage(props) {
                         title={movie.title || movie.original_title}
                         collection={movie.belongs_to_collection}
                         overview={movie.overview}
-                        budget={formattedBudget}
+                        budget={movie.budget}
                         revenue={formattedRevenue}
                         genres={allGenres}
                         websiteLink={movie.homepage}
@@ -123,7 +118,7 @@ SingleMoviePage.propTypes = {
     overview: PropTypes.string,
     vote: PropTypes.number,
     collection: PropTypes.array,
-    budget: PropTypes.string,
+    budget: PropTypes.number,
     revenue: PropTypes.string,
     genres: PropTypes.array,
     websiteLink: PropTypes.string,

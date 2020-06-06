@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { formatWithDots } from '../../../helpers'
 
 const StyledBudget = styled.p`
 user-select:none;
@@ -11,9 +12,11 @@ span{
 }
 `
 
-const Budget = ({ budget }) => {
+function Budget({ budget }) {
+
+    const formattedBudget = budget && formatWithDots(budget);
     return (
-        <StyledBudget>Budget:<span>${budget}</span></StyledBudget>
+        <StyledBudget>Budget:<span>${formattedBudget}</span></StyledBudget>
     )
 }
 

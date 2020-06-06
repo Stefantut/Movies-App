@@ -44,7 +44,7 @@ const SingleMovieContent =
                 <Website websiteLink={websiteLink} title={title} />
                 <Status status={status} />
                 {collection ? <Collection collection={collection} /> : ''}
-                {(budget >= 0 || budget === null) ? '' : <Budget budget={budget} />}
+                {budget && (budget >= 0 || budget === null) ? <Budget budget={budget} /> : ''}
                 {(revenue >= 0 || revenue === null) ? '' : <Revenue revenue={revenue} />}
                 <Genres genres={genres} />
                 <ProductionCountries productionCountries={productionCountries} />
