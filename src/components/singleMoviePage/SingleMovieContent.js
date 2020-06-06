@@ -20,7 +20,6 @@ height:100%;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
-justify-content: center;
 z-index:0;
 color: ${props => props.theme.colors.primary};
 margin: ${props => props.theme.spacers.xxlarge} 0;
