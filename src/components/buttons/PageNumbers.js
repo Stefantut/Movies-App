@@ -9,13 +9,14 @@ const PaginationWrap = styled.div`
 margin-top: ${props => props.theme.spacers.xxlarge};
 display: flex;
 justify-content: center;
+padding-bottom: ${props => props.theme.spacers.xlarge};
 `
 const StyledList = styled.ul`
 display: flex;
 align-items: center;
 list-style-type: none;
 margin: 0 ${props => props.theme.spacers.large};
-color: ${props => props.theme.colors.secondary};
+color: ${props => props.theme.colors.tertiary};
 user-select: none;
 `
 
@@ -27,13 +28,15 @@ width: ${props => props.theme.spacers.xxxlarge};
 display: flex;
 justify-content: center;
 align-items: center;
+transition: 0.1s ease-in;
 &.active{
     color: ${props => props.theme.colors.lightgrey};
     background-color: ${props => props.theme.colors.secondary};
     border: 2px solid ${props => props.theme.colors.primary}
 }
-&:hover{ cursor:pointer;
-    color: ${props => props.theme.colors.darkgrey};
+&:hover{ 
+    cursor:pointer;
+    color: ${props => props.theme.colors.tertiary};
   }
 `;
 function PageNumbers({ currentPage, totalPages, fetchMovies }) {
