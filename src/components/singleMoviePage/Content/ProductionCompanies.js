@@ -14,11 +14,14 @@ const StyledTitle = styled.p`
 const CompaniesList = styled.ul`
 user-select:none;
 display: flex;
+flex-wrap: wrap;
 margin-left: ${props => props.theme.spacers.small};
 list-style-type: none;
 li{
    color: ${props => props.theme.colors.light};
    margin-right: ${props => props.theme.spacers.xsmall};
+   display: flex;
+   flex-wrap: nowrap;
    &:after{
        content:'|';
        margin-left: ${props => props.theme.spacers.small};
