@@ -109,6 +109,7 @@ function SingleMoviePage(props) {
                         productionCountries={productionCountriesName}
                         productionCompanies={productionCompaniesName}
                         release={movie.release_date}
+                        language={movie.original_language}
                     />}
                     <ReturnHome />
                 </ContentWrap>}

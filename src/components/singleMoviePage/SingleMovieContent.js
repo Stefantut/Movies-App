@@ -11,6 +11,7 @@ import Website from './Content/Website'
 import ProductionCountries from './Content/ProductionCountries'
 import ProductionCompanies from './Content/ProductionCompanies'
 import ReleaseDate from './Content/ReleaseDate'
+import Language from './Content/Language'
 
 const ContentWrap = styled.section`
 height:100%;
@@ -30,23 +31,26 @@ margin-bottom: ${props => props.theme.spacers.medium};
 color: ${props => props.theme.colors.light};
 `
 
-const SingleMovieContent = ({ title, overview, collection, budget, genres, websiteLink, productionCountries, productionCompanies, release, revenue }) => {
+const SingleMovieContent =
+    ({ title, overview, collection, budget, genres, websiteLink,
+        productionCountries, productionCompanies, release, revenue, language }) => {
 
-    return (
-        <ContentWrap>
-            <StyledTitle>Movie details:</StyledTitle>
-            <Title title={title} />
-            <Overview overview={overview} />
-            <Website websiteLink={websiteLink} title={title} />
-            {collection ? <Collection collection={collection} /> : ''}
-            {(budget >= 0 || budget === null) ? '' : <Budget budget={budget} />}
-            {(revenue >= 0 || revenue === null) ? '' : <Revenue revenue={revenue} />}
-            <Genres genres={genres} />
-            <ProductionCountries productionCountries={productionCountries} />
-            <ProductionCompanies productionCompanies={productionCompanies} />
-            <ReleaseDate release={release} />
-        </ContentWrap>
-    )
-}
+        return (
+            <ContentWrap>
+                <StyledTitle>Movie details:</StyledTitle>
+                <Title title={title} />
+                <Overview overview={overview} />
+                <Website websiteLink={websiteLink} title={title} />
+                {collection ? <Collection collection={collection} /> : ''}
+                {(budget >= 0 || budget === null) ? '' : <Budget budget={budget} />}
+                {(revenue >= 0 || revenue === null) ? '' : <Revenue revenue={revenue} />}
+                <Genres genres={genres} />
+                <ProductionCountries productionCountries={productionCountries} />
+                <ProductionCompanies productionCompanies={productionCompanies} />
+                <ReleaseDate release={release} />
+                <Language language={language} />
+            </ContentWrap>
+        )
+    }
 
 export default SingleMovieContent
