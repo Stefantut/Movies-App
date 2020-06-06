@@ -21,7 +21,7 @@ font-size: ${props => props.theme.fontSizes.medium};
 }
 `;
 
-function HeaderMovie({ url, movie }) {
+const HeaderMovie = ({ url, movie }) => {
 
     return (
         // pass url again to styled component as prop

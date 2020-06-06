@@ -8,7 +8,7 @@ text-align:center;
 color:${props => props.theme.colors.lightgrey};
 user-select:none;
 `
-function ReleaseDate({ release }) {
+const ReleaseDate = ({ release }) => {
   return (
     // Tried to format the data with React.INTL but is a string instead of Date Object
     <StyledDate className="card__item card__item--release">

@@ -11,7 +11,7 @@ background-position: center;
 background-repeat: no-repeat; 
 background-size: cover; 
 `
-function PosterImage({ url }) {
+const PosterImage = ({ url }) => {
 
   return (
     <React.Fragment>

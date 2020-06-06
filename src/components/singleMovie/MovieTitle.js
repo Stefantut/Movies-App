@@ -9,7 +9,7 @@ padding: ${props => props.theme.spacers.xsmall} 0;
 color: ${props => props.theme.colors.primary};
 font-family: "RobotoMedium";
 `
-function MovieTitle({ title }) {
+const MovieTitle = ({ title }) => {
   return <StyledTitle className="card__item card__item--title">{title}</StyledTitle>;
 }
 

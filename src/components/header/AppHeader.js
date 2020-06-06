@@ -15,7 +15,7 @@ const StyledHeader = styled.header`
   color: white;
 `
 
-function AppHeader({ movies }) {
+const AppHeader = ({ movies }) => {
     return (
         <StyledHeader className="App-header">
             {/* Fix for rendering first and passes all data about first movie */}

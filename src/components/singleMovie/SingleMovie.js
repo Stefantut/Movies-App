@@ -16,7 +16,7 @@ flex-direction: column;
 align-items: center;
 padding: ${props => props.theme.spacers.large} 0;
 `
-function SingleMovie({ index, id, poster, title, release }) {
+const SingleMovie = ({ index, id, poster, title, release }) => {
   return (
     <StyledListItem className={`card card--${index}`}>
       <Link to={`movies/${id}`} >
