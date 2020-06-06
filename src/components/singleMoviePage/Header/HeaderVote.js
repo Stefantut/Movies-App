@@ -13,6 +13,9 @@ user-select: none;
     color: ${ props => props.theme.colors.primary};
     margin-left:  ${ props => props.theme.spacers.small};
 }
+@media ${({ theme }) => theme.mediaQueries.below1024}{
+    font-size: ${ props => props.theme.fontSizes.small};
+}
 `
 
 const HeaderVote = ({ vote }) => {

@@ -35,6 +35,12 @@ display:flex;
 justify-content:space-between;
 width:100%;
 padding: 0 ${ props => props.theme.spacers.xtralarge};
+@media ${({ theme }) => theme.mediaQueries.below1024}{
+    padding: 0 ${ props => props.theme.spacers.xlarge};
+}
+@media ${({ theme }) => theme.mediaQueries.below768}{
+    flex-wrap: wrap;
+}
 `
 
 const SingleMovieHeader = ({ imageUrl, title, tagline, overview, vote }) => {

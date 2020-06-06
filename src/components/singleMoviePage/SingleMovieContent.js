@@ -25,13 +25,18 @@ width: 100%;
 max-width: ${props => props.theme.content.medium};
 color: ${props => props.theme.colors.primary};
 margin: ${props => props.theme.spacers.xxlarge} auto;
+@media ${({ theme }) => theme.mediaQueries.below1300}{
+    padding: 0 ${props => props.theme.spacers.large}
+}
 `
-
 const StyledTitle = styled.h2`
 user-select:none;
 font-family: ${props => props.theme.font.light};
 margin-bottom: ${props => props.theme.spacers.medium};
 color: ${props => props.theme.colors.light};
+@media ${({ theme }) => theme.mediaQueries.below1024}{
+    font-size: ${ props => props.theme.fontSizes.medium};
+}
 `
 
 const SingleMovieContent =

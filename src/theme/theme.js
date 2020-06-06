@@ -39,6 +39,10 @@ export default {
         large: '1480px'
     },
     mediaQueries: {
-        below1024: 'only screen and (max-width: 1024px)'
+        below1300: 'only screen and (max-width: 1300px)',
+        below1024: 'only screen and (max-width: 1024px)',
+        below850: 'only screen and (max-width: 850px)',
+        below768: 'only screen and (max-width: 768px)',
+        below600: 'only screen and (max-width: 600px)',
     }
 };
