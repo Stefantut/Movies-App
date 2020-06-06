@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
-import { convertToClassName } from '../../helpers'
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
@@ -25,7 +24,6 @@ function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
     const [imageUrl, setImageUrl] = useState('');
     const [loading, setLoading] = useState(false);
-    const [prodCompanies, setProdCompanies] = useState([]);
 
     // FetchMovies function to be re-used as many times we need
     const fetchMovie = async (path) => {
@@ -36,7 +34,6 @@ function SingleMoviePage(props) {
                 .then((result) => {
                     setMovie(result)
                     setImageUrl(result.backdrop_path || result.poster_path)
-                    setProdCompanies(result.production_companies)
                 }
                 );
             setLoading(false);
@@ -54,10 +51,6 @@ function SingleMoviePage(props) {
         fetchMovie(endpoint);
     }, [id]);
 
-    // loop through production countries array and return each one
-    const productionCompaniesName = prodCompanies.map((item, key) =>
-        <li key={key} className={`pc__item pc__item--${convertToClassName(item.name)}`}>{item.name}</li>
-    );
     return (
         <PageWrap>
             <AppTitle />
@@ -81,7 +74,7 @@ function SingleMoviePage(props) {
                         genres={movie.genres}
                         websiteLink={movie.homepage}
                         productionCountries={movie.production_countries}
-                        productionCompanies={productionCompaniesName}
+                        productionCompanies={movie.production_companies}
                         release={movie.release_date}
                         language={movie.original_language}
                         spokenLanguages={movie.spoken_languages}

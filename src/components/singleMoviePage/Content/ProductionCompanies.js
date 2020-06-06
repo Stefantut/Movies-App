@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { convertToClassName } from '../../../helpers'
 
 const CompaniesWrap = styled.div`
 margin-bottom: ${props => props.theme.spacers.xsmall};
@@ -34,11 +35,15 @@ li{
 }
 `
 
-const ProductionCompanies = ({ productionCompanies }) => {
+function ProductionCompanies({ productionCompanies }) {
+    // loop through production countries array and return each one
+    const company = productionCompanies && productionCompanies.map((item, key) =>
+        <li key={key} className={`pc__item pc__item--${convertToClassName(item.name)}`}>{item.name}</li>
+    );
     return (
         <CompaniesWrap>
             <StyledTitle>Production Companies:</StyledTitle>
-            <CompaniesList>{productionCompanies}</CompaniesList>
+            <CompaniesList>{company}</CompaniesList>
         </CompaniesWrap>
     )
 }
