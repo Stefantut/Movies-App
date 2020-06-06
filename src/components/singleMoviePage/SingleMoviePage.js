@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
-import { formatWithDots, convertToClassName } from '../../helpers'
+import { convertToClassName } from '../../helpers'
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
@@ -24,7 +24,6 @@ margin: 0 auto;
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
     const [imageUrl, setImageUrl] = useState('');
-    const [revenue, setRevenue] = useState('');
     const [genres, setGenres] = useState([]);
     const [loading, setLoading] = useState(false);
     const [prodCountries, setProdCountries] = useState([]);
@@ -39,7 +38,6 @@ function SingleMoviePage(props) {
                 .then((result) => {
                     setMovie(result)
                     setImageUrl(result.backdrop_path || result.poster_path)
-                    setRevenue(result.revenue)
                     setGenres(result.genres)
                     setProdCountries(result.production_countries)
                     setProdCompanies(result.production_companies)
@@ -59,9 +57,6 @@ function SingleMoviePage(props) {
         const endpoint = `${BASE_URL}/movie/${id}?api_key=${API_KEY}`;
         fetchMovie(endpoint);
     }, [id]);
-
-    // formatting revenue before passing as prop
-    const formattedRevenue = formatWithDots(revenue);
 
     // loop through genres array and return each one
     const allGenres = genres.map((item) =>
@@ -95,7 +90,7 @@ function SingleMoviePage(props) {
                         collection={movie.belongs_to_collection}
                         overview={movie.overview}
                         budget={movie.budget}
-                        revenue={formattedRevenue}
+                        revenue={movie.revenue}
                         genres={allGenres}
                         websiteLink={movie.homepage}
                         productionCountries={productionCountriesName}

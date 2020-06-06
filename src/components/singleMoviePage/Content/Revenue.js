@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { formatWithDots } from '../../../helpers'
 
 const StyledRevenue = styled.p`
 user-select:none;
@@ -11,9 +12,10 @@ span{
 }
 `
 
-const Revenue = ({ revenue }) => {
+function Revenue({ revenue }) {
+    const formattedRevenue = revenue && formatWithDots(revenue);
     return (
-        <StyledRevenue>Revenue:<span>${revenue}</span></StyledRevenue>
+        <StyledRevenue>Revenue:<span>${formattedRevenue}</span></StyledRevenue>
     )
 }
 

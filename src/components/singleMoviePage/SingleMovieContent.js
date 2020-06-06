@@ -45,7 +45,7 @@ const SingleMovieContent =
                 <Status status={status} />
                 {collection ? <Collection collection={collection} /> : ''}
                 {budget && (budget >= 0 || budget === null) ? <Budget budget={budget} /> : ''}
-                {(revenue >= 0 || revenue === null) ? '' : <Revenue revenue={revenue} />}
+                {revenue && (revenue >= 0 || revenue === null) ? <Revenue revenue={revenue} /> : ''}
                 <Genres genres={genres} />
                 <ProductionCountries productionCountries={productionCountries} />
                 <ProductionCompanies productionCompanies={productionCompanies} />
