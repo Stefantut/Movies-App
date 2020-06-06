@@ -6,13 +6,17 @@ import { IMAGE_URL } from "../../Variables";
 import fallbackHeader from '../../images/fallback-header.jpg';
 
 const StyledHeader = styled.header`
-  min-height: 50vh;
+  height:100%;
+  width:100%;
+  background-color: ${props => props.theme.colors.dark};
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  box-shadow: 0px 6px 28px 3px rgba(0,0,0,0.7);
+
 `
 
 const AppHeader = ({ movies }) => {

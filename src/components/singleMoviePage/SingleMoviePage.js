@@ -14,11 +14,6 @@ import fallbackHeader from './../../images/fallback-header.jpg'
 const PageWrap = styled.div`
   background-color: ${props => props.theme.colors.darkgrey};`
 
-const ContentWrap = styled.div`
-width: 100%;
-max-width: ${props => props.theme.content.medium};
-margin: 0 auto;
-`
 
 function SingleMoviePage(props) {
     const [movie, setMovie] = useState({});
@@ -55,33 +50,32 @@ function SingleMoviePage(props) {
         <PageWrap>
             <AppTitle />
             {loading && <LoadingSpinner />}
-            {!loading &&
-                <ContentWrap>
-                    {movie && imageUrl && <SingleMovieHeader
-                        imageUrl={!imageUrl ? fallbackHeader : `${IMAGE_URL}w1280${imageUrl}`}
-                        title={movie.title || movie.original_title}
-                        tagline={movie.tagline}
-                        overview={movie.overview}
-                        vote={movie.vote_average}
-                    />
-                    }
-                    {movie && <SingleMovieContent
-                        title={movie.title || movie.original_title}
-                        collection={movie.belongs_to_collection}
-                        overview={movie.overview}
-                        budget={movie.budget}
-                        revenue={movie.revenue}
-                        genres={movie.genres}
-                        websiteLink={movie.homepage}
-                        productionCountries={movie.production_countries}
-                        productionCompanies={movie.production_companies}
-                        release={movie.release_date}
-                        language={movie.original_language}
-                        spokenLanguages={movie.spoken_languages}
-                        status={movie.status}
-                    />}
-                    <ReturnHome />
-                </ContentWrap>}
+            {/* Header*/}
+            {movie && imageUrl && <SingleMovieHeader
+                imageUrl={!imageUrl ? fallbackHeader : `${IMAGE_URL}w1280${imageUrl}`}
+                title={movie.title || movie.original_title}
+                tagline={movie.tagline}
+                overview={movie.overview}
+                vote={movie.vote_average}
+            />
+            }
+            {/* Movie Details */}
+            {movie && <SingleMovieContent
+                title={movie.title || movie.original_title}
+                collection={movie.belongs_to_collection}
+                overview={movie.overview}
+                budget={movie.budget}
+                revenue={movie.revenue}
+                genres={movie.genres}
+                websiteLink={movie.homepage}
+                productionCountries={movie.production_countries}
+                productionCompanies={movie.production_companies}
+                release={movie.release_date}
+                language={movie.original_language}
+                spokenLanguages={movie.spoken_languages}
+                status={movie.status}
+            />}
+            <ReturnHome />
         </PageWrap>
     )
 }

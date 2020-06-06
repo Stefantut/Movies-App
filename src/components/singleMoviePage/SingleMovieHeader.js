@@ -9,9 +9,17 @@ import HeaderOverview from './Header/HeaderOverview'
 import HeaderVote from './Header/HeaderVote'
 
 const HeaderWrap = styled.header`
-position: relative;
-min-height: 600px;
+background-color: ${props => props.theme.colors.dark};
+box-shadow: 0px 6px 28px 3px rgba(0,0,0,0.7);
 height:100%;
+width: 100%;
+`
+
+const Header = styled.div`
+position: relative;
+min-height: 550px;
+max-width: ${props => props.theme.content.medium};
+margin: 0 auto;
 display: flex;
 flex-direction: column;
 align-items: flex-start;
@@ -19,7 +27,6 @@ justify-content: center;
 background-image: url(${props => props.imageUrl});
 background-size: cover;
 background-repeat: no-repeat;
-box-shadow: 0px 0px 60px -20px rgba(0,0,0,0.75);
 z-index:0;
 `
 
@@ -32,14 +39,16 @@ padding: 0 ${ props => props.theme.spacers.xtralarge};
 
 const SingleMovieHeader = ({ imageUrl, title, tagline, overview, vote }) => {
     return (
-        <HeaderWrap imageUrl={imageUrl}>
-            <Overlay />
-            <StyledTop>
-                {title && <HeaderTitle title={title} />}
-                {vote && <HeaderVote vote={vote} />}
-            </StyledTop>
-            {tagline && <HeaderTagline tagline={tagline} />}
-            {overview && <HeaderOverview overview={overview} />}
+        <HeaderWrap>
+            <Header imageUrl={imageUrl}>
+                <Overlay />
+                <StyledTop>
+                    {title && <HeaderTitle title={title} />}
+                    {vote && <HeaderVote vote={vote} />}
+                </StyledTop>
+                {tagline && <HeaderTagline tagline={tagline} />}
+                {overview && <HeaderOverview overview={overview} />}
+            </Header>
         </HeaderWrap>
     )
 }

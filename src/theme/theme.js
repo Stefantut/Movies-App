@@ -5,7 +5,8 @@ export default {
         tertiary: '#c7d6d5',
         darkgrey: '#282c34',
         lightgrey: '#ecebf3',
-        light: '#fff'
+        light: '#fff',
+        dark: '#000'
     },
     font: {
         light: 'RobotoLight',

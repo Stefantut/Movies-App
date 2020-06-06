@@ -21,8 +21,10 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 z-index:0;
+width: 100%;
+max-width: ${props => props.theme.content.medium};
 color: ${props => props.theme.colors.primary};
-margin: ${props => props.theme.spacers.xxlarge} 0;
+margin: ${props => props.theme.spacers.xxlarge} auto;
 `
 
 const StyledTitle = styled.h2`

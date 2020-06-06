@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import AppTitle from './components/header/AppTitle'
 import AppHeader from './components/header/AppHeader'
 import AppContent from './components/AppContent'
+import AppFooter from './components/footer/AppFooter'
 
 const StyledApp = styled.div`
 background-color: ${props => props.theme.colors.darkgrey};
@@ -51,6 +52,7 @@ function App() {
         totalPages={totalPages}
         fetchMovies={fetchMovies}
       />
+      <AppFooter />
     </StyledApp>
   );
 }

@@ -7,6 +7,8 @@ const StyledLink = styled.div`
 display: flex;
 flex-direction: column;
 align-items: flex-start;
+max-width: ${props => props.theme.content.medium};
+margin: 0 auto;
 padding-bottom: ${props => props.theme.spacers.large};
 font-size: ${props => props.theme.fontSizes.medium};
 a{

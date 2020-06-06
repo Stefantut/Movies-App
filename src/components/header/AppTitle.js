@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const StyledTitle = styled.h1`
 color: ${props => props.theme.colors.primary};
+background-color: ${props => props.theme.colors.dark};
 padding: ${props => props.theme.spacers.medium} 0;
 user-select: none;
 display: flex;
