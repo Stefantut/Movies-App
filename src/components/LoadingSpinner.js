@@ -2,6 +2,15 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
+const ComponentWrap = styled.section`
+height:65vh;
+width:100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content:center;
+`
 const StyledSpinner = styled.svg`
   animation: rotate 1.5s linear infinite;
   display: flex;
@@ -44,7 +53,7 @@ letter-spacing:0.3em;
 `
 
 const LoadingSpinner = () => (
-  <React.Fragment>
+  <ComponentWrap>
     <StyledLoading>Loading... please wait</StyledLoading>
     <StyledSpinner viewBox="0 0 50 50">
       <circle
@@ -56,7 +65,7 @@ const LoadingSpinner = () => (
         strokeWidth="4"
       />
     </StyledSpinner>
-  </React.Fragment>
+  </ComponentWrap>
 );
 
 export default LoadingSpinner;
