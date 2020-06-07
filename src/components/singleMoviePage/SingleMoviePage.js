@@ -74,6 +74,7 @@ function SingleMoviePage(props) {
                 language={movie.original_language}
                 spokenLanguages={movie.spoken_languages}
                 status={movie.status}
+                imdbId={movie.imdb_id}
             />}
             <ReturnHome />
         </PageWrap>
