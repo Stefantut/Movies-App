@@ -8,8 +8,7 @@ width:100%;
 height:100%;
 left: 0;
 top:0;
-background-color: black;
-opacity:0.5;
+background-image: linear-gradient(to bottom,rgba(0,0,0,1) 0,rgba(0,0,0,0) 55%,rgba(0,0,0,1) 100%);
 z-index:-1;
 transition: 0.2s ease-in;
 `
