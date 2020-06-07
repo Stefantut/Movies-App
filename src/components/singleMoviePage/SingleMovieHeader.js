@@ -35,9 +35,9 @@ const StyledTop = styled.div`
 display:flex;
 justify-content:space-between;
 width:100%;
-padding: 0 ${ props => props.theme.spacers.xtralarge};
+padding: ${ props => props.theme.spacers.small} ${props => props.theme.spacers.xtralarge};
 @media ${({ theme }) => theme.mediaQueries.below1024}{
-    padding: 0 ${ props => props.theme.spacers.xlarge};
+    padding: ${ props => props.theme.spacers.xsmall} ${props => props.theme.spacers.xlarge};
 }
 @media ${({ theme }) => theme.mediaQueries.below768}{
     flex-wrap: wrap;

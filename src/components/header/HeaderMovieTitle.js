@@ -7,10 +7,10 @@ font-size: ${ props => props.theme.fontSizes.xtralarge};
 color: ${ props => props.theme.colors.lightgrey};
 user-select: none;
 text-shadow: 3px 3px 3px ${ props => props.theme.colors.secondary};
-padding: 0 ${ props => props.theme.spacers.xtralarge};
+padding: ${ props => props.theme.spacers.large} ${props => props.theme.spacers.xtralarge};
 @media ${({ theme }) => theme.mediaQueries.below1024}{
     font-size: ${ props => props.theme.fontSizes.xlarge};
-    padding: 0 ${ props => props.theme.spacers.xlarge};
+    padding: ${ props => props.theme.spacers.small}  ${props => props.theme.spacers.xlarge};
 }
 `
 const HeaderMovieTitle = ({ title }) => {

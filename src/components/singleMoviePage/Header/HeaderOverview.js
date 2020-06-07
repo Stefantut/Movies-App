@@ -13,6 +13,10 @@ text-shadow: 3px 3px 3px ${ props => props.theme.colors.secondary};
 @media ${({ theme }) => theme.mediaQueries.below1024}{
     font-size: ${ props => props.theme.fontSizes.medium};
     margin: 0 ${ props => props.theme.spacers.xlarge};
+    padding-top: ${ props => props.theme.spacers.xlarge};
+}
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${ props => props.theme.fontSizes.small};
 }
 `
 
