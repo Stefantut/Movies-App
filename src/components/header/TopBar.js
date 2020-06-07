@@ -1,10 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import Title from './AppTitle'
+import logo from '../../images/logo.png'
 
 const StyledWrap = styled.section`
 background-color: ${props => props.theme.colors.dark};
+filter: brightness(1.3);
 `
 const TopBarContent = styled.div`
 display: flex;
@@ -20,11 +23,38 @@ border-bottom: 3px solid ${props => props.theme.colors.primary};
 }
 `
 
+const LogoTitleWrap = styled.div`
+a{
+text-decoration: none;
+display:flex;
+align-items:center;
+flex-wrap:wrap;
+img{
+    max-width: 30px;
+    width:100%;
+    height:100%;
+    margin-right: ${props => props.theme.spacers.small};
+    transition: 0.3s ease-in-out;
+    transform: rotate(10deg);
+}
+&:hover{
+    img{
+        transform: rotate(220deg) scale(1.2);
+    }
+}
+}
+`
+
 const TopBar = () => {
     return (
         <StyledWrap>
             <TopBarContent>
-                <Title />
+                <LogoTitleWrap>
+                    <Link to='/'>
+                        <img src={logo} alt="logo" />
+                        <Title />
+                    </Link>
+                </LogoTitleWrap>
                 <p>Search</p>
             </TopBarContent>
 
