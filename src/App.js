@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "./Variables";
 import styled from 'styled-components';
-import AppTitle from './components/header/AppTitle'
+
+import TopBar from './components/header/TopBar'
 import AppHeader from './components/header/AppHeader'
 import AppContent from './components/AppContent'
 import AppFooter from './components/footer/AppFooter'
@@ -43,7 +44,7 @@ function App() {
 
   return (
     <StyledApp className="App">
-      <AppTitle />
+      <TopBar />
       <AppHeader movies={movies} />
       <AppContent
         movies={movies}

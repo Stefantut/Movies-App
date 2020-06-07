@@ -3,7 +3,7 @@ import { API_KEY, BASE_URL, IMAGE_URL } from "../../Variables";
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
-import AppTitle from '.././header/AppTitle'
+import TopBar from '../header/TopBar'
 import LoadingSpinner from '../LoadingSpinner';
 import SingleMovieHeader from './SingleMovieHeader'
 import SingleMovieContent from './SingleMovieContent'
@@ -48,7 +48,7 @@ function SingleMoviePage(props) {
 
     return (
         <PageWrap>
-            <AppTitle />
+            <TopBar />
             {loading && <LoadingSpinner />}
             {/* Header*/}
             {movie && imageUrl && <SingleMovieHeader
