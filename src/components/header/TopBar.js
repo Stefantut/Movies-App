@@ -7,7 +7,7 @@ import logo from '../../images/logo.png'
 
 const StyledWrap = styled.section`
 background-color: ${props => props.theme.colors.dark};
-filter: brightness(1.3);
+filter: brightness(1.2);
 `
 const TopBarContent = styled.div`
 display: flex;

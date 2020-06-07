@@ -4,7 +4,7 @@ import SingleMovie from './singleMovie/SingleMovie'
 
 const StyledList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: ${props => props.theme.spacers.large};
 `
 function AllMovies(props) {

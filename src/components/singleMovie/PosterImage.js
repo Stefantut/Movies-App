@@ -10,6 +10,10 @@ width: 185px;
 background-position: center;
 background-repeat: no-repeat; 
 background-size: cover; 
+transition: 0.1s ease-in;
+&:hover{
+  filter: brightness(0.6);
+}
 `
 const PosterImage = ({ url }) => {
 
@@ -19,7 +23,7 @@ const PosterImage = ({ url }) => {
         url={url}
         className="card__item card__item--poster" data-for="linkTip" data-tip='linkTip'
       />
-      {/* Forced reflow while executing JavaScript took 57ms in console log because of tooltip */}
+      {/* Forced reflow while executing JavaScript took ms in console log because of tooltip */}
       <ReactTooltip id="linkTip" place="top" effect='solid' arrowColor='#C20114' backgroundColor='#C20114'>
         More details
       </ReactTooltip>
