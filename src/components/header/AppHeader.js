@@ -16,7 +16,7 @@ const StyledHeader = styled.header`
   font-size: calc(10px + 2vmin);
   color: white;
   box-shadow: 0px 6px 28px 3px rgba(0,0,0,0.7);
-
+  border-bottom: 5px solid ${props => props.theme.colors.secondary};
 `
 
 const AppHeader = ({ movies }) => {

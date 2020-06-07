@@ -10,9 +10,10 @@ import HeaderVote from './Header/HeaderVote'
 
 const HeaderWrap = styled.header`
 background-color: ${props => props.theme.colors.dark};
-box-shadow: 0px 6px 28px 3px rgba(0,0,0,0.7);
 height:100%;
 width: 100%;
+border-bottom: 5px solid ${props => props.theme.colors.secondary};
+box-shadow: 0px 6px 28px 3px rgba(0,0,0,0.7);
 `
 
 const Header = styled.div`

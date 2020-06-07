@@ -14,7 +14,7 @@ max-width: 1280px;
 margin: 0 auto;
 color: ${props => props.theme.colors.light};
 padding: ${props => props.theme.spacers.medium} 0;
-border-bottom: 2px solid ${props => props.theme.colors.primary};
+border-bottom: 3px solid ${props => props.theme.colors.primary};
 @media ${({ theme }) => theme.mediaQueries.below1300}{
     padding: ${props => props.theme.spacers.medium};
 }
