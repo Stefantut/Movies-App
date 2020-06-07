@@ -7,7 +7,9 @@ const GenresWrap = styled.div`
 margin-bottom: ${props => props.theme.spacers.xsmall};
 font-family: ${props => props.theme.font.medium};
 display: flex;
-
+@media ${({ theme }) => theme.mediaQueries.below600}{
+flex-direction: column;
+}
 `
 const StyledTitle = styled.p`
    color: ${props => props.theme.colors.primary};
@@ -33,6 +35,21 @@ li{
           content: unset;
       }
    }
+}
+@media ${({ theme }) => theme.mediaQueries.below850}{
+    flex-direction: column;
+    li{
+        margin-right:0;
+        position: relative;
+        &:after{
+            content:'';
+        }
+        &:before {
+            content: '-';
+            margin-right: 3px;
+            color: ${props => props.theme.colors.primary};
+        }
+    }
 }
 `
 
