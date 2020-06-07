@@ -10,6 +10,9 @@ margin-top: ${props => props.theme.spacers.xxlarge};
 display: flex;
 justify-content: center;
 padding-bottom: ${props => props.theme.spacers.xlarge};
+@media ${({ theme }) => theme.mediaQueries.below600}{
+flex-wrap: wrap;
+}
 `
 const StyledList = styled.ul`
 display: flex;
@@ -18,6 +21,9 @@ list-style-type: none;
 margin: 0 ${props => props.theme.spacers.large};
 color: ${props => props.theme.colors.tertiary};
 user-select: none;
+@media ${({ theme }) => theme.mediaQueries.below600}{
+width:100%;
+}
 `
 
 const StyleListItem = styled.li`
@@ -29,12 +35,20 @@ display: flex;
 justify-content: center;
 align-items: center;
 transition: 0.1s ease-in;
+@media ${({ theme }) => theme.mediaQueries.below1024}{
+    width: 100%;
+    padding: ${props => props.theme.spacers.xsmall};
+}
+@media ${({ theme }) => theme.mediaQueries.below850}{
+margin:0;
+font-size: ${({ theme }) => theme.fontSizes.xsmall}
+}
 &.active{
     color: ${props => props.theme.colors.lightgrey};
     background-color: ${props => props.theme.colors.secondary};
     border: 2px solid ${props => props.theme.colors.primary}
 }
-&:hover{ 
+&:hover{
     cursor:pointer;
     color: ${props => props.theme.colors.tertiary};
   }
@@ -85,7 +99,6 @@ function PageNumbers({ currentPage, totalPages, fetchMovies }) {
     const tenPages = allPages.filter(function (item) {
         return item.key <= currentPage + 5 && item.key >= currentPage - 5;
     })
-
 
     // displays first element , the twenty pages and the last one
     const pageLinks = [firstPage, (currentPage > 7) ? dots : '', ...tenPages, (currentPage < totalPages - 6) ? dots : '', lastPage]
