@@ -11,7 +11,12 @@ margin-left: ${ props => props.theme.spacers.small};
 user-select: none;
 .vote-result{
     color: ${ props => props.theme.colors.primary};
-    margin-left:  ${ props => props.theme.spacers.small};
+    margin: 0 ${ props => props.theme.spacers.xsmall};
+}
+.total{
+    font-size: ${ props => props.theme.fontSizes.xsmall};
+    color: ${ props => props.theme.colors.lightgrey};
+    margin-left: ${ props => props.theme.spacers.xsmall};
 }
 @media ${({ theme }) => theme.mediaQueries.below1024}{
     font-size: ${ props => props.theme.fontSizes.small};
@@ -20,7 +25,7 @@ user-select: none;
 
 const HeaderVote = ({ vote }) => {
     return (
-        <StyledVote className='header__item header__item--vote'>Vote: <span className='vote-result'>{vote}</span></StyledVote>
+        <StyledVote className='header__item header__item--vote'>Vote: <span className='vote-result'>{vote}</span>/<span className='total'>10</span></StyledVote>
     )
 }
 export default HeaderVote

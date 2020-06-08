@@ -9,7 +9,7 @@ import SingleMovieHeader from './SingleMovieHeader'
 import SingleMovieContent from './SingleMovieContent'
 import ReturnHome from '../buttons/ReturnHome'
 import fallbackHeader from './../../images/fallback-header.jpg'
-
+import AppFooter from '../footer/AppFooter'
 
 const PageWrap = styled.div`
   background-color: ${props => props.theme.colors.darkgrey};`
@@ -77,6 +77,7 @@ function SingleMoviePage(props) {
                 imdbId={movie.imdb_id}
             />}
             <ReturnHome />
+            <AppFooter />
         </PageWrap>
     )
 }
