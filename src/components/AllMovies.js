@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import SingleMovie from './singleMovie/SingleMovie'
-
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import '../css/animations.css'
 const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -10,20 +11,26 @@ const StyledList = styled.ul`
 function AllMovies(props) {
     const { movies } = props;  // Destructure props in the function body
     return (
-        <StyledList className="all-movies">
+
+        <TransitionGroup component={StyledList}>
+
             {/* Loop through all Movies and display each movie in a separate component  */}
             {movies &&
                 movies.map((movie, index) => (
-                    <SingleMovie
-                        key={movie.id}
-                        id={movie.id}
-                        index={index}
-                        title={movie.original_title || movie.original_title}
-                        poster={movie.poster_path || movie.backdrop_path}
-                        release={movie.release_date}
-                    />
+                    <CSSTransition key={movie.id} timeout={300} classNames="fade">
+                        <SingleMovie
+                            key={movie.id}
+                            id={movie.id}
+                            index={index}
+                            title={movie.original_title || movie.original_title}
+                            poster={movie.poster_path || movie.backdrop_path}
+                            release={movie.release_date}
+                        />
+                    </CSSTransition>
                 ))}
-        </StyledList>
+
+        </TransitionGroup>
+
     )
 }
 

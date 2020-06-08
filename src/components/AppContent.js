@@ -16,7 +16,7 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies }) {
     return (
         <StyledContent className="content">
             {loading && <LoadingSpinner />}
-            {!loading && <AllMovies movies={movies} />}
+            <AllMovies movies={movies} />
             <PageNumbers currentPage={currentPage}
                 totalPages={totalPages} fetchMovies={fetchMovies} />
         </StyledContent>
