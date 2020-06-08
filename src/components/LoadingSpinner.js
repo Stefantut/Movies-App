@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 const ComponentWrap = styled.section`
-height:65vh;
+height:73vh;
 width:100%;
 display: flex;
 flex-direction: column;
@@ -54,7 +54,6 @@ letter-spacing:0.3em;
 
 const LoadingSpinner = () => (
   <ComponentWrap>
-    <StyledLoading>Loading... please wait</StyledLoading>
     <StyledSpinner viewBox="0 0 50 50">
       <circle
         className="path"
@@ -65,6 +64,7 @@ const LoadingSpinner = () => (
         strokeWidth="4"
       />
     </StyledSpinner>
+    <StyledLoading>Loading... please wait</StyledLoading>
   </ComponentWrap>
 );
 

@@ -7,6 +7,7 @@ font-size: ${ props => props.theme.fontSizes.xxlarge};
 margin: 0 ${ props => props.theme.spacers.xtralarge};
 user-select: none;
 text-shadow: 2px 2px 2px ${ props => props.theme.colors.secondary};
+
 @media ${({ theme }) => theme.mediaQueries.below1024}{
     font-size: ${ props => props.theme.fontSizes.medium};
     margin: 0 ${ props => props.theme.spacers.xlarge};
