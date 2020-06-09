@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 import Title from './AppTitle'
 import logo from '../../images/logo.png'
+import Search from '../Search'
 
 const StyledWrap = styled.section`
 background-color: ${props => props.theme.colors.dark};
@@ -45,7 +46,7 @@ img{
 }
 `
 
-const TopBar = () => {
+const TopBar = ({ fetchMovies }) => {
     return (
         <StyledWrap>
             <TopBarContent>
@@ -55,9 +56,8 @@ const TopBar = () => {
                         <Title />
                     </Link>
                 </LogoTitleWrap>
-                <p>Search</p>
+                <Search fetchMovies={fetchMovies} />
             </TopBarContent>
-
         </StyledWrap>
 
     )

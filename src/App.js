@@ -45,7 +45,7 @@ function App() {
 
   return (
     <StyledApp className="App">
-      <TopBar />
+      <TopBar fetchMovies={fetchMovies} />
       <AppHeader movies={movies} />
       <AppContent
         movies={movies}
