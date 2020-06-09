@@ -12,7 +12,7 @@ const AppFooterWrap = styled.footer`
 const StyledContent = styled.div`
   margin: 0 auto;
   width: 100%;
-  max-width: 1280px;  
+  max-width: ${props => props.theme.content.medium};
   display:flex;
   justify-content: space-evenly;
   `
@@ -23,7 +23,11 @@ justify-content: center;
  svg{
       height: 50px;
     }
-    
+    @media ${({ theme }) => theme.mediaQueries.below768}{
+    svg{
+        height:35px;
+    }
+}
 `
 const StyledMessage = styled.div`
     color: ${props => props.theme.colors.tertiary};
@@ -56,6 +60,9 @@ user-select: none;
             color: ${props => props.theme.colors.darkgrey};
         }
     }
+}
+@media ${({ theme }) => theme.mediaQueries.below768}{
+    font-size: ${ props => props.theme.fontSizes.xsmall};
 }
 `
 const AppFooter = () => {
