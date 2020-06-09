@@ -18,9 +18,15 @@ function Search({ fetchMovies }) {
     const handleClick = () => {
         fetchSearchedMovies(searchTerm)
     }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            fetchSearchedMovies(searchTerm)
+        }
+    }
     return (
         <div>
-            <input type="text" onChange={handleChange} value={searchTerm} placeholder='Search Movie' />
+            <input type="text" onChange={handleChange} value={searchTerm} onKeyDown={handleKeyDown} placeholder='Search Movie' />
             <p onClick={handleClick}>Search</p>
         </div>
 
