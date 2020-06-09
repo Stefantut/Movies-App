@@ -60,8 +60,8 @@ function Enjoy() {
         <StyledWrap>
             <Content>
                 <Left>
-                    <h3 className="title">Enjoy now our movies.</h3>
-                    <p className='more-info'>Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+                    <h3 className="title">Enjoy our movies.</h3>
+                    <p className='more-info'>Find out more details about your favorite movies. We find movies for you to watch. Search now!</p>
                 </Left>
                 <Right image={devices}>
                     <Overlay />
