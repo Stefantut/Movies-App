@@ -4,7 +4,7 @@ import { ReactComponent as TmdbLogo } from '../../images/tmdb-logo.svg';
 
 const AppFooterWrap = styled.footer`
   height: ${props => props.theme.spacers.xtralarge};
-  background-color: ${props => props.theme.colors.secondary};
+  background-color: ${props => props.theme.colors.dark};
   color: ${props => props.theme.colors.lightgrey};
   display: flex;
   align-items:center;

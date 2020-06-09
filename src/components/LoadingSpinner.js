@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 const ComponentWrap = styled.section`
-height:73vh;
+height:50vh;
 width:100%;
 display: flex;
 flex-direction: column;

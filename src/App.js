@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import TopBar from './components/header/TopBar'
 import AppHeader from './components/header/AppHeader'
 import AppContent from './components/AppContent'
+import Enjoy from './components/other/Enjoy'
 import AppFooter from './components/footer/AppFooter'
 
 const StyledApp = styled.div`
@@ -53,6 +54,7 @@ function App() {
         totalPages={totalPages}
         fetchMovies={fetchMovies}
       />
+      <Enjoy />
       <AppFooter />
     </StyledApp>
   );
