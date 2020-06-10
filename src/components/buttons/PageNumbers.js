@@ -56,13 +56,19 @@ font-size: ${({ theme }) => theme.fontSizes.xsmall}
 function PageNumbers({ currentPage, totalPages, fetchMovies, usedSearch, searchQuery }) {
     // to display next page movies
     const nextPage = () => {
-        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
+        let endpoint = '';
+        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage + 1}` } else {
+            endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
+        }
         fetchMovies(endpoint)
     }
 
     // to display previous page movies
     const prevPage = () => {
-        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`;
+        let endpoint = '';
+        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage - 1}` } else {
+            endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`;
+        }
         fetchMovies(endpoint)
     }
 
