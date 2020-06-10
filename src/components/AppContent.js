@@ -16,6 +16,7 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies, use
     return (
         <StyledContent className="content">
             {loading && <LoadingSpinner />}
+            {usedSearch && <p>You searched for: {searchQuery}</p>}
             <AllMovies movies={movies} />
             <PageNumbers currentPage={currentPage}
                 totalPages={totalPages} fetchMovies={fetchMovies} usedSearch={usedSearch} searchQuery={searchQuery} />
