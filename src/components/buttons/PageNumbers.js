@@ -53,7 +53,7 @@ font-size: ${({ theme }) => theme.fontSizes.xsmall}
     color: ${props => props.theme.colors.tertiary};
   }
 `;
-function PageNumbers({ currentPage, totalPages, fetchMovies }) {
+function PageNumbers({ currentPage, totalPages, fetchMovies, usedSearch, searchQuery }) {
     // to display next page movies
     const nextPage = () => {
         const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
@@ -67,13 +67,15 @@ function PageNumbers({ currentPage, totalPages, fetchMovies }) {
     }
 
     const handlePage = (page) => {
-        const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`;
+        let endpoint = '';
+        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${page}` } else {
+            endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`;
+        };
         fetchMovies(endpoint)
     }
 
     const allPages = [];
     const dots = '...';
-
 
     function getAllPages() {
         for (let i = 1; i <= totalPages; i++) {

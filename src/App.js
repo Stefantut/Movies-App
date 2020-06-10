@@ -17,6 +17,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
+  const [usedSearch, setUsedSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
 
   // FetchMovies function to be re-used as many times we need
   const fetchMovies = async (path) => {
@@ -43,9 +45,14 @@ function App() {
     fetchMovies(endpoint);
   }, []);
 
+  // to set the state in child component
+  function setSearchState(boolean, query) {
+    setUsedSearch(boolean);
+    setSearchQuery(query);
+  }
   return (
     <StyledApp className="App">
-      <TopBar fetchMovies={fetchMovies} />
+      <TopBar fetchMovies={fetchMovies} searchState={setSearchState} />
       <AppHeader movies={movies} />
       <AppContent
         movies={movies}
@@ -53,6 +60,8 @@ function App() {
         currentPage={currentPage}
         totalPages={totalPages}
         fetchMovies={fetchMovies}
+        usedSearch={usedSearch}
+        searchQuery={searchQuery}
       />
       <Enjoy />
       <AppFooter />
