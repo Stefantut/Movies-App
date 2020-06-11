@@ -46,7 +46,7 @@ img{
 }
 `
 
-const TopBar = ({ fetchMovies, searchState }) => {
+const TopBar = ({ fetchMovies, searchState, path }) => {
     return (
         <StyledWrap>
             <TopBarContent>
@@ -56,7 +56,7 @@ const TopBar = ({ fetchMovies, searchState }) => {
                         <Title />
                     </Link>
                 </LogoTitleWrap>
-                <Search fetchMovies={fetchMovies} searchState={searchState} />
+                {path && <Search fetchMovies={fetchMovies} searchState={searchState} />}
             </TopBarContent>
         </StyledWrap>
 

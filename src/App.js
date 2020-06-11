@@ -12,7 +12,7 @@ const StyledApp = styled.div`
 background-color: ${props => props.theme.colors.darkgrey};
 `
 
-function App() {
+function App(props) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(0);
@@ -50,9 +50,15 @@ function App() {
     setUsedSearch(boolean);
     setSearchQuery(query);
   }
+
+  // gets the path from Router
+  // to be able to pass it to top bar and hide search on other pages
+  const path = props.location.pathname;
+
+
   return (
     <StyledApp className="App">
-      <TopBar fetchMovies={fetchMovies} searchState={setSearchState} />
+      <TopBar fetchMovies={fetchMovies} searchState={setSearchState} path={path} />
       <AppHeader movies={movies} />
       <AppContent
         movies={movies}

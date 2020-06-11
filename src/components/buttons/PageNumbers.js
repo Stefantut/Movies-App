@@ -57,26 +57,23 @@ function PageNumbers({ currentPage, totalPages, fetchMovies, usedSearch, searchQ
     // to display next page movies
     const nextPage = () => {
         let endpoint = '';
-        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage + 1}` } else {
-            endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`;
-        }
+        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage + 1}` }
+        else { endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}` }
         fetchMovies(endpoint)
     }
 
     // to display previous page movies
     const prevPage = () => {
         let endpoint = '';
-        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage - 1}` } else {
-            endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`;
-        }
+        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage - 1}` }
+        else { endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}` }
         fetchMovies(endpoint)
     }
 
     const handlePage = (page) => {
         let endpoint = '';
-        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${page}` } else {
-            endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}`;
-        };
+        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${page}` }
+        else { endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}` }
         fetchMovies(endpoint)
     }
 
