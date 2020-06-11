@@ -19,6 +19,7 @@ function App(props) {
   const [totalPages, setTotalPages] = useState(0);
   const [usedSearch, setUsedSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [genres, setGenres] = useState([]);
 
   // FetchMovies function to be re-used as many times we need
   const fetchMovies = async (path) => {
@@ -39,11 +40,30 @@ function App(props) {
       console.log("Error Fetching Api:" + error);
     }
   };
+
+  // FetchMovies function to be re-used as many times we need
+  const fetchGenres = async (path) => {
+    try {
+      await fetch(path)
+        .then((result) => result.json())
+        .then((result) => {
+          setGenres([...result.genres])
+        }
+        );
+
+
+    } catch (error) {
+      console.log("Error Fetching Api:" + error);
+    }
+  };
   // When initial page is loaded
   useEffect(() => {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
     fetchMovies(endpoint);
+    const endpointGenres = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
+    fetchGenres(endpointGenres)
   }, []);
+
 
   // to set the state in child component
   function setSearchState(boolean, query) {
@@ -60,6 +80,7 @@ function App(props) {
     <StyledApp className="App">
       <TopBar fetchMovies={fetchMovies} searchState={setSearchState} path={path} />
       <AppHeader movies={movies} />
+
       <AppContent
         movies={movies}
         loading={loading}
