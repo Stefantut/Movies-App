@@ -1,26 +1,40 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from 'styled-components';
 import { convertToClassName } from '../../helpers'
-const StyledList = styled.ul`
+const StyledFilter = styled.ul`
   max-width: 1280px;
   margin: ${props => props.theme.spacers.xxlarge} auto;
-  color:${props => props.theme.colors.primary};
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  text-align: center;
+
 `
 
+const List = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  text-align: center;
+
+`
+const ListElement = styled.li`
+  color:${props => props.theme.colors.primary};
+  list-style-type:none;
+  &:hover{
+    color:${props => props.theme.colors.tertiary};
+    cursor:pointer;
+  }
+`
 function FilterGenres({ genres, handleGenre }) {
-    console.log(genres);
     const genresList = [];
-    const allGenres = genres && genres.map((genre, index) => (<li className={`genre genre--${convertToClassName(genre.name)}`} key={genre.id} onClick={() => { handleGenre(genre.id); }}>{genre.name}</li>))
+    const allGenres = genres && genres.map(genre =>
+        (<ListElement className={`genre genre--${convertToClassName(genre.name)}`} key={genre.id} onClick={() => { handleGenre(genre.id, genre.name); }}>{genre.name}</ListElement>)
+    )
     genresList.push(allGenres)
     return (
-        <StyledList className="genres-list">
+        <StyledFilter className="genres-list">
+            <h3>Filter by Genres:</h3>
+            <List>
+                {genresList}
+            </List>
 
-            {genresList}
-
-        </StyledList>
+        </StyledFilter>
     )
 }
 

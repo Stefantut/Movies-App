@@ -8,6 +8,7 @@ import AppContent from './components/AppContent'
 import Enjoy from './components/other/Enjoy'
 import AppFooter from './components/footer/AppFooter'
 import FilterGenres from './components/buttons/FilterGenres'
+import SelectedGenre from './components/misc/SelectedGenre'
 
 const StyledApp = styled.div`
 background-color: ${props => props.theme.colors.darkgrey};
@@ -21,6 +22,7 @@ function App(props) {
   const [usedSearch, setUsedSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [genres, setGenres] = useState([]);
+  const [selectedGenre, setSelectedGenre] = useState('');
 
   // FetchMovies function to be re-used as many times we need
   const fetchMovies = async (path) => {
@@ -77,19 +79,18 @@ function App(props) {
   const path = props.location.pathname;
 
   // Genres
-  const handleGenre = (id) => {
+  const handleGenre = (id, name) => {
     const endpoint = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${id}`;
-    fetchMovies(endpoint)
-    console.log('id=' + id);
+    fetchMovies(endpoint);
+    setSelectedGenre(name);
   }
-  // const genresList = [];
-  // const allGenres = genres.map((genre, index) => (<li className={`genre genre--${genre.name}`} key={genre.id} onClick={() => { handleGenre(genre.id); }}>{genre.name}</li>))
-  // genresList.push(allGenres)
+
   return (
     <StyledApp className="App">
       <TopBar fetchMovies={fetchMovies} searchState={setSearchState} path={path} />
       <AppHeader movies={movies} />
       <FilterGenres handleGenre={handleGenre} genres={genres} />
+      {selectedGenre && <SelectedGenre genre={selectedGenre} />}
       <AppContent
         movies={movies}
         loading={loading}
