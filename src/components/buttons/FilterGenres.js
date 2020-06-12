@@ -6,46 +6,46 @@ import { convertToClassName } from '../../helpers'
 
 
 const StyledFilter = styled.div`
-  /* max-width: 1280px;
-  margin: ${props => props.theme.spacers.xxlarge} auto; */
-position:sticky;
-top:20%;
-left:0;
-`
+  max-width: 1280px;
+  margin: ${props => props.theme.spacers.xxlarge} auto;
+  span{
+      display:none;
+      transition:0.2 ease-in;
+      margin-left:20px;
+      ${({ visible }) => visible && `
+      display:block;
+      `}
+
+  }
+  `
 
 const List = styled.ul`
-  /* display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
-  display:flex;
-  flex-direction:column;
-  text-align: right;
-  position: absolute;
-  top:0;
-  left:0;
-  margin-left:${props => props.theme.spacers.xxxlarge};
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items:center;
+  margin-top: ${props => props.theme.spacers.medium};
 `
 const ListElement = styled.li`
   color:${props => props.theme.colors.primary};
   list-style-type:none;
+  margin-bottom: ${props => props.theme.spacers.xsmall};
   &:hover{
     color:${props => props.theme.colors.tertiary};
     cursor:pointer;
   }
 `
 const StyledButton = styled.h3`
-writing-mode: tb;
-    transform: rotate(180deg);
     display: inline-flex;
     font-size: ${props => props.theme.fontSizes.small};
-    margin-left:${props => props.theme.spacers.xsmall};
-    padding: ${props => props.theme.spacers.small} ${props => props.theme.spacers.xsmall};
+    padding: ${props => props.theme.spacers.xsmall} ${props => props.theme.spacers.medium};
     font-family: ${props => props.theme.font.light};
     color: ${props => props.theme.colors.lightgrey};
     background-color: ${props => props.theme.colors.primary};
-display:flex;
-align-items:center;
+    align-items:center;
+    transition:0.2s ease;
     &:hover{
-        cursor:grab;
+        cursor:pointer;
+        color: ${props => props.theme.colors.tertiary};
     }
 `
 
@@ -63,13 +63,14 @@ function FilterGenres({ genres, handleGenre }) {
     }
 
     return (
-        <StyledFilter>
-            <StyledButton onClick={handleClick}>Filter by Genres</StyledButton>
+        //pass visible state to styled components
+        <StyledFilter visible={visible}>
+            <StyledButton onClick={handleClick}>Filter by Genres<span>x</span></StyledButton>
 
             <CSSTransition
                 in={visible}
                 timeout={250}
-                classNames="appear"
+                classNames="fade"
                 unmountOnExit
             >
                 <List className="genres-list">
