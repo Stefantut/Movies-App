@@ -1,14 +1,35 @@
+/* Fade animation */
 .fade-enter {
   opacity: 0;
-  transition: 500ms ease-in;
+  transition: 500ms;
 }
 .fade-enter-active {
   opacity: 1;
 }
 .fade-exit {
   opacity: 1;
-  transition: 500ms ease-out;
+  transition: 500ms;
 }
 .fade-exit-active {
+  opacity: 0;
+}
+
+/* Appear animation */
+.appear-enter {
+  transform: translateX(-120%);
+  transition: 0.5s;
+  opacity: 0;
+}
+.appear-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+}
+.appear-exit {
+  transform: translateX(0);
+  transition: 0.5s;
+  opacity: 1;
+}
+.appear-exit-active {
+  transform: translateX(-120%);
   opacity: 0;
 }
