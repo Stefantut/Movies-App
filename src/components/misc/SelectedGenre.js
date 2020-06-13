@@ -1,12 +1,17 @@
 import React from "react";
 import styled from 'styled-components';
+
 const StyledGenre = styled.h3`
+  max-width: ${props => props.theme.content.medium};
+  margin: ${props => props.theme.spacers.medium} auto;
   color:${props => props.theme.colors.lightgrey};
+  user-select:none;
+  font-family: ${props => props.theme.font.light}
 `
 
 const SelectedGenre = ({ genre }) => {
-    return (
-        <StyledGenre>Your Filter: {genre}</StyledGenre>
-    )
+  return (
+    <StyledGenre>Your selected filter: {genre}</StyledGenre>
+  )
 }
 export default SelectedGenre

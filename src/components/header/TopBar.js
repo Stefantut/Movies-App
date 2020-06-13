@@ -14,7 +14,7 @@ const TopBarContent = styled.div`
 display: flex;
 justify-content: space-between;
 align-items:center;
-max-width: 1280px;
+max-width: ${props => props.theme.content.medium};
 margin: 0 auto;
 color: ${props => props.theme.colors.light};
 padding: ${props => props.theme.spacers.medium} 0;

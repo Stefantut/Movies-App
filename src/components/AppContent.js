@@ -6,7 +6,7 @@ import LoadingSpinner from './LoadingSpinner';
 import PageNumbers from './buttons/PageNumbers'
 
 const StyledContent = styled.section`
-  max-width: 1280px;
+  max-width: ${props => props.theme.content.medium};
   margin: ${props => props.theme.spacers.xxlarge} auto;
 `
 

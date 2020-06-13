@@ -6,17 +6,8 @@ import { convertToClassName } from '../../helpers'
 
 
 const StyledFilter = styled.div`
-  max-width: 1280px;
+  max-width: ${props => props.theme.content.medium};
   margin: ${props => props.theme.spacers.xxlarge} auto;
-  span{
-      display:none;
-      transition:0.2 ease-in;
-      margin-left:20px;
-      ${({ visible }) => visible && `
-      display:block;
-      `}
-
-  }
   `
 
 const List = styled.ul`
@@ -33,9 +24,16 @@ const ListElement = styled.li`
     color:${props => props.theme.colors.tertiary};
     cursor:pointer;
   }
+  &.active{
+    color:${props => props.theme.colors.lightgrey};
+    background-color:${props => props.theme.colors.secondary};
+    border: 2px solid ${props => props.theme.colors.primary};
+    padding:0 ${props => props.theme.spacers.small};
+  }
 `
-const StyledButton = styled.h3`
+const StyledButton = styled.button`
     display: inline-flex;
+    border:none;
     font-size: ${props => props.theme.fontSizes.small};
     padding: ${props => props.theme.spacers.xsmall} ${props => props.theme.spacers.medium};
     font-family: ${props => props.theme.font.light};
@@ -47,14 +45,29 @@ const StyledButton = styled.h3`
         cursor:pointer;
         color: ${props => props.theme.colors.tertiary};
     }
+    &:focus{
+        outline:thin;
+    }
+   span{
+      display:none;
+      transition:0.2 ease-in;
+      margin-left:20px;
+      ${({ visible }) => visible && `
+      display:block;
+      `}
+      &:hover{
+         color: ${props => props.theme.colors.secondary};
+
+     }
+  }
 `
 
 
-function FilterGenres({ genres, handleGenre }) {
+function FilterGenres({ genres, handleGenre, selectedGenre }) {
     const [visible, setVisible] = useState(false);
     const genresList = [];
     const allGenres = genres && genres.map(genre =>
-        (<ListElement className={`genre genre--${convertToClassName(genre.name)}`} key={genre.id} onClick={() => { handleGenre(genre.id, genre.name) }}>{genre.name}</ListElement>)
+        (<ListElement className={`genre genre--${convertToClassName(genre.name)} ${genre.id === selectedGenre ? "active" : ""}`} key={genre.id} onClick={() => { handleGenre(genre) }}>{genre.name}</ListElement>)
     )
     genresList.push(allGenres)
 
@@ -64,9 +77,8 @@ function FilterGenres({ genres, handleGenre }) {
 
     return (
         //pass visible state to styled components
-        <StyledFilter visible={visible}>
-            <StyledButton onClick={handleClick}>Filter by Genres<span>x</span></StyledButton>
-
+        <StyledFilter >
+            <StyledButton onClick={handleClick} visible={visible}>Filter by Genres<span>x</span></StyledButton>
             <CSSTransition
                 in={visible}
                 timeout={250}

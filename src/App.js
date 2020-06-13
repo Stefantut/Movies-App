@@ -79,18 +79,18 @@ function App(props) {
   const path = props.location.pathname;
 
   // Genres
-  const handleGenre = (id, name) => {
-    const endpoint = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${id}`;
+  const handleGenre = (genre) => {
+    const endpoint = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genre.id}`;
     fetchMovies(endpoint);
-    setSelectedGenre(name);
+    setSelectedGenre(genre);
   }
 
   return (
     <StyledApp className="App">
       <TopBar fetchMovies={fetchMovies} searchState={setSearchState} path={path} />
       <AppHeader movies={movies} />
-      <FilterGenres handleGenre={handleGenre} genres={genres} />
-      {selectedGenre && <SelectedGenre genre={selectedGenre} />}
+      <FilterGenres handleGenre={handleGenre} genres={genres} selectedGenre={selectedGenre.id} />
+      {selectedGenre && <SelectedGenre genre={selectedGenre.name} />}
       <AppContent
         movies={movies}
         loading={loading}
