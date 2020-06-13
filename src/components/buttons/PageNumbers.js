@@ -53,20 +53,36 @@ font-size: ${({ theme }) => theme.fontSizes.xsmall}
     color: ${props => props.theme.colors.tertiary};
   }
 `;
-function PageNumbers({ currentPage, totalPages, fetchMovies, usedSearch, searchQuery }) {
+function PageNumbers({ currentPage, totalPages, fetchMovies, usedSearch, searchQuery, usedGenresFilter, selectedGenre }) {
     // to display next page movies
     const nextPage = () => {
         let endpoint = '';
-        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage + 1}` }
-        else { endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}` }
+        switch (true) {
+            case usedSearch:
+                endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage + 1}`
+                break;
+            case usedGenresFilter:
+                endpoint = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${selectedGenre.id}&page=${currentPage + 1}`
+                break;
+            default:
+                endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage + 1}`
+        }
         fetchMovies(endpoint)
     }
 
     // to display previous page movies
     const prevPage = () => {
         let endpoint = '';
-        if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage - 1}` }
-        else { endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}` }
+        switch (true) {
+            case usedSearch:
+                endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${currentPage - 1}`
+                break;
+            case usedGenresFilter:
+                endpoint = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${selectedGenre.id}&page=${currentPage - 1}`
+                break;
+            default:
+                endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${currentPage - 1}`
+        }
         fetchMovies(endpoint)
     }
 

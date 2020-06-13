@@ -23,6 +23,7 @@ function App(props) {
   const [searchQuery, setSearchQuery] = useState('');
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState('');
+  const [usedGenresFilter, setUsedGenresFilter] = useState(false);
 
   // FetchMovies function to be re-used as many times we need
   const fetchMovies = async (path) => {
@@ -83,6 +84,7 @@ function App(props) {
     const endpoint = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genre.id}`;
     fetchMovies(endpoint);
     setSelectedGenre(genre);
+    setUsedGenresFilter(true)
   }
 
   return (
@@ -99,6 +101,8 @@ function App(props) {
         fetchMovies={fetchMovies}
         usedSearch={usedSearch}
         searchQuery={searchQuery}
+        selectedGenre={selectedGenre}
+        usedGenresFilter={usedGenresFilter}
       />
       <Enjoy />
       <AppFooter />
