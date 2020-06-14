@@ -88,8 +88,6 @@ function PageNumbers({ currentPage, totalPages, fetchMovies, usedSearch, searchQ
 
     const handlePage = (page) => {
         let endpoint = '';
-        // if (usedSearch) { endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${page}` }
-        // else { endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=${page}` }
         switch (true) {
             case usedSearch:
                 endpoint = `${BASE_URL}/search/movie?query=${searchQuery}&api_key=${API_KEY}&language=en-US&page=${page}`
