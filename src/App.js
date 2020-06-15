@@ -47,6 +47,7 @@ function App(props) {
 
   // FetchMovies function to be re-used as many times we need
   const fetchGenres = async (path) => {
+    setLoading(true);
     try {
       await fetch(path)
         .then((result) => result.json())
@@ -54,7 +55,7 @@ function App(props) {
           setGenres([...result.genres])
         }
         );
-
+      setLoading(false);
 
     } catch (error) {
       console.log("Error Fetching Api:" + error);
@@ -86,12 +87,6 @@ function App(props) {
     setSelectedGenre(genre);
     setUsedGenresFilter(true)
   }
-  // const filteredGenres = genres && genres.filter((genre) =>
-  //   (genre.id === id ? genre.name : '')
-  // )
-  // console.log(filteredGenres);
-
-
 
   return (
     <StyledApp className="App">

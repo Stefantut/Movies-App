@@ -13,6 +13,10 @@ html {
     box-sizing: border-box;
 }
 
+li{
+    list-style-type: none;
+}
+
 `;
 
 export default GlobalStyle;
