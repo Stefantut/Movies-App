@@ -36,9 +36,9 @@ const StyledListItem = styled.li`
 
 const PosterImage = ({ url, genresIds, genresList }) => {
 
-  // loop through genres id array and return the name for each
+  // map through genres id array and return the name for each
   const allGenres = genresIds && genresIds.map((id) => {
-    // if is equal to the id will rertun the name
+    // map through Genres List - if is equal to the id will return the name
     const filteredGenre = genresList && genresList.map((genre) =>
       (genre.id === id) ? genre.name : ''
     )

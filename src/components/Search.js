@@ -2,6 +2,25 @@ import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "../Variables";
 import styled from 'styled-components'
 
+const SearchWrap = styled.div`
+display:flex;
+`
+const StyledInput = styled.input`
+border:none;
+background-color: ${props => props.theme.colors.secondary};
+color:${props => props.theme.colors.lightgrey};
+caret-color:${props => props.theme.colors.primary};
+padding: ${props => props.theme.spacers.xsmall};
+&::placeholder{
+    padding-left: ${props => props.theme.spacers.xsmall};
+    color: ${props => props.theme.colors.light};
+}
+&:focus{
+    outline: thin;
+    border:1px solid ${props => props.theme.colors.primary};
+}
+`
+
 function Search({ fetchMovies, searchState }) {
     const [searchTerm, setSearchTerm] = useState('');
     const [searched, setSearched] = useState(false);
@@ -23,7 +42,6 @@ function Search({ fetchMovies, searchState }) {
             setSearched(true);
             fetchSearchedMovies(searchTerm);
             setError('');
-            setSearchTerm('')
         } else {
             setError('Please type in min 1 character')
         }
@@ -47,11 +65,11 @@ function Search({ fetchMovies, searchState }) {
     });
 
     return (
-        <div>
-            <input type="text" onChange={handleChange} value={searchTerm} onKeyDown={handleKeyDown} placeholder='Search Movie' />
+        <SearchWrap>
+            <StyledInput type="text" onChange={handleChange} value={searchTerm} onKeyDown={handleKeyDown} placeholder='Search Movie' />
             <p onClick={handleClick}>Search</p>
             <p className="error">{error}</p>
-        </div>
+        </SearchWrap>
 
     )
 }
