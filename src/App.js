@@ -86,6 +86,12 @@ function App(props) {
     setSelectedGenre(genre);
     setUsedGenresFilter(true)
   }
+  // const filteredGenres = genres && genres.filter((genre) =>
+  //   (genre.id === id ? genre.name : '')
+  // )
+  // console.log(filteredGenres);
+
+
 
   return (
     <StyledApp className="App">
@@ -103,6 +109,7 @@ function App(props) {
         searchQuery={searchQuery}
         selectedGenre={selectedGenre}
         usedGenresFilter={usedGenresFilter}
+        genresList={genres}
       />
       <Enjoy />
       <AppFooter />

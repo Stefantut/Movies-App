@@ -10,7 +10,7 @@ const StyledList = styled.ul`
   grid-gap: ${props => props.theme.spacers.large};
 `
 function AllMovies(props) {
-    const { movies } = props;  // Destructure props in the function body
+    const { movies, genresList } = props;  // Destructure props in the function body
     return (
 
         <TransitionGroup component={StyledList} >
@@ -25,6 +25,8 @@ function AllMovies(props) {
                             title={movie.original_title || movie.original_title}
                             poster={movie.poster_path || movie.backdrop_path}
                             release={movie.release_date}
+                            genresIds={movie.genre_ids}
+                            genresList={genresList}
                         />
                     </CSSTransition>
                 ))}

@@ -10,14 +10,14 @@ const StyledContent = styled.section`
   margin: ${props => props.theme.spacers.xxlarge} auto;
 `
 
-function AppContent({ movies, currentPage, totalPages, loading, fetchMovies, usedSearch, searchQuery, usedGenresFilter, selectedGenre }) {
+function AppContent({ movies, currentPage, totalPages, loading, fetchMovies, usedSearch, searchQuery, usedGenresFilter, selectedGenre, genresList }) {
 
 
     return (
         <StyledContent className="content">
             {loading && <LoadingSpinner />}
             {usedSearch && <p>You searched for: {searchQuery}</p>}
-            <AllMovies movies={movies} />
+            <AllMovies movies={movies} genresList={genresList} />
             <PageNumbers
                 currentPage={currentPage}
                 totalPages={totalPages}
