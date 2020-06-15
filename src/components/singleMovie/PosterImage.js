@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from 'styled-components';
-import ReactTooltip from "react-tooltip";
 
 const StyledPoster = styled.div`
 background-image:url(${props => props.url});
@@ -48,20 +47,13 @@ const PosterImage = ({ url, genresIds, genresList }) => {
   }
   );
   return (
-    <React.Fragment>
-      <StyledPoster
-        url={url}
-        className="card__item card__item--poster" data-for="linkTip" data-tip='linkTip'>
-        <StyledGenreList>
-          {allGenres}
-        </StyledGenreList>
-      </StyledPoster>
-
-      {/* Forced reflow while executing JavaScript took ms in console log because of tooltip */}
-      <ReactTooltip id="linkTip" place="top" effect='solid' arrowColor='#C20114' backgroundColor='#C20114'>
-        More details
-      </ReactTooltip>
-    </React.Fragment>
+    <StyledPoster
+      url={url}
+      className="card__item card__item--poster" data-for="linkTip" data-tip='linkTip'>
+      <StyledGenreList>
+        {allGenres}
+      </StyledGenreList>
+    </StyledPoster>
   );
 }
 
