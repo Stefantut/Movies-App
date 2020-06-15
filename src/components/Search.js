@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "../Variables";
 import styled from 'styled-components'
+import { ReactComponent as SearchImage } from '../images/search.svg';
 
 const SearchWrap = styled.div`
 display:flex;
+align-items: center;
 `
 const StyledInput = styled.input`
 border:none;
@@ -19,6 +21,30 @@ padding: ${props => props.theme.spacers.xsmall};
     outline: thin;
     border:1px solid ${props => props.theme.colors.primary};
 }
+`
+
+const SearchButton = styled.div`
+margin-left:  ${props => props.theme.spacers.small};
+svg{
+    max-height: 20px;
+    max-width: 20px;
+    filter:invert(1);
+    transition:0.2s ease-in;
+}
+&:hover{
+    cursor: pointer;
+    svg{
+        transform:rotate(-30deg);
+    }
+}
+`
+
+const ErrorMessage = styled.p`
+color: ${props => props.theme.colors.primary};
+font-size: ${props => props.theme.fontSizes.xsmall};
+margin-right:  ${props => props.theme.spacers.small};
+user-select: none;
+font-family: ${props => props.theme.font.bold};
 `
 
 function Search({ fetchMovies, searchState }) {
@@ -66,9 +92,9 @@ function Search({ fetchMovies, searchState }) {
 
     return (
         <SearchWrap>
+            <ErrorMessage className="error">{error}</ErrorMessage>
             <StyledInput type="text" onChange={handleChange} value={searchTerm} onKeyDown={handleKeyDown} placeholder='Search Movie' />
-            <p onClick={handleClick}>Search</p>
-            <p className="error">{error}</p>
+            <SearchButton onClick={handleClick}><SearchImage /></SearchButton>
         </SearchWrap>
 
     )
