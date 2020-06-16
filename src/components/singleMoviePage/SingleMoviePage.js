@@ -54,8 +54,8 @@ function SingleMoviePage(props) {
             <TopBar />
             {loading && <LoadingSpinner />}
             {/* Header*/}
-            {movie && imageUrl && <SingleMovieHeader
-                imageUrl={(imageUrl === null) ? fallbackHeader : `${IMAGE_URL}w1280${imageUrl}`}
+            {movie && <SingleMovieHeader
+                imageUrl={(!imageUrl) ? fallbackHeader : `${IMAGE_URL}w1280${imageUrl}`}
                 title={movie.title || movie.original_title}
                 tagline={movie.tagline}
                 overview={movie.overview}
