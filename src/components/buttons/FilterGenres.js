@@ -64,35 +64,35 @@ const StyledButton = styled.button`
 
 
 function FilterGenres({ genres, handleGenre, selectedGenre }) {
-    const [visible, setVisible] = useState(false);
-    const genresList = [];
-    const allGenres = genres && genres.map(genre =>
-        (<ListElement className={`genre genre--${convertToClassName(genre.name)} ${genre.id === selectedGenre ? "active" : ""}`} key={genre.id} onClick={() => { handleGenre(genre) }}>{genre.name}</ListElement>)
-    )
-    genresList.push(allGenres)
+  const [visible, setVisible] = useState(false);
+  const genresList = [];
+  const allGenres = genres && genres.map(genre =>
+    (<ListElement className={`genre genre--${convertToClassName(genre.name)} ${genre.id === selectedGenre ? "active" : ""}`} key={genre.id} onClick={() => { handleClick(); handleGenre(genre) }}>{genre.name}</ListElement>)
+  )
+  genresList.push(allGenres)
 
-    function handleClick() {
-        setVisible(!visible);
-    }
+  function handleClick() {
+    setVisible(!visible);
+  }
 
-    return (
-        //pass visible state to styled components
-        <StyledFilter >
-            <StyledButton onClick={handleClick} visible={visible}>Filter by Genres<span>x</span></StyledButton>
-            <CSSTransition
-                in={visible}
-                timeout={250}
-                classNames="fade"
-                unmountOnExit
-            >
-                <List className="genres-list">
-                    {genresList}
-                </List>
-            </CSSTransition>
+  return (
+    //pass visible state to styled components
+    <StyledFilter >
+      <StyledButton onClick={handleClick} visible={visible}>Filter by Genres<span>x</span></StyledButton>
+      <CSSTransition
+        in={visible}
+        timeout={250}
+        classNames="fade"
+        unmountOnExit
+      >
+        <List className="genres-list">
+          {genresList}
+        </List>
+      </CSSTransition>
 
 
-        </StyledFilter>
-    )
+    </StyledFilter>
+  )
 }
 
 export default FilterGenres
