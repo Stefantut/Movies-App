@@ -47,6 +47,8 @@ function SingleMoviePage(props) {
         fetchMovie(endpoint);
     }, [id]);
 
+    // scrolls to top when page is loaded
+    window.scrollTo(0, 0);
     return (
         <PageWrap>
             <TopBar />
