@@ -3,18 +3,26 @@ import styled from 'styled-components'
 import { ReactComponent as Arrow } from '../../images/back-arrow.svg';
 
 const StyledNotFound = styled.div`
-min-height:70vh;
+min-height:50vh;
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 color: ${props => props.theme.colors.primary};
 `
+
+const StyledMessage = styled.p`
+font-size: ${props => props.theme.fontSizes.medium};
+margin-bottom: ${props => props.theme.spacers.xxlarge};
+user-select: none;
+`
+
 const StyledButton = styled.div`
   color:${props => props.theme.colors.lightgrey};
     display: flex;
     align-items:center;
     text-decoration:none;
+    font-size: ${props => props.theme.fontSizes.medium};
     svg{
         width: 15px;
         height:15px;
@@ -38,7 +46,7 @@ function MovieNotFound() {
     }
     return (
         <StyledNotFound>
-            <p>Sorry, No movie could be found with this name.</p>
+            <StyledMessage>Sorry, We couldn't find any movie.</StyledMessage>
             <StyledButton onClick={refreshPage}><Arrow />Return to All Movies List</StyledButton>
         </StyledNotFound>
     )
