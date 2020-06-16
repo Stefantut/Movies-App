@@ -41,7 +41,7 @@ a{
 const ReturnHome = () => {
     return (
         <StyledLink>
-            <Link to='/'><Arrow />Return to All Movies List</Link>
+            <Link to='/'><Arrow />Return to main page</Link>
         </StyledLink>
     )
 }

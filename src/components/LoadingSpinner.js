@@ -50,6 +50,7 @@ text-align: center;
 margin: 1em 0;
 color: ${props => props.theme.colors.lightgrey};
 letter-spacing:0.3em;
+user-select: none;
 `
 
 const LoadingSpinner = () => (
