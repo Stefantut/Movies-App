@@ -54,7 +54,7 @@ const SingleMovieContent =
                 {collection ? <Collection collection={collection} /> : ''}
                 {budget && (budget >= 0 || budget === null) ? <Budget budget={budget} /> : ''}
                 {revenue && (revenue >= 0 || revenue === null) ? <Revenue revenue={revenue} /> : ''}
-                {genres && <Genres genres={genres} />}
+                {genres && genres.length < 0 && <Genres genres={genres} />}
                 {productionCountries && <ProductionCountries productionCountries={productionCountries} />}
                 {productionCompanies && <ProductionCompanies productionCompanies={productionCompanies} />}
                 {release && <ReleaseDate release={release} />}
