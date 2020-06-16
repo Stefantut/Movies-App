@@ -8,7 +8,7 @@
 
 Movies App built in React ^16.13.1 which will display all movies from [The Movie Database API](https://www.themoviedb.org/) and all the details about each movie.
 
-I used:
+**I used:**
 
 - React (mainly functional components and hooks)
 - React Router
@@ -20,14 +20,10 @@ I used:
 
 Get an api key from [TMDB Api](https://www.themoviedb.org/documentation/api)
 Create an .env file in the root of the project and put your API key.
-**Example content of .env file:**
+**Example of .env file:**
 REACT_APP_API = yourapikey
 
-#### Installation Npm
-
-```
-To install all dependencies : npm install
-```
+#### Installation Npm - npm install
 
 ```
 `npm start` - Runs the app in the development mode.
@@ -35,11 +31,7 @@ To install all dependencies : npm install
 `npm test` - Launches the test runner in the interactive watch mode.
 ```
 
-#### Installation Yarn
-
-```
-To install all dependencies : yarn install
-```
+#### Installation Yarn - yarn install
 
 ```
 `yarn start` - Runs the app in the development mode.
@@ -47,4 +39,4 @@ To install all dependencies : yarn install
 `yarn test` - Launches the test runner in the interactive watch mode.
 ```
 
-**Enjoy, Stefan**
+**_Enjoy, Stefan 🚀🚀🚀_**
