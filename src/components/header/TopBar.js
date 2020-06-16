@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 import Title from './AppTitle'
 import logo from '../../images/logo.png'
@@ -25,7 +24,7 @@ border-bottom: 3px solid ${props => props.theme.colors.primary};
 `
 
 const LogoTitleWrap = styled.div`
-a{
+
 text-decoration: none;
 display:flex;
 align-items:center;
@@ -39,22 +38,24 @@ img{
     transform: rotate(10deg);
 }
 &:hover{
+    cursor:pointer;
     img{
         transform: rotate(220deg) scale(1.2);
     }
 }
-}
+
 `
 
-const TopBar = ({ fetchMovies, searchState, path }) => {
+function TopBar({ fetchMovies, searchState, path }) {
+    function refreshPage() {
+        window.location.reload(false);
+    }
     return (
         <StyledWrap>
             <TopBarContent>
-                <LogoTitleWrap>
-                    <Link to='/'>
-                        <img src={logo} alt="logo" />
-                        <Title />
-                    </Link>
+                <LogoTitleWrap onClick={refreshPage}>
+                    <img src={logo} alt="logo" />
+                    <Title />
                 </LogoTitleWrap>
                 {path && <Search fetchMovies={fetchMovies} searchState={searchState} />}
             </TopBarContent>
