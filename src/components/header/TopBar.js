@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Title from './AppTitle'
@@ -18,6 +19,9 @@ margin: 0 auto;
 color: ${props => props.theme.colors.light};
 padding: ${props => props.theme.spacers.medium} 0;
 border-bottom: 3px solid ${props => props.theme.colors.primary};
+a{
+    text-decoration: none;
+}
 @media ${({ theme }) => theme.mediaQueries.below1300}{
     padding: ${props => props.theme.spacers.medium};
 }
@@ -47,16 +51,16 @@ img{
 `
 
 function TopBar({ fetchMovies, searchState, path }) {
-    function refreshPage() {
-        window.location.reload(false);
-    }
+
     return (
         <StyledWrap>
             <TopBarContent>
-                <LogoTitleWrap onClick={refreshPage}>
-                    <img src={logo} alt="logo" />
-                    <Title />
-                </LogoTitleWrap>
+                <Link to='/'>
+                    <LogoTitleWrap>
+                        <img src={logo} alt="logo" />
+                        <Title />
+                    </LogoTitleWrap>
+                </Link>
                 {path && <Search fetchMovies={fetchMovies} searchState={searchState} />}
             </TopBarContent>
         </StyledWrap>
