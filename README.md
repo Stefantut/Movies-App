@@ -19,7 +19,7 @@ Movies App built in React ^16.13.1 which will display all movies from [The Movie
 ### Api Key:
 
 Get an api key from [TMDB Api](https://www.themoviedb.org/documentation/api)
-Create an .env file in the root of the project and put your API key.
+Create an .env.local file in the root of the project and put your API key.
 **Example of .env file:**
 REACT_APP_API = yourapikey
 
