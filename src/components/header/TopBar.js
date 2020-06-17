@@ -51,12 +51,14 @@ img{
 `
 
 function TopBar({ fetchMovies, searchState, path }) {
-
+    function refreshPage() {
+        window.location.reload(false);
+    }
     return (
         <StyledWrap>
             <TopBarContent>
                 <Link to='/'>
-                    <LogoTitleWrap>
+                    <LogoTitleWrap onClick={refreshPage}>
                         <img src={logo} alt="logo" />
                         <Title />
                     </LogoTitleWrap>
