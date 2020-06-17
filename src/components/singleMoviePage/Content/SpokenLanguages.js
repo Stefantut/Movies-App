@@ -7,6 +7,9 @@ const LanguagesWrap = styled.div`
 margin-bottom: ${props => props.theme.spacers.xsmall};
 font-family: ${props => props.theme.font.medium};
 display: flex;
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${ props => props.theme.fontSizes.xsmall};
+}
 
 `
 const StyledTitle = styled.p`

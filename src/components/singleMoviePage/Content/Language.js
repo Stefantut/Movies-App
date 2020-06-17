@@ -9,6 +9,9 @@ span{
     color: ${props => props.theme.colors.light};
     margin-left: ${props => props.theme.spacers.small};  
 }
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${ props => props.theme.fontSizes.xsmall};
+}
 `
 
 

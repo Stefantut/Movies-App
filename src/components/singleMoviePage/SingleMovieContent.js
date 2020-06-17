@@ -38,6 +38,9 @@ color: ${props => props.theme.colors.light};
 @media ${({ theme }) => theme.mediaQueries.below1024}{
     font-size: ${ props => props.theme.fontSizes.medium};
 }
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${ props => props.theme.fontSizes.small};
+}
 `
 
 const SingleMovieContent =
@@ -54,7 +57,7 @@ const SingleMovieContent =
                 {collection ? <Collection collection={collection} /> : ''}
                 {budget && (budget >= 0 || budget === null) ? <Budget budget={budget} /> : ''}
                 {revenue && (revenue >= 0 || revenue === null) ? <Revenue revenue={revenue} /> : ''}
-                {genres && genres.length < 0 && <Genres genres={genres} />}
+                {genres && genres.length > 0 && <Genres genres={genres} />}
                 {productionCountries && <ProductionCountries productionCountries={productionCountries} />}
                 {productionCompanies && <ProductionCompanies productionCompanies={productionCompanies} />}
                 {release && <ReleaseDate release={release} />}

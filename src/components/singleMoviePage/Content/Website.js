@@ -29,6 +29,9 @@ a{
     }
     }
 }
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${ props => props.theme.fontSizes.xsmall};
+}
 `
 const StyledTitle = styled.p`
 color: ${props => props.theme.colors.primary};

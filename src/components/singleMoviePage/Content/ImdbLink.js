@@ -7,6 +7,9 @@ user-select:none;
 font-family: ${props => props.theme.font.medium};
 margin-bottom: ${props => props.theme.spacers.xsmall};
 display:flex;
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${ props => props.theme.fontSizes.xsmall};
+}
 a{
     display:flex;
     color: ${props => props.theme.colors.light};
