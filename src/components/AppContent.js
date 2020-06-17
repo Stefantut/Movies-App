@@ -19,6 +19,12 @@ font-size:${props => props.theme.fontSizes.medium};
 span{
     color: ${props => props.theme.colors.primary};
 }
+@media ${({ theme }) => theme.mediaQueries.below1300}{
+    padding: 0 ${props => props.theme.spacers.medium}
+}
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${({ theme }) => theme.fontSizes.xsmall};
+}
 `
 
 function AppContent({ movies, currentPage, totalPages, loading, fetchMovies, usedSearch, searchQuery, usedGenresFilter, selectedGenre, genresList }) {

@@ -6,7 +6,10 @@ const StyledGenre = styled.h3`
   margin: ${props => props.theme.spacers.medium} auto;
   color:${props => props.theme.colors.lightgrey};
   user-select:none;
-  font-family: ${props => props.theme.font.light}
+  font-family: ${props => props.theme.font.light};
+  @media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${({ theme }) => theme.fontSizes.xsmall};
+}
 `
 
 const SelectedGenre = ({ genre }) => {

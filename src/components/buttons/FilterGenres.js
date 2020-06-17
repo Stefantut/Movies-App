@@ -8,6 +8,9 @@ import { convertToClassName } from '../../helpers'
 const StyledFilter = styled.div`
   max-width: ${props => props.theme.content.medium};
   margin: ${props => props.theme.spacers.xxlarge} auto;
+  @media ${({ theme }) => theme.mediaQueries.below1300}{
+    padding: 0 ${props => props.theme.spacers.medium}
+}
   `
 
 const List = styled.ul`
@@ -60,6 +63,9 @@ const StyledButton = styled.button`
 
      }
   }
+  @media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${({ theme }) => theme.fontSizes.xsmall};
+}
 `
 
 

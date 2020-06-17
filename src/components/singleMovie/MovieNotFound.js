@@ -15,6 +15,9 @@ const StyledMessage = styled.p`
 font-size: ${props => props.theme.fontSizes.medium};
 margin-bottom: ${props => props.theme.spacers.xxlarge};
 user-select: none;
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${({ theme }) => theme.fontSizes.small};
+}
 `
 
 const StyledButton = styled.div`
@@ -38,18 +41,22 @@ const StyledButton = styled.div`
     transform: translateX(-5px);
   }
 }
+
+  @media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${({ theme }) => theme.fontSizes.small};
+}
 `
 
 function MovieNotFound() {
-    function refreshPage() {
-        window.location.reload(false);
-    }
-    return (
-        <StyledNotFound>
-            <StyledMessage>Sorry, We couldn't find any movie.</StyledMessage>
-            <StyledButton onClick={refreshPage}><Arrow />Return to All Movies List</StyledButton>
-        </StyledNotFound>
-    )
+  function refreshPage() {
+    window.location.reload(false);
+  }
+  return (
+    <StyledNotFound>
+      <StyledMessage>Sorry, We couldn't find any movie.</StyledMessage>
+      <StyledButton onClick={refreshPage}><Arrow />Return to All Movies List</StyledButton>
+    </StyledNotFound>
+  )
 }
 
 export default MovieNotFound

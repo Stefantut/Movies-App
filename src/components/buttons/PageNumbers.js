@@ -21,9 +21,6 @@ list-style-type: none;
 margin: 0 ${props => props.theme.spacers.large};
 color: ${props => props.theme.colors.tertiary};
 user-select: none;
-@media ${({ theme }) => theme.mediaQueries.below600}{
-width:100%;
-}
 `
 
 const StyleListItem = styled.li`

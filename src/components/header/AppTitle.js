@@ -10,6 +10,9 @@ font-size: ${props => props.theme.fontSizes.xlarge};
 @media ${({ theme }) => theme.mediaQueries.below1300}{
     font-size: ${ props => props.theme.fontSizes.large};
 }
+@media ${({ theme }) => theme.mediaQueries.below600}{
+    font-size: ${ props => props.theme.fontSizes.small};
+}
 `
 
 const AppTitle = () => {

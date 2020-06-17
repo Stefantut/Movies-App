@@ -15,7 +15,7 @@ const Content = styled.div`
   height:100%;
   max-width: ${props => props.theme.content.medium};
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
 `
 
 const Left = styled.div`
