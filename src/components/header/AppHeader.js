@@ -25,7 +25,7 @@ const AppHeader = ({ movies }) => {
             {/* Fix for rendering first and passes all data about first movie */}
             {
                 movies[0] &&
-                <HeaderMovie movie={movies[0]} url={(movies[0].backdrop_path === null) ? fallbackHeader : `${IMAGE_URL}w1280${movies[0].backdrop_path}`} />
+                <HeaderMovie movie={movies[0]} url={(movies[0].backdrop_path) ? `${IMAGE_URL}w1280${movies[0].backdrop_path}` : (movies[0].poster_path) ? `${IMAGE_URL}w1280${movies[0].poster_path}` : fallbackHeader} />
             }
         </StyledHeader>
     )
