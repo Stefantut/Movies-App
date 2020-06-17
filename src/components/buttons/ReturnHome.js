@@ -9,10 +9,10 @@ flex-direction: column;
 align-items: flex-start;
 max-width: ${props => props.theme.content.medium};
 margin: 0 auto;
-padding-bottom: ${props => props.theme.spacers.large};
+padding:  ${props => props.theme.spacers.large} 0;
 font-size: ${props => props.theme.fontSizes.medium};
 @media ${({ theme }) => theme.mediaQueries.below1300}{
-    padding: 0 ${props => props.theme.spacers.large} ${props => props.theme.spacers.large};
+    padding: ${props => props.theme.spacers.large};
 }
 @media ${({ theme }) => theme.mediaQueries.below1024}{
     font-size: ${ props => props.theme.fontSizes.small};

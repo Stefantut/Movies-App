@@ -25,7 +25,7 @@ z-index:0;
 width: 100%;
 max-width: ${props => props.theme.content.medium};
 color: ${props => props.theme.colors.primary};
-margin: ${props => props.theme.spacers.xxlarge} auto;
+margin: ${props => props.theme.spacers.small} auto;
 @media ${({ theme }) => theme.mediaQueries.below1300}{
     padding: 0 ${props => props.theme.spacers.large}
 }
