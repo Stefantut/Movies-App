@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import PropTypes from 'prop-types'
 
 import AllMovies from './AllMovies'
 import LoadingSpinner from './LoadingSpinner';
@@ -39,6 +40,19 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies, use
             /> : ''}
         </StyledContent>
     )
+}
+
+AppContent.propTypes = {
+    movies: PropTypes.array,
+    currentPage: PropTypes.number,
+    totalPages: PropTypes.number,
+    loading: PropTypes.bool,
+    fetchMovies: PropTypes.func,
+    usedSearch: PropTypes.bool,
+    searchQuery: PropTypes.string,
+    usedGenresFilter: PropTypes.bool,
+    selectedGenre: PropTypes.object,
+    genresList: PropTypes.array
 }
 
 export default AppContent

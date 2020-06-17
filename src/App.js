@@ -22,7 +22,7 @@ function App(props) {
   const [usedSearch, setUsedSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [genres, setGenres] = useState([]);
-  const [selectedGenre, setSelectedGenre] = useState('');
+  const [selectedGenre, setSelectedGenre] = useState({});
   const [usedGenresFilter, setUsedGenresFilter] = useState(false);
 
   // FetchMovies function to be re-used as many times we need
