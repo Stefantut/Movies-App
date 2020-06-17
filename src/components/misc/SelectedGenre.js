@@ -7,6 +7,9 @@ const StyledGenre = styled.h3`
   color:${props => props.theme.colors.lightgrey};
   user-select:none;
   font-family: ${props => props.theme.font.light};
+  @media ${({ theme }) => theme.mediaQueries.below1300}{
+    padding: 0 ${props => props.theme.spacers.medium}
+}
   @media ${({ theme }) => theme.mediaQueries.below600}{
     font-size: ${({ theme }) => theme.fontSizes.xsmall};
 }

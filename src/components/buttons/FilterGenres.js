@@ -44,6 +44,7 @@ const StyledButton = styled.button`
     background-color: ${props => props.theme.colors.primary};
     align-items:center;
     transition:0.2s ease;
+    margin-right: ${props => props.theme.spacers.medium};
     &:hover{
         cursor:pointer;
         color: ${props => props.theme.colors.tertiary};
@@ -69,7 +70,7 @@ const StyledButton = styled.button`
 `
 
 
-function FilterGenres({ genres, handleGenre, selectedGenre }) {
+function FilterGenres({ genres, handleGenre, selectedGenre, fetchMovies }) {
   const [visible, setVisible] = useState(false);
   const genresList = [];
   const allGenres = genres && genres.map(genre =>
@@ -81,10 +82,15 @@ function FilterGenres({ genres, handleGenre, selectedGenre }) {
     setVisible(!visible);
   }
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
   return (
     //pass visible state to styled components
     <StyledFilter >
       <StyledButton onClick={handleClick} visible={visible}>Filter by Genres<span>x</span></StyledButton>
+      {selectedGenre && <StyledButton onClick={refreshPage} >Clear Filter</StyledButton>}
+
       <CSSTransition
         in={visible}
         timeout={250}
