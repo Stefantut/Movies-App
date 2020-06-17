@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
 background-color:${(props => props.theme.colors.primary)};
@@ -28,4 +29,7 @@ const NextPageButton = ({ next }) => {
     )
 }
 
+NextPageButton.propTypes = {
+    next: PropTypes.func,
+}
 export default NextPageButton

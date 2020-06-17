@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
+
 import HeaderMovie from './HeaderMovie'
 
 import { IMAGE_URL } from "../../Variables";
@@ -30,5 +32,7 @@ const AppHeader = ({ movies }) => {
         </StyledHeader>
     )
 }
-
+AppHeader.propTypes = {
+    movies: PropTypes.array
+}
 export default AppHeader

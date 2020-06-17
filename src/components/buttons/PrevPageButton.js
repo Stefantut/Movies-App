@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const StyledButton = styled.button`
 background-color:${(props => props.theme.colors.primary)};
@@ -29,4 +30,7 @@ const PrevPageButton = ({ prev }) => {
     )
 }
 
+PrevPageButton.propTypes = {
+    prev: PropTypes.func,
+}
 export default PrevPageButton
