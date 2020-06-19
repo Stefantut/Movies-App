@@ -42,7 +42,6 @@ img{
     transform: rotate(10deg);
 }
 &:hover{
-    cursor:pointer;
     img{
         transform: rotate(220deg) scale(1.2);
     }
