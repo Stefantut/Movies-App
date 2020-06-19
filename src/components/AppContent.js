@@ -32,7 +32,7 @@ function AppContent({ movies, currentPage, totalPages, loading, fetchMovies, use
         <StyledContent className="content">
             {loading && <LoadingSpinner />}
             {usedSearch && <SearchTitle>You searched for: <span>{(searchQuery.length > 0) ? searchQuery : 'Please type in at least 1 character'}</span></SearchTitle>}
-            {(movies.length > 0) ?
+            {movies && (movies.length > 0) ?
                 <AllMovies movies={movies} genresList={genresList} /> :
                 !loading && <MovieNotFound />}
             {(totalPages > 0) ? <PageNumbers
