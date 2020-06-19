@@ -9,10 +9,11 @@ width: 185px;
 background-position: center;
 background-repeat: no-repeat; 
 background-size: cover; 
-transition: 0.2s ease-in;
+transition: 0.15s ease-in;
 position: relative;
 &:hover{
-  mix-blend-mode: difference;
+  box-shadow: 0px 0px 13px 8px rgba(0,0,0,0.47);
+  opacity:0.8;
 }
 `
 
@@ -31,7 +32,7 @@ const StyledListItem = styled.li`
   background-color: rgba(12, 18, 12, 0.5);
   margin:${props => props.theme.spacers.xsmall};
   padding: 0 ${props => props.theme.spacers.xsmall};
-  border: 1px solid ${props => props.theme.colors.light};
+ border: ${props => props.genresList ? `1px solid ${props => props.theme.colors.light}` : 'none'};
 `
 
 const PosterImage = ({ url, genresIds, genresList }) => {
@@ -42,7 +43,8 @@ const PosterImage = ({ url, genresIds, genresList }) => {
     const filteredGenre = genresList && genresList.map((genre) =>
       (genre.id === id) ? genre.name : ''
     )
-    return <StyledListItem key={id} className={`genres__item genres__item--${id}`}>{filteredGenre}</StyledListItem>
+    // passed genresList to style components to fix border displaying before loading the card content
+    return <StyledListItem key={id} className={`genres__item genres__item--${id} `} genresList={genresList}>{filteredGenre}</StyledListItem>
 
   }
   );
@@ -50,9 +52,9 @@ const PosterImage = ({ url, genresIds, genresList }) => {
     <StyledPoster
       url={url}
       className="card__item card__item--poster" data-for="linkTip" data-tip='linkTip'>
-      <StyledGenreList>
+      {genresList && <StyledGenreList>
         {allGenres}
-      </StyledGenreList>
+      </StyledGenreList>}
     </StyledPoster>
   );
 }
