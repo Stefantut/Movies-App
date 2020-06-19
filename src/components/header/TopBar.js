@@ -42,6 +42,7 @@ img{
     transform: rotate(10deg);
 }
 &:hover{
+    cursor:pointer;
     img{
         transform: rotate(220deg) scale(1.2);
     }
@@ -50,15 +51,27 @@ img{
 `
 
 function TopBar({ fetchMovies, searchState, path }) {
+    function refreshPage() {
+        window.location.reload(false);
+    }
     return (
+        // if user is on homepage , on click it will refresh otherwise will redirect to homepage
         <StyledWrap>
             <TopBarContent>
-                <Link to='/'>
-                    <LogoTitleWrap >
-                        <img src={logo} alt="logo" />
-                        <Title />
-                    </LogoTitleWrap>
-                </Link>
+                {(path === '/') ? <LogoTitleWrap onClick={refreshPage}>
+                    <img src={logo} alt="logo" />
+                    <Title />
+                </LogoTitleWrap> :
+                    <Link to='/'>
+                        <LogoTitleWrap >
+                            <img src={logo} alt="logo" />
+                            <Title />
+                        </LogoTitleWrap>
+                    </Link>
+
+                }
+
+
                 {path && <Search fetchMovies={fetchMovies} searchState={searchState} />}
             </TopBarContent>
         </StyledWrap>
