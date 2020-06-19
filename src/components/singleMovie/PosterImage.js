@@ -9,10 +9,10 @@ width: 185px;
 background-position: center;
 background-repeat: no-repeat; 
 background-size: cover; 
-transition: 0.1s ease-in;
+transition: 0.2s ease-in;
 position: relative;
-  /* filter: brightness(0.6); */
 &:hover{
+  mix-blend-mode: difference;
 }
 `
 
