@@ -7,6 +7,8 @@
 ## Description
 
 Movies App built in React ^16.13.1 which will display all movies from [The Movie Database API](https://www.themoviedb.org/) and all the details about each movie.
+The user can either filter all the movies by genres or use the search field to find a specific movie.
+Has a custom pagination which will fetch a different endpoint for each functionality, either on load, Search results or Genres filter.
 
 **I used:**
 
@@ -40,3 +42,8 @@ REACT_APP_API = yourapikey
 ```
 
 **_Enjoy, Stefan 🚀🚀🚀_**
+
+##### Other Images
+
+![Preview Image](src/images/search.png)
+![Preview Image](src/images/not-found.png)
