@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from 'styled-components';
+
 import { CSSTransition } from 'react-transition-group'
 import '../../css/animations.css'
 import { convertToClassName } from '../../helpers'
@@ -70,9 +71,10 @@ const StyledButton = styled.button`
 `
 
 
-function FilterGenres({ genres, handleGenre, selectedGenre, fetchMovies }) {
+function FilterGenres({ genres, handleGenre, selectedGenre, clearGenreFilter, usedGenresFilter }) {
   const [visible, setVisible] = useState(false);
   const genresList = [];
+
   const allGenres = genres && genres.map(genre =>
     (<ListElement className={`genre genre--${convertToClassName(genre.name)} ${genre.id === selectedGenre ? "active" : ""}`} key={genre.id} onClick={() => { handleClick(); handleGenre(genre) }}>{genre.name}</ListElement>)
   )
@@ -81,15 +83,11 @@ function FilterGenres({ genres, handleGenre, selectedGenre, fetchMovies }) {
   function handleClick() {
     setVisible(!visible);
   }
-
-  function refreshPage() {
-    window.location.reload(false);
-  }
   return (
     //pass visible state to styled components
     <StyledFilter >
       <StyledButton onClick={handleClick} visible={visible}>Filter by Genres<span>x</span></StyledButton>
-      {selectedGenre && <StyledButton onClick={refreshPage} >Clear Filter</StyledButton>}
+      {usedGenresFilter && <StyledButton onClick={clearGenreFilter} >Clear Filter</StyledButton>}
 
       <CSSTransition
         in={visible}

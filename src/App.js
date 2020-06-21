@@ -45,7 +45,7 @@ function App(props) {
     }
   };
 
-  // FetchMovies function to be re-used as many times we need
+  // FetchGenres function to be re-used as many times we need
   const fetchGenres = async (path) => {
     setLoading(true);
     try {
@@ -61,6 +61,7 @@ function App(props) {
       console.log("Error Fetching Api:" + error);
     }
   };
+
   // When initial page is loaded
   useEffect(() => {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
@@ -68,7 +69,6 @@ function App(props) {
     const endpointGenres = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
     fetchGenres(endpointGenres)
   }, []);
-
 
   // to set the state in child component
   function setSearchState(boolean, query) {
@@ -88,12 +88,18 @@ function App(props) {
     setUsedGenresFilter(true)
   }
 
+  // To clear the filter and fetch on load page
+  function clearGenreFilter() {
+    const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
+    fetchMovies(endpoint);
+    setUsedGenresFilter(false)
+  }
   return (
     <StyledApp className="App">
       <TopBar fetchMovies={fetchMovies} searchState={setSearchState} path={path} />
       <AppHeader movies={movies} />
-      {!usedSearch && <FilterGenres handleGenre={handleGenre} genres={genres} selectedGenre={selectedGenre.id} />}  {/* hides filter on Search result page  */}
-      {selectedGenre.name && !usedSearch && <SelectedGenre genre={selectedGenre.name} />}
+      {!usedSearch && <FilterGenres handleGenre={handleGenre} genres={genres} selectedGenre={selectedGenre.id} clearGenreFilter={clearGenreFilter} usedGenresFilter={usedGenresFilter} />}  {/* hides filter on Search result page  */}
+      {usedGenresFilter && !usedSearch && <SelectedGenre genre={selectedGenre.name} />}
       <AppContent
         movies={movies}
         loading={loading}
