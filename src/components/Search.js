@@ -9,13 +9,14 @@ align-items: center;
 `
 const StyledInput = styled.input`
 border:none;
-background-color: ${props => props.theme.colors.secondary};
-color:${props => props.theme.colors.lightgrey};
+background-color: ${props => props.theme.colors.tertiary};
+color:${props => props.theme.colors.primary};
 caret-color:${props => props.theme.colors.primary};
 padding: ${props => props.theme.spacers.xsmall};
+border-radius:5px;
 &::placeholder{
     padding-left: ${props => props.theme.spacers.xsmall};
-    color: ${props => props.theme.colors.light};
+    color: ${props => props.theme.colors.primary};
 }
 &:focus{
     outline: thin;
