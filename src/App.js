@@ -98,7 +98,7 @@ function App(props) {
     <StyledApp className="App">
       <TopBar fetchMovies={fetchMovies} searchState={setSearchState} path={path} />
       <AppHeader movies={movies} />
-      {!usedSearch && <FilterGenres handleGenre={handleGenre} genres={genres} selectedGenre={selectedGenre.id} clearGenreFilter={clearGenreFilter} usedGenresFilter={usedGenresFilter} />}  {/* hides filter on Search result page  */}
+      {!loading && !usedSearch && <FilterGenres handleGenre={handleGenre} genres={genres} selectedGenre={selectedGenre.id} clearGenreFilter={clearGenreFilter} usedGenresFilter={usedGenresFilter} />}  {/* hides filter on Search result page  */}
       {usedGenresFilter && !usedSearch && <SelectedGenre genre={selectedGenre.name} />}
       <AppContent
         movies={movies}
