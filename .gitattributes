@@ -1,1 +1,3 @@
-*.js linguist-language=React
+*.js linguist-language=ReactJS
+*.css linguist-detectable=false
+*.html linguist-detectable=false  
