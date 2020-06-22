@@ -6,9 +6,9 @@ import PropTypes from 'prop-types'
 import TopBar from '../header/TopBar'
 import LoadingSpinner from '../LoadingSpinner';
 import SingleMovieHeader from './SingleMovieHeader'
+import fallbackHeader from './../../images/fallback-header.jpg'
 import SingleMovieContent from './SingleMovieContent'
 import ReturnHome from '../buttons/ReturnHome'
-import fallbackHeader from './../../images/fallback-header.jpg'
 import Enjoy from '../other/Enjoy'
 import AppFooter from '../footer/AppFooter'
 
@@ -29,7 +29,7 @@ function SingleMoviePage(props) {
                 .then((result) => result.json())
                 .then((result) => {
                     setMovie(result)
-                    setImageUrl(result.backdrop_path || result.poster_path)
+                    setImageUrl(result.backdrop_path ? `${IMAGE_URL}w1280${result.backdrop_path}` : result.poster_path ? `${IMAGE_URL}w1280${result.poster_path}` : fallbackHeader)
                 }
                 );
             setLoading(false);
@@ -55,7 +55,7 @@ function SingleMoviePage(props) {
             {loading && <LoadingSpinner />}
             {/* Header*/}
             {movie && imageUrl && <SingleMovieHeader
-                imageUrl={(!imageUrl) ? fallbackHeader : `${IMAGE_URL}w1280${imageUrl}`}
+                imageUrl={imageUrl}
                 title={movie.title || movie.original_title}
                 tagline={movie.tagline}
                 overview={movie.overview}

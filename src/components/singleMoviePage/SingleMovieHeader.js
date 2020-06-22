@@ -47,6 +47,7 @@ padding: ${ props => props.theme.spacers.small} ${props => props.theme.spacers.x
 const SingleMovieHeader = ({ imageUrl, title, tagline, overview, vote }) => {
     return (
         <HeaderWrap>
+
             <Header imageUrl={imageUrl}>
                 <Overlay />
                 <StyledTop>
