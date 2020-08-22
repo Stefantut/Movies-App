@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import Title from "../components/header/AppTitle";
 import logo from "../images/logo.png";
 import Search from "../containers/Search";
 
@@ -48,6 +47,20 @@ const LogoTitleWrap = styled.div`
   }
 `;
 
+const StyledTitle = styled.h1`
+  color: ${(props) => props.theme.colors.primary};
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  font-size: ${(props) => props.theme.fontSizes.xlarge};
+  @media ${({ theme }) => theme.mediaQueries.below1300} {
+    font-size: ${(props) => props.theme.fontSizes.large};
+  }
+  @media ${({ theme }) => theme.mediaQueries.below600} {
+    font-size: ${(props) => props.theme.fontSizes.small};
+  }
+`;
+
 function TopBar({ fetchMovies, searchState, path }) {
   function refreshPage() {
     window.location.reload(false);
@@ -59,13 +72,17 @@ function TopBar({ fetchMovies, searchState, path }) {
         {path === "/" ? (
           <LogoTitleWrap onClick={refreshPage}>
             <img src={logo} alt="logo" />
-            <Title />
+            <StyledTitle className="header__item header__item--title">
+              Movies App
+            </StyledTitle>
           </LogoTitleWrap>
         ) : (
           <Link to="/">
             <LogoTitleWrap>
               <img src={logo} alt="logo" />
-              <Title />
+              <StyledTitle className="header__item header__item--title">
+                Movies App
+              </StyledTitle>
             </LogoTitleWrap>
           </Link>
         )}
