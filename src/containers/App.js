@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { API_KEY, BASE_URL } from "../utils/Variables";
 import styled from "styled-components";
 
-import TopBar from "../components/header/TopBar";
-import AppHeader from "../components/header/AppHeader";
+import TopBar from "../containers/TopBar";
+import AppHeader from "./AppHeader";
 import AppContent from "./AppContent";
 import Enjoy from "../components/misc/Enjoy";
-import AppFooter from "../components/footer/AppFooter";
+import AppFooter from "./AppFooter";
 import FilterGenres from "../components/buttons/FilterGenres";
 import SelectedGenre from "../components/misc/SelectedGenre";
 

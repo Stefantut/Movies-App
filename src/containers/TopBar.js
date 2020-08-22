@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import Title from "./AppTitle";
-import logo from "../../images/logo.png";
-import Search from "../../containers/Search";
+import Title from "../components/header/AppTitle";
+import logo from "../images/logo.png";
+import Search from "../containers/Search";
 
 const StyledWrap = styled.section`
   background-color: ${(props) => props.theme.colors.dark};

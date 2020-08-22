@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import HeaderMovie from "./HeaderMovie";
+import HeaderMovie from "../components/header/HeaderMovie";
 
-import { IMAGE_URL } from "../../utils/Variables";
-import fallbackHeader from "../../images/fallback-header.jpg";
+import { IMAGE_URL } from "../utils/Variables";
+import fallbackHeader from "../images/fallback-header.jpg";
 
 const StyledHeader = styled.header`
   height: 100%;

@@ -3,14 +3,14 @@ import { API_KEY, BASE_URL, IMAGE_URL } from "../../utils/Variables";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import TopBar from "../header/TopBar";
+import TopBar from "../../containers/TopBar";
 import LoadingSpinner from "../misc/LoadingSpinner";
 import SingleMovieHeader from "./SingleMovieHeader";
 import fallbackHeader from "./../../images/fallback-header.jpg";
 import SingleMovieContent from "./SingleMovieContent";
 import ReturnHome from "../buttons/ReturnHome";
 import Enjoy from "../misc/Enjoy";
-import AppFooter from "../footer/AppFooter";
+import AppFooter from "../../containers/AppFooter";
 
 const PageWrap = styled.div`
   background-color: ${(props) => props.theme.colors.darkgrey};
