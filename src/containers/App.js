@@ -8,7 +8,7 @@ import AppContent from "./AppContent";
 import Enjoy from "../components/misc/Enjoy";
 import AppFooter from "./AppFooter";
 import FilterGenres from "../components/buttons/FilterGenres";
-import SelectedGenre from "../components/misc/SelectedGenre";
+import SelectedGenre from "./SelectedGenre";
 
 const StyledApp = styled.div`
   background-color: ${(props) => props.theme.colors.darkgrey};

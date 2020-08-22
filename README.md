@@ -12,7 +12,7 @@ Has a custom pagination which will fetch a different endpoint for each functiona
 
 **I used:**
 
-- React (mainly functional components and hooks)
+- React JS
 - React Router
 - FetchAPI
 - Styled Components
@@ -47,3 +47,4 @@ REACT_APP_API = yourapikey
 
 ![Preview Image](src/images/search.png)
 ![Preview Image](src/images/not-found.png)
+![Preview Image](src/images/single-movie.png)
