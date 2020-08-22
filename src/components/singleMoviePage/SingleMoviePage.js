@@ -68,7 +68,6 @@ function SingleMoviePage(props) {
         />
       )}
       {/* Movie Details */}
-      <ReturnHome />
       {movie && (
         <SingleMovieContent
           title={movie.title || movie.original_title}

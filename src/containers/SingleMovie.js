@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import PosterImage from "./PosterImage";
-import MovieTitle from "./MovieTitle";
-import { IMAGE_URL, POSTER_SIZE } from "../../utils/Variables";
-import ReleaseDate from "./ReleaseDate";
-import fallbackPoster from "../../images/fallback-poster.jpg";
+
+import { IMAGE_URL, POSTER_SIZE } from "../utils/Variables";
+import { europeanDateFormat } from "../utils/helpers";
+import fallbackPoster from "../images/fallback-poster.jpg";
 
 const StyledListItem = styled.li`
   list-style-type: none;
@@ -16,6 +16,20 @@ const StyledListItem = styled.li`
   align-items: center;
   padding: ${(props) => props.theme.spacers.large} 0;
 `;
+
+const StyledTitle = styled.p`
+  text-align: center;
+  user-select: none;
+  padding: ${(props) => props.theme.spacers.xsmall} 0;
+  color: ${(props) => props.theme.colors.primary};
+`;
+
+const StyledDate = styled.p`
+  text-align: center;
+  color: ${(props) => props.theme.colors.lightgrey};
+  user-select: none;
+`;
+
 function SingleMovie({
   index,
   id,
@@ -41,8 +55,12 @@ function SingleMovie({
           genresList={genresList}
         />
       </Link>
-      <MovieTitle title={title} />
-      <ReleaseDate release={release} />
+      <StyledTitle className="card__item card__item--title">
+        {title}
+      </StyledTitle>
+      <StyledDate className="card__item card__item--release">
+        Release Date: {europeanDateFormat(release)}
+      </StyledDate>
     </StyledListItem>
   );
 }

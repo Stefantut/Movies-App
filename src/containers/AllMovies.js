@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SingleMovie from "../components/singleMovie/SingleMovie";
+import SingleMovie from "./SingleMovie";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "../css/animations.css";
 

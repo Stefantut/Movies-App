@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import AllMovies from "./AllMovies";
 import LoadingSpinner from "../components/misc/LoadingSpinner";
 import PageNumbers from "../components/buttons/PageNumbers";
-import MovieNotFound from "../components/singleMovie/MovieNotFound";
+import MovieNotFound from "./MovieNotFound";
 
 const StyledContent = styled.section`
   max-width: ${(props) => props.theme.content.medium};
