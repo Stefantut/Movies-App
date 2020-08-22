@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
-import { API_KEY, BASE_URL } from "./Variables";
-import styled from 'styled-components';
+import { API_KEY, BASE_URL } from "../utils/Variables";
+import styled from "styled-components";
 
-import TopBar from './components/header/TopBar'
-import AppHeader from './components/header/AppHeader'
-import AppContent from './components/AppContent'
-import Enjoy from './components/other/Enjoy'
-import AppFooter from './components/footer/AppFooter'
-import FilterGenres from './components/buttons/FilterGenres'
-import SelectedGenre from './components/misc/SelectedGenre'
+import TopBar from "../components/header/TopBar";
+import AppHeader from "../components/header/AppHeader";
+import AppContent from "./AppContent";
+import Enjoy from "../components/misc/Enjoy";
+import AppFooter from "../components/footer/AppFooter";
+import FilterGenres from "../components/buttons/FilterGenres";
+import SelectedGenre from "../components/misc/SelectedGenre";
 
 const StyledApp = styled.div`
-background-color: ${props => props.theme.colors.darkgrey};
-`
+  background-color: ${(props) => props.theme.colors.darkgrey};
+`;
 
 function App(props) {
   const [movies, setMovies] = useState([]);
@@ -20,7 +20,7 @@ function App(props) {
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [usedSearch, setUsedSearch] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
   const [genres, setGenres] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState({});
   const [usedGenresFilter, setUsedGenresFilter] = useState(false);
@@ -32,14 +32,11 @@ function App(props) {
       await fetch(path)
         .then((result) => result.json())
         .then((result) => {
-          setMovies([...result.results])
-          setCurrentPage(result.page)
-          setTotalPages(result.total_pages)
-        }
-        );
+          setMovies([...result.results]);
+          setCurrentPage(result.page);
+          setTotalPages(result.total_pages);
+        });
       setLoading(false);
-
-
     } catch (error) {
       console.log("Error Fetching Api:" + error);
     }
@@ -52,11 +49,9 @@ function App(props) {
       await fetch(path)
         .then((result) => result.json())
         .then((result) => {
-          setGenres([...result.genres])
-        }
-        );
+          setGenres([...result.genres]);
+        });
       setLoading(false);
-
     } catch (error) {
       console.log("Error Fetching Api:" + error);
     }
@@ -67,7 +62,7 @@ function App(props) {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
     fetchMovies(endpoint);
     const endpointGenres = `${BASE_URL}/genre/movie/list?api_key=${API_KEY}`;
-    fetchGenres(endpointGenres)
+    fetchGenres(endpointGenres);
   }, []);
 
   // to set the state in child component
@@ -85,21 +80,36 @@ function App(props) {
     const endpoint = `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genre.id}`;
     fetchMovies(endpoint);
     setSelectedGenre(genre);
-    setUsedGenresFilter(true)
-  }
+    setUsedGenresFilter(true);
+  };
 
   // To clear the filter and fetch on load page
   function clearGenreFilter() {
     const endpoint = `${BASE_URL}/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&page=1`;
     fetchMovies(endpoint);
-    setUsedGenresFilter(false)
+    setUsedGenresFilter(false);
   }
   return (
     <StyledApp className="App">
-      <TopBar fetchMovies={fetchMovies} searchState={setSearchState} path={path} />
+      <TopBar
+        fetchMovies={fetchMovies}
+        searchState={setSearchState}
+        path={path}
+      />
       <AppHeader movies={movies} />
-      {!loading && !usedSearch && <FilterGenres handleGenre={handleGenre} genres={genres} selectedGenre={selectedGenre.id} clearGenreFilter={clearGenreFilter} usedGenresFilter={usedGenresFilter} />}  {/* hides filter on Search result page  */}
-      {usedGenresFilter && !usedSearch && <SelectedGenre genre={selectedGenre.name} />}
+      {!loading && !usedSearch && (
+        <FilterGenres
+          handleGenre={handleGenre}
+          genres={genres}
+          selectedGenre={selectedGenre.id}
+          clearGenreFilter={clearGenreFilter}
+          usedGenresFilter={usedGenresFilter}
+        />
+      )}{" "}
+      {/* hides filter on Search result page  */}
+      {usedGenresFilter && !usedSearch && (
+        <SelectedGenre genre={selectedGenre.name} />
+      )}
       <AppContent
         movies={movies}
         loading={loading}

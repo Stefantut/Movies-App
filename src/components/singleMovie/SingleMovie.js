@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 import PosterImage from "./PosterImage";
 import MovieTitle from "./MovieTitle";
-import { IMAGE_URL, POSTER_SIZE } from "../../Variables";
+import { IMAGE_URL, POSTER_SIZE } from "../../utils/Variables";
 import ReleaseDate from "./ReleaseDate";
 import fallbackPoster from "../../images/fallback-poster.jpg";
 
